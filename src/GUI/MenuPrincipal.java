@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import java.awt.Component;
+import java.util.Random;
 
 /**
  *
@@ -22,6 +22,21 @@ public class MenuPrincipal extends javax.swing.JFrame
     {
         initComponents();
         AgrImage();
+        MostrarmensajeB(null);
+    }
+    
+    private void MostrarmensajeB(java.awt.event.WindowEvent evt)
+    {
+        String [] mensajeBienvenida =
+        {
+          "Bienvenido a tu buscador favorito",
+          "Encuentra los mejores precios",
+          "Mejores servicios", 
+        };
+        Random random = new Random();
+        int indice = random.nextInt(mensajeBienvenida.length);
+        
+        mensajesBien.setText(mensajeBienvenida[indice]);
     }
 
     private void AgrImage()
@@ -133,6 +148,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         Lib_Serv = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        mensajesBien = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -186,7 +203,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                 .addGroup(L_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jComboBoxMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addComponent(BtnBuscar)
                 .addGap(123, 123, 123))
         );
@@ -227,7 +244,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                 .addComponent(jLabelBucarAut)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(93, 93, 93))
         );
@@ -262,7 +279,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                 .addComponent(jRadioButton1)
                 .addGap(26, 26, 26)
                 .addComponent(jRadioButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(48, 48, 48))
         );
@@ -277,10 +294,30 @@ public class MenuPrincipal extends javax.swing.JFrame
         );
         Lib_ServLayout.setVerticalGroup(
             Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
+            .addGap(0, 382, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Liberar tu Auto", Lib_Serv);
+
+        mensajesBien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mensajesBien.setText("Bienvenido");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mensajesBien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mensajesBien, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        mensajesBien.getAccessibleContext().setAccessibleName("Bienvenido\n");
+        mensajesBien.getAccessibleContext().setAccessibleParent(mensajesBien);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -288,14 +325,18 @@ public class MenuPrincipal extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -360,10 +401,12 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelBucarAut;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextAreaPlacas;
+    private javax.swing.JLabel mensajesBien;
     // End of variables declaration//GEN-END:variables
 }
