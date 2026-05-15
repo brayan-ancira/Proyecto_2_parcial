@@ -4,10 +4,12 @@
  */
 package GUI;
 
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -79,9 +81,13 @@ public class C_ArchivoB extends javax.swing.JFrame
         txtDestino = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cargar Archivo Binario");
 
         BtnCargarAr.setBackground(new java.awt.Color(0, 204, 0));
+        BtnCargarAr.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
+        BtnCargarAr.setForeground(new java.awt.Color(255, 255, 255));
         BtnCargarAr.setText("Cargar archivo");
+        BtnCargarAr.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BtnCargarAr.addActionListener(new java.awt.event.ActionListener()
             {
                 @Override
@@ -91,33 +97,35 @@ public class C_ArchivoB extends javax.swing.JFrame
                 }
             });
 
+            lblPreview.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
             lblPreview.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             lblPreview.setText("Sin archivo");
 
+            txtDestino.setHorizontalAlignment(javax.swing.JTextField.CENTER);
             txtDestino.addActionListener(this::txtDestinoActionPerformed);
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(153, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtDestino)
-                        .addComponent(BtnCargarAr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPreview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGap(141, 141, 141))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(137, 137, 137)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(BtnCargarAr)
+                        .addComponent(txtDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblPreview, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(150, Short.MAX_VALUE))
             );
             layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(61, 61, 61)
+                    .addGap(63, 63, 63)
                     .addComponent(lblPreview)
-                    .addGap(28, 28, 28)
+                    .addGap(18, 18, 18)
                     .addComponent(txtDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                    .addGap(56, 56, 56)
                     .addComponent(BtnCargarAr)
-                    .addGap(93, 93, 93))
+                    .addContainerGap(100, Short.MAX_VALUE))
             );
 
             pack();
@@ -133,26 +141,15 @@ public class C_ArchivoB extends javax.swing.JFrame
      */
     public static void main(String args[])
     {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try
         {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex)
+            UIManager.setLookAndFeel(new FlatMacDarkLaf()); //FlatMacDarkLaf()
+        } catch (Exception ex)
         {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+            System.out.println("Failed to initialize LaF");
         }
-        //</editor-fold>
+        
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new C_ArchivoB().setVisible(true));
