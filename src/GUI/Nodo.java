@@ -4,11 +4,13 @@
  */
 package GUI;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Mauro S S
  */
-public class Nodo<T>
+public class Nodo<T> implements Serializable
 {
 
     private T obj;

@@ -4,11 +4,13 @@
  */
 package GUI;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Mauro S S
  */
-public class ListasDLML 
+public class ListasDLML implements Serializable
 {
     private Nodo r;
 

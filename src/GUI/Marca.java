@@ -15,6 +15,11 @@ public class Marca implements Serializable
 
     private String nom;
 
+    public Marca(String nom)
+    {
+        this.nom = nom;
+    }
+    
     public String getNom()
     {
         return nom;

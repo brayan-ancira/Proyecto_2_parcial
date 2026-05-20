@@ -4,11 +4,13 @@
  */
 package GUI;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Mauro S S
  */
-public class MultiLista
+public class MultiLista implements Serializable
 {
 
     private Nodo r;
@@ -61,9 +63,9 @@ public class MultiLista
             Nodo aux = r.getSig();
             do
             {
-                if (aux==null)
+                if (aux == null)
                 {
-                   break;
+                    break;
                 }
                 if (aux.getEt().equals(et))
                 {
@@ -83,7 +85,7 @@ public class MultiLista
             do
             {
 
-                if (aux.getArb()== null)
+                if (aux.getArb() == null)
                 {
                     System.out.println(n + aux.getEt() + "\n");
                 } else
@@ -105,7 +107,10 @@ public class MultiLista
             ListasDLML l = new ListasDLML();
             l.setR(r);
             obj[0] = l.elimina(c[nivel]);
-            obj[0].setArb(null);
+            if (obj[0] != null)
+            {
+                obj[0].setArb(null);
+            }
             obj[1] = l.getR();
 
             return obj;
