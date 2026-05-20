@@ -7,8 +7,8 @@ package GUI;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.util.Date;
 import java.util.Random;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-
 
 /**
  *
@@ -19,30 +19,29 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuPrincipal.class.getName());
 
-    /**
-     * Creates new form MenuPrincipal
-     */
+    Datos datos = new Datos();
+    
     public MenuPrincipal()
     {
         initComponents();
         //AgrImage();
         MostrarmensajeB(null);
     }
-    
+
     private void MostrarmensajeB(java.awt.event.WindowEvent evt)
     {
-        
-        String [] mensajeBienvenida =
+
+        String[] mensajeBienvenida =
         {
-          "Bienvenido a tu buscador favorito",
-          "Encuentra los mejores precios",
-          "Mejores servicios",
-          "Compara precios y servicios",
-          "Los mejores precios"
+            "Bienvenido a tu buscador favorito",
+            "Encuentra los mejores precios",
+            "Mejores servicios",
+            "Compara precios y servicios",
+            "Los mejores precios"
         };
         Random random = new Random();
         int indice = random.nextInt(mensajeBienvenida.length);
-        
+
         mensajesBien.setText(mensajeBienvenida[indice]);
     }
 
@@ -245,6 +244,17 @@ public class MenuPrincipal extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowClosing(java.awt.event.WindowEvent evt)
+            {
+                formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
+                formWindowOpened(evt);
+            }
+        });
 
         jTabbedPane1.setBackground(new java.awt.Color(39, 59, 98));
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(204, 204, 204))); // NOI18N
@@ -688,12 +698,10 @@ public class MenuPrincipal extends javax.swing.JFrame
                     .addGroup(jPanelInAutLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel9))
-                    .addGroup(jPanelInAutLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCLiberarAutoDia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCLiberarAutoMes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCLiberarAutoAnio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jCLiberarAutoDia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCLiberarAutoMes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCLiberarAutoAnio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(59, 59, 59)
                 .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonNuevo)
@@ -1097,7 +1105,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                 .addGap(14, 14, 14)
                 .addComponent(mensajesBien, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPaneInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                .addComponent(jTabbedPaneInicio)
                 .addContainerGap())
         );
 
@@ -1142,7 +1150,7 @@ public class MenuPrincipal extends javax.swing.JFrame
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BtnBuscarActionPerformed
     {//GEN-HEADEREND:event_BtnBuscarActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void jButtonElimFechActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonElimFechActionPerformed
@@ -1228,12 +1236,26 @@ public class MenuPrincipal extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonGuardar5ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
+    {//GEN-HEADEREND:event_formWindowOpened
+        datos.getMultilista().setR((Nodo) ManipulaArchivos.carga("Datos.dat"));
+        if (datos.getMultilista().getR()==null)
+        {
+            JOptionPane.showMessageDialog(null, "Sin datos cargados.");
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
+    {//GEN-HEADEREND:event_formWindowClosing
+        ManipulaArchivos.guarda(datos.getMultilista().getR(), "Datos.dat");
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[])
     {
-       
+
         try
         {
             UIManager.setLookAndFeel(new FlatMacDarkLaf()); //FlatMacDarkLaf()
