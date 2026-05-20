@@ -60,19 +60,15 @@ public class MultiLista implements Serializable
     {
         if (r != null)
         {
-            Nodo aux = r.getSig();
-            do
+            Nodo aux = r;
+            while (aux != null)
             {
-                if (aux == null)
-                {
-                    break;
-                }
                 if (aux.getEt().equals(et))
                 {
                     return aux;
                 }
                 aux = aux.getSig();
-            } while (aux != r.getSig());
+            }
         }
         return null;
     }

@@ -12,6 +12,7 @@ import java.io.Serializable;
  */
 public class ListasDLML implements Serializable
 {
+
     private Nodo r;
 
     /**
@@ -29,7 +30,7 @@ public class ListasDLML implements Serializable
     {
         this.r = r;
     }
-    
+
     public void inserta(Nodo n)
     {
         if (n == null)
@@ -39,30 +40,30 @@ public class ListasDLML implements Serializable
         {
             if (r == null)
             {
-                r=n;
+                r = n;
             } else
             {
-                if (n.getEt().compareTo(r.getEt())<0)
+                if (n.getEt().compareTo(r.getEt()) < 0)
                 {
                     n.setSig(r);
                     r.setAnt(n);
-                    r=n;
+                    r = n;
                 } else
                 {
-                    Nodo aux=r;
+                    Nodo aux = r;
                     boolean b = true;
                     while (aux.getSig() != null && b)
                     {
-                        if (n.getEt().compareTo(aux.getSig().getEt())<0)
+                        if (n.getEt().compareTo(aux.getSig().getEt()) < 0)
                         {
                             n.setSig(aux.getSig());
                             n.setAnt(aux);
                             aux.getSig().setAnt(n);
                             aux.setSig(n);
-                            b= false;
+                            b = false;
                         } else
                         {
-                            aux= aux.getSig();
+                            aux = aux.getSig();
                         }
                     }
                     if (b)
@@ -72,58 +73,58 @@ public class ListasDLML implements Serializable
                     }
                 }
             }
-                    
+
         }
     }
-    
+
     public Nodo elimina(String et)
     {
-        Nodo n=null;
-        if (r==null)
+        Nodo n = null;
+        if (r == null)
         {
             System.out.println("lista vacia");
         } else
         {
-            if (r.getEt().compareTo(et)>0)
+            if (r.getEt().compareTo(et) > 0)
             {
                 System.out.println("no existe el dato");
             } else
             {
                 if (r.getEt().equals(et))
                 {
-                    n=r;
-                    r=n.getSig();
-                    if (r!= null)
+                    n = r;
+                    r = n.getSig();
+                    if (r != null)
                     {
                         r.setAnt(null);
                     }
                     n.setSig(null);
                 } else
                 {
-                    Nodo aux= r;
+                    Nodo aux = r;
                     boolean b = true;
-                    while (aux.getSig()!= null && b)
+                    while (aux.getSig() != null && b)
                     {
                         if (aux.getSig().getEt().equals(et))
                         {
-                            n=aux.getSig();
-                            if(n.getSig()!=null)
+                            n = aux.getSig();
+                            if (n.getSig() != null)
                             {
                                 aux.getSig().getSig().setAnt(aux);
                             }
                             aux.setSig(n.getSig());
                             n.setSig(null);
                             n.setAnt(null);
-                            b= false;
+                            b = false;
                         } else
                         {
-                            if (aux.getSig().getEt().compareTo(et)>0)
+                            if (aux.getSig().getEt().compareTo(et) > 0)
                             {
                                 System.out.println("dato no encontrado");
-                                b=false;         
+                                b = false;
                             } else
                             {
-                                aux= aux.getSig();
+                                aux = aux.getSig();
                             }
                         }
                     }
@@ -136,23 +137,23 @@ public class ListasDLML implements Serializable
         }
         return n;
     }
-    
+
     public String desp()
     {
-        String s="";
-        Nodo aux =r;
-        Nodo ant= null;
+        String s = "";
+        Nodo aux = r;
+        Nodo ant = null;
         while (aux != null)
         {
-            s+=aux.getObj() +"\t";
-            ant=aux;
-            aux=aux.getSig();
+            s += aux.getObj() + "\t";
+            ant = aux;
+            aux = aux.getSig();
         }
-        s+="\n";
+        s += "\n";
         while (ant != null)
         {
-            s+=ant.getObj() +"\t";
-            ant=ant.getAnt();
+            s += ant.getObj() + "\t";
+            ant = ant.getAnt();
         }
         return s;
     }

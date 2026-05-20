@@ -13,6 +13,7 @@ public class Validaciones
 
     public static boolean validaMarca(String s)
     {
-        return s.matches("^[A-Za-z]{3,19}$");
+        return s.matches("^[A-Za-z' ']{3,19}$");
     }
+
 }
