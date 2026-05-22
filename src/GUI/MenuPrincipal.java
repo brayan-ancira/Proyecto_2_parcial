@@ -5,6 +5,7 @@
 package GUI;
 
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -28,6 +29,7 @@ public class MenuPrincipal extends javax.swing.JFrame
     {
         initComponents();
         //AgrImage();
+        comboFechas();
         MostrarmensajeB(null);
     }
 
@@ -185,17 +187,17 @@ public class MenuPrincipal extends javax.swing.JFrame
         jButtonMod = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
         jTextFieldAnioA = new javax.swing.JTextField();
-        jCLiberarAutoDia1 = new javax.swing.JComboBox<>();
-        jCLiberarAutoMes1 = new javax.swing.JComboBox<>();
-        jCLiberarAutoAnio1 = new javax.swing.JComboBox<>();
+        jCIngresarAutoDia = new javax.swing.JComboBox<>();
+        jCIngresarAutoMes = new javax.swing.JComboBox<>();
+        jCIngresarAutoAnio = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jCBMarcasA = new javax.swing.JComboBox<>();
-        jComboBox9 = new javax.swing.JComboBox<>();
-        jComboBox10 = new javax.swing.JComboBox<>();
-        jComboBox11 = new javax.swing.JComboBox<>();
+        jCBCiudadA = new javax.swing.JComboBox<>();
+        jCBSucursalA = new javax.swing.JComboBox<>();
+        jCBServicioA = new javax.swing.JComboBox<>();
         jPanelServicio = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -209,17 +211,17 @@ public class MenuPrincipal extends javax.swing.JFrame
         jButtonEliminar1 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         jCBMarcasSe = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jCBSucursal = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        jCBCiudadS = new javax.swing.JComboBox<>();
         jPanelSucursal = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextFieldSucNom = new javax.swing.JTextField();
-        jTextFieldSucDir = new javax.swing.JTextField();
-        jTextFieldSucRes = new javax.swing.JTextField();
+        jTFSucNom = new javax.swing.JTextField();
+        jTFSucDir = new javax.swing.JTextField();
+        jTFSucRes = new javax.swing.JTextField();
         jButtonMod2 = new javax.swing.JButton();
         jButtonGuardar2 = new javax.swing.JButton();
         jButtonNuevo2 = new javax.swing.JButton();
@@ -228,6 +230,9 @@ public class MenuPrincipal extends javax.swing.JFrame
         jLabel23 = new javax.swing.JLabel();
         jCBCiudad = new javax.swing.JComboBox<>();
         jCBMarcasS = new javax.swing.JComboBox<>();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jTFCiudad = new javax.swing.JTextField();
@@ -494,46 +499,40 @@ public class MenuPrincipal extends javax.swing.JFrame
         jButtonElimFech.setText("Eliminar");
         jButtonElimFech.addActionListener(this::jButtonElimFechActionPerformed);
 
-        jCLiberarAutoDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jCLiberarAutoMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jCLiberarAutoAnio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout Lib_ServLayout = new javax.swing.GroupLayout(Lib_Serv);
         Lib_Serv.setLayout(Lib_ServLayout);
         Lib_ServLayout.setHorizontalGroup(
             Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Lib_ServLayout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addGroup(Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(114, 114, 114)
+                .addGroup(Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(Lib_ServLayout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel10))
-                    .addGroup(Lib_ServLayout.createSequentialGroup()
-                        .addGroup(Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jCLiberarAutoDia, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonElimFech)
                             .addGroup(Lib_ServLayout.createSequentialGroup()
-                                .addComponent(jCLiberarAutoDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCLiberarAutoMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCLiberarAutoAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(139, Short.MAX_VALUE))
+                                .addComponent(jCLiberarAutoMes, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCLiberarAutoAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(Lib_ServLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(87, 87, 87)))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         Lib_ServLayout.setVerticalGroup(
             Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Lib_ServLayout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(120, 120, 120)
                 .addComponent(jLabel10)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCLiberarAutoDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCLiberarAutoMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCLiberarAutoAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonElimFech)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Liberar tu Auto", Lib_Serv);
@@ -572,14 +571,16 @@ public class MenuPrincipal extends javax.swing.JFrame
         jButtonEliminar.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
         jButtonEliminar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.addActionListener(this::jButtonEliminarActionPerformed);
 
         jTextFieldAnioA.addActionListener(this::jTextFieldAnioAActionPerformed);
-
-        jCLiberarAutoDia1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jCLiberarAutoMes1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jCLiberarAutoAnio1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jTextFieldAnioA.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jTextFieldAnioAKeyTyped(evt);
+            }
+        });
 
         jLabel25.setText("Marca");
 
@@ -588,6 +589,12 @@ public class MenuPrincipal extends javax.swing.JFrame
         jLabel27.setText("Sucursal");
 
         jLabel28.setText("Servicio");
+
+        jCBMarcasA.addActionListener(this::jCBMarcasAActionPerformed);
+
+        jCBCiudadA.addActionListener(this::jCBCiudadAActionPerformed);
+
+        jCBSucursalA.addActionListener(this::jCBSucursalAActionPerformed);
 
         javax.swing.GroupLayout jPanelInAutLayout = new javax.swing.GroupLayout(jPanelInAut);
         jPanelInAut.setLayout(jPanelInAutLayout);
@@ -617,11 +624,11 @@ public class MenuPrincipal extends javax.swing.JFrame
                             .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(32, 32, 32)
-                        .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCBMarcasA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jCBCiudadA, 0, 120, Short.MAX_VALUE)
+                            .addComponent(jCBMarcasA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCBSucursalA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCBServicioA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanelInAutLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jButtonGuardar)
@@ -631,12 +638,12 @@ public class MenuPrincipal extends javax.swing.JFrame
                         .addComponent(jButtonEliminar))
                     .addGroup(jPanelInAutLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(jCLiberarAutoDia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCIngresarAutoDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
-                        .addComponent(jCLiberarAutoMes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCIngresarAutoMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
-                        .addComponent(jCLiberarAutoAnio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                        .addComponent(jCIngresarAutoAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanelInAutLayout.setVerticalGroup(
             jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -656,7 +663,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                                 .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextFieldModeloA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel26)
-                                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jCBCiudadA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanelInAutLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel7)))
@@ -669,7 +676,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                                 .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel27)
-                                        .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jCBSucursalA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jTextFieldAnioA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanelInAutLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -679,13 +686,13 @@ public class MenuPrincipal extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCBServicioA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jCLiberarAutoDia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCLiberarAutoMes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCLiberarAutoAnio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jCIngresarAutoDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCIngresarAutoMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCIngresarAutoAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel9))
                 .addGap(56, 56, 56)
                 .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -698,6 +705,14 @@ public class MenuPrincipal extends javax.swing.JFrame
 
         jTabbedPaneInicio.addTab("Autos", jPanelInAut);
 
+        jPanelServicio.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                jPanelServicioMouseEntered(evt);
+            }
+        });
+
         jLabel11.setText("Nombre");
 
         jLabel12.setText("Precio");
@@ -705,6 +720,13 @@ public class MenuPrincipal extends javax.swing.JFrame
         jLabel13.setText("Capacidad");
 
         jTextFieldServicioPrec.addActionListener(this::jTextFieldServicioPrecActionPerformed);
+        jTextFieldServicioPrec.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jTextFieldServicioPrecKeyTyped(evt);
+            }
+        });
 
         jButtonMod1.setBackground(new java.awt.Color(204, 204, 0));
         jButtonMod1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
@@ -727,12 +749,17 @@ public class MenuPrincipal extends javax.swing.JFrame
         jButtonEliminar1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
         jButtonEliminar1.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminar1.setText("Eliminar");
+        jButtonEliminar1.addActionListener(this::jButtonEliminar1ActionPerformed);
 
         jLabel20.setText("Marca");
+
+        jCBMarcasSe.addActionListener(this::jCBMarcasSeActionPerformed);
 
         jLabel21.setText("Sucursal");
 
         jLabel24.setText("Ciudad");
+
+        jCBCiudadS.addActionListener(this::jCBCiudadSActionPerformed);
 
         javax.swing.GroupLayout jPanelServicioLayout = new javax.swing.GroupLayout(jPanelServicio);
         jPanelServicio.setLayout(jPanelServicioLayout);
@@ -761,17 +788,17 @@ public class MenuPrincipal extends javax.swing.JFrame
                             .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanelServicioLayout.createSequentialGroup()
-                                    .addGap(1, 1, 1)
-                                    .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextFieldServicioNom, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldServicioPrec, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldServicioCap, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jComboBox7, 0, 95, Short.MAX_VALUE)
-                                .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jCBMarcasSe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(99, Short.MAX_VALUE))
+                            .addGroup(jPanelServicioLayout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldServicioNom, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldServicioPrec)
+                                    .addComponent(jTextFieldServicioCap)))
+                            .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jCBMarcasSe, javax.swing.GroupLayout.Alignment.LEADING, 0, 97, Short.MAX_VALUE)
+                                .addComponent(jCBCiudadS, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jCBSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(99, 99, 99))
         );
         jPanelServicioLayout.setVerticalGroup(
             jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -783,10 +810,10 @@ public class MenuPrincipal extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCBCiudadS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCBSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -817,12 +844,37 @@ public class MenuPrincipal extends javax.swing.JFrame
 
         jLabel16.setText("Responsable");
 
-        jTextFieldSucDir.addActionListener(this::jTextFieldSucDirActionPerformed);
+        jTFSucNom.addActionListener(this::jTFSucNomActionPerformed);
+        jTFSucNom.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jTFSucNomKeyTyped(evt);
+            }
+        });
+
+        jTFSucDir.addActionListener(this::jTFSucDirActionPerformed);
+        jTFSucDir.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jTFSucDirKeyTyped(evt);
+            }
+        });
+
+        jTFSucRes.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                jTFSucResKeyTyped(evt);
+            }
+        });
 
         jButtonMod2.setBackground(new java.awt.Color(204, 204, 0));
         jButtonMod2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
         jButtonMod2.setForeground(new java.awt.Color(255, 255, 255));
         jButtonMod2.setText("Modificar");
+        jButtonMod2.setToolTipText("Mediante nombre");
 
         jButtonGuardar2.setBackground(new java.awt.Color(37, 103, 236));
         jButtonGuardar2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
@@ -840,12 +892,23 @@ public class MenuPrincipal extends javax.swing.JFrame
         jButtonEliminar2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
         jButtonEliminar2.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminar2.setText("Eliminar");
+        jButtonEliminar2.setToolTipText("Mediante nombre");
+        jButtonEliminar2.addActionListener(this::jButtonEliminar2ActionPerformed);
 
         jLabel22.setText("Ciudad");
 
         jLabel23.setText("Marca");
 
         jCBMarcasS.addActionListener(this::jCBMarcasSActionPerformed);
+
+        jLabel31.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel31.setText("max 20 caracteres");
+
+        jLabel32.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel32.setText("max 40 caracteres");
+
+        jLabel33.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel33.setText("max  20 caracteres");
 
         javax.swing.GroupLayout jPanelSucursalLayout = new javax.swing.GroupLayout(jPanelSucursal);
         jPanelSucursal.setLayout(jPanelSucursalLayout);
@@ -854,30 +917,43 @@ public class MenuPrincipal extends javax.swing.JFrame
             .addGroup(jPanelSucursalLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSucursalLayout.createSequentialGroup()
-                        .addComponent(jButtonNuevo2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonGuardar2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonMod2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonEliminar2))
+                    .addComponent(jLabel15)
                     .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanelSucursalLayout.createSequentialGroup()
                             .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel15)
                                 .addComponent(jLabel16)
                                 .addComponent(jLabel14)
                                 .addComponent(jLabel22))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCBMarcasS, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jCBCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldSucNom, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldSucRes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldSucDir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(101, Short.MAX_VALUE))
+                            .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTFSucRes, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                                .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jCBMarcasS, javax.swing.GroupLayout.Alignment.LEADING, 0, 115, Short.MAX_VALUE)
+                                    .addComponent(jCBCiudad, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jTFSucDir)
+                                .addComponent(jTFSucNom, javax.swing.GroupLayout.Alignment.TRAILING))))
+                    .addGroup(jPanelSucursalLayout.createSequentialGroup()
+                        .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel33)
+                            .addGroup(jPanelSucursalLayout.createSequentialGroup()
+                                .addComponent(jButtonNuevo2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonGuardar2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonMod2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonEliminar2)))
+                .addContainerGap(76, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSucursalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSucursalLayout.createSequentialGroup()
+                        .addComponent(jLabel31)
+                        .addGap(189, 189, 189))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSucursalLayout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addGap(191, 191, 191))))
         );
         jPanelSucursalLayout.setVerticalGroup(
             jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -893,22 +969,28 @@ public class MenuPrincipal extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextFieldSucNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jTFSucNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldSucDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFSucDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
+                .addGap(5, 5, 5)
+                .addComponent(jLabel32)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jTextFieldSucRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
+                    .addComponent(jTFSucRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonNuevo2)
                     .addComponent(jButtonGuardar2)
                     .addComponent(jButtonMod2)
                     .addComponent(jButtonEliminar2))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
 
         jTabbedPaneInicio.addTab("Sucursal", jPanelSucursal);
@@ -1155,7 +1237,96 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonNuevoActionPerformed
     {//GEN-HEADEREND:event_jButtonNuevoActionPerformed
-        // TODO add your handling code here:
+        String nom = jCBMarcasA.getSelectedItem() != null ? jCBMarcasA.getSelectedItem().toString() : "";
+        String nomC = jCBCiudadA.getSelectedItem() != null ? jCBCiudadA.getSelectedItem().toString() : "";
+        String nomS = jCBSucursalA.getSelectedItem() != null ? jCBSucursalA.getSelectedItem().toString() : "";
+        String nomSe = jCBServicioA.getSelectedItem() != null ? jCBServicioA.getSelectedItem().toString() : "";
+        String placa = jTextFieldPlacaA.getText();
+        String modelo = jTextFieldModeloA.getText();
+        String anio = jTextFieldAnioA.getText();
+        int dia = Integer.parseInt(jCIngresarAutoDia.getSelectedItem().toString());
+        int mes = Integer.parseInt(jCIngresarAutoMes.getSelectedItem().toString());
+        int aniof = Integer.parseInt(jCIngresarAutoAnio.getSelectedItem().toString());
+        Date fechaIngreso = new Date(aniof - 1900, mes - 1, dia);
+        if (nom.isEmpty())
+        {
+            muestraMensaje("Por favor selecciona una marca");
+        } else
+            if (nomC.isEmpty())
+            {
+                muestraMensaje("Por favor selecciona una ciudad");
+            } else
+                if (nomS.isEmpty())
+                {
+                    muestraMensaje("Por favor selecciona una sucursal");
+                } else
+                    if (nomSe.isEmpty())
+                    {
+                        muestraMensaje("Por favor selecciona un servicio");
+                    } else
+                        if (!Validaciones.validaPlacas(placa))
+                        {
+                            muestraMensaje("Ingresa la placa correctamente");
+                        } else
+                        {
+                            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
+                            if (marca == null)
+                            {
+                                muestraMensaje("Marca no encontrada");
+                                return;
+                            }
+
+                            Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomC);
+                            if (ciudad == null)
+                            {
+                                muestraMensaje("Ciudad no encontrada");
+                                return;
+                            }
+
+                            Nodo nSucursal = datos.getMultilista().busca(ciudad.getAbj(), nomS);
+                            if (nSucursal == null)
+                            {
+                                muestraMensaje("Sucursal no encontrada");
+                                return;
+                            }
+
+                            Nodo servicio = datos.getMultilista().busca(nSucursal.getAbj(), nomSe);
+                            if (servicio == null)
+                            {
+                                muestraMensaje("Servicio no encontrado");
+                                return;
+                            }
+
+                            if (!validaPorNivel(servicio.getAbj(), placa))
+                            {
+                                muestraMensaje("El auto con placa " + placa + " ya existe en este servicio");
+                            } else
+                            {
+
+                                Nodo auto = new Nodo(new Auto(placa, modelo, anio, fechaIngreso), placa);
+                                String[] nivel =
+                                {
+                                    nom, nomC, nomS, nomSe, placa
+                                };
+
+                                datos.getMultilista().setR(
+                                        datos.getMultilista().inserta(auto, nivel, 0, datos.getMultilista().getR())
+                                );
+
+                                Nodo nodoML = datos.getMultilista().busca(servicio.getAbj(), placa);
+                                NodoArbol hash = new NodoArbol(placa, auto.getObj());
+                                hash.nodo = nodoML;
+
+                                datos.getHash().inserta(hash);
+
+                                muestraMensaje("Auto agregado correctamente");
+                                jTextFieldPlacaA.setText("");
+                                jTextFieldModeloA.setText("");
+                                jTextFieldAnioA.setText("");
+                                actualizaTodo();
+
+                            }
+                        }
     }//GEN-LAST:event_jButtonNuevoActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BtnBuscarActionPerformed
@@ -1184,10 +1355,10 @@ public class MenuPrincipal extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldServicioPrecActionPerformed
 
-    private void jTextFieldSucDirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextFieldSucDirActionPerformed
-    {//GEN-HEADEREND:event_jTextFieldSucDirActionPerformed
+    private void jTFSucDirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFSucDirActionPerformed
+    {//GEN-HEADEREND:event_jTFSucDirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSucDirActionPerformed
+    }//GEN-LAST:event_jTFSucDirActionPerformed
 
     private void jTFCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFCiudadActionPerformed
     {//GEN-HEADEREND:event_jTFCiudadActionPerformed
@@ -1201,7 +1372,54 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void jButtonNuevo1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonNuevo1ActionPerformed
     {//GEN-HEADEREND:event_jButtonNuevo1ActionPerformed
-        // TODO add your handling code here:
+        String nom = jCBMarcasSe.getSelectedItem() != null ? jCBMarcasSe.getSelectedItem().toString() : "";
+        String nomC = jCBCiudadS.getSelectedItem() != null ? jCBCiudadS.getSelectedItem().toString() : "";
+        String nomS = jCBSucursal.getSelectedItem() != null ? jCBSucursal.getSelectedItem().toString() : "";
+        String nomSe = jTextFieldServicioNom.getText();
+
+        if (nom.isEmpty())
+        {
+            muestraMensaje("Por favor selecciona una marca");
+        } else
+            if (nomC.isEmpty())
+            {
+                muestraMensaje("Por favor selecciona una ciudad");
+            } else
+                if (nomS.isEmpty())
+                {
+                    muestraMensaje("Por favor selecciona una sucursal");
+                } else
+                    if (!Validaciones.validaNombre(nomSe))
+                    {
+                        muestraMensaje("Ingresa el nombre correctamente (Solo letras)");
+                    } else
+                    {
+                        Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
+                        Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomC);
+                        Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(), nomS);
+
+                        if (!validaPorNivel(sucursal.getAbj(), nomSe))
+                        {
+                            muestraMensaje("El servicio " + nomSe + " ya existe");
+                        } else
+                        {
+                            Nodo servicio = new Nodo(new Servicios(jTextFieldServicioNom.getText(),
+                                    Integer.parseInt(jTextFieldServicioPrec.getText()), jTextFieldServicioCap.getText()), nomSe);
+                            servicio.setEt(nomSe);
+                            String[] nivel =
+                            {
+                                nom, nomC, nomS, nomSe
+                            };
+                            datos.getMultilista().setR(
+                                    datos.getMultilista().inserta(servicio, nivel, 0, datos.getMultilista().getR())
+                            );
+                            muestraMensaje("Servicio agregado correctamente");
+                            jTextFieldServicioNom.setText("");
+                            jTextFieldServicioPrec.setText("");
+                            jTextFieldServicioCap.setText("");
+                            actualizaTodo();
+                        }
+                    }
     }//GEN-LAST:event_jButtonNuevo1ActionPerformed
 
     private void jButtonGuardar2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonGuardar2ActionPerformed
@@ -1211,7 +1429,52 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void jButtonNuevo2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonNuevo2ActionPerformed
     {//GEN-HEADEREND:event_jButtonNuevo2ActionPerformed
-        // TODO add your handling code here:
+        String nom = jCBMarcasS.getSelectedItem() != null ? jCBMarcasS.getSelectedItem().toString() : "";
+        String nomC = jCBCiudad.getSelectedItem() != null ? jCBCiudad.getSelectedItem().toString() : "";
+        String nomS = jTFSucNom.getText().trim();
+
+        if (nom.isEmpty())
+        {
+            muestraMensaje("Por favor selecciona una marca");
+        } else
+        {
+            if (nomC.isEmpty())
+            {
+                muestraMensaje("Por favor selecciona una ciudad");
+            } else
+            {
+                if (!Validaciones.validaMarca(nomS))
+                {
+                    muestraMensaje("Ingresa el nombre correctamente (Solo letras)");
+                } else
+                {
+                    Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
+                    Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomC);
+
+                    if (!validaPorNivel(ciudad.getAbj(), nomS))
+                    {
+                        muestraMensaje("La sucursal " + nomS + " ya existe en esta ciudad");
+                    } else
+                    {
+                        Nodo sucursal = new Nodo(new Sucursal(nomS, jTFSucDir.getText(), jTFSucRes.getText()), nom);
+                        sucursal.setEt(nomS);
+                        String[] nivel =
+                        {
+                            nom, nomC, nomS
+                        };
+                        datos.getMultilista().setR(
+                                datos.getMultilista().inserta(sucursal, nivel, 0, datos.getMultilista().getR())
+                        );
+                        jTFSucNom.setText("");
+                        jTFSucDir.setText("");
+                        jTFSucRes.setText("");
+                        muestraMensaje("Sucursal agregada correctamente");
+                        actualizaTodo();
+                    }
+                }
+            }
+        }
+
     }//GEN-LAST:event_jButtonNuevo2ActionPerformed
 
     private void jButtonGuardar3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonGuardar3ActionPerformed
@@ -1231,9 +1494,9 @@ public class MenuPrincipal extends javax.swing.JFrame
         }
         String nomC = jTFCiudad.getText();
         Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
-        if (nom == "")
+        if (nom.isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Selecciona la marca primero");
+            muestraMensaje("Selecciona la marca primero");
             return;
         }
         if (Validaciones.validaMarca(nomC))
@@ -1243,26 +1506,27 @@ public class MenuPrincipal extends javax.swing.JFrame
 
                 if ((datos.getMultilista().busca(marca.getAbj(), nomC)) != null)
                 {
-                    JOptionPane.showMessageDialog(null, "La ciudad ya existe en esta marca.");
+                    muestraMensaje("La ciudad ya existe en esta marca.");
                 } else
                 {
-                    Nodo ciudad = new Nodo(null, nomC);
+                    Nodo ciudad = new Nodo(new Ciudad(nom), nomC);
                     String[] nivel =
                     {
                         nom, nomC
                     };
                     datos.getMultilista().setR(datos.getMultilista().inserta(ciudad, nivel, 0, datos.getMultilista().getR()));
-                    JOptionPane.showMessageDialog(null, "Ciudad agregada.");
+                    muestraMensaje("Ciudad agregada.");
                 }
             } else
             {
-                JOptionPane.showMessageDialog(null, "Esta ciudad ya esta registrada");
+                muestraMensaje("Esta ciudad ya esta registrada");
             }
         } else
         {
-            JOptionPane.showMessageDialog(null, "Porfavor ingresa el nombre correctamente (Solo letras)");
+            muestraMensaje("Porfavor ingresa el nombre correctamente (Solo letras)");
         }
-        actualizaCombosCiudadesSucursal();
+        jTFCiudad.setText("");
+        actualizaTodo();
     }//GEN-LAST:event_jButtonNuevo3ActionPerformed
 
     private void jButtonModActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonModActionPerformed
@@ -1288,16 +1552,16 @@ public class MenuPrincipal extends javax.swing.JFrame
                 };
                 datos.getMultilista().setR(datos.getMultilista().inserta(new Nodo(new Marca(nom), nom), nivel, 0, datos.getMultilista().getR()));
                 jTMarca.setText("");
-                JOptionPane.showMessageDialog(null, "Marca " + nom + " agregada exitosamente");
+                muestraMensaje("Marca " + nom + " agregada exitosamente");
             } else
             {
-                JOptionPane.showMessageDialog(null, "Porfavor ingresa el nombre correctamente (Solo letras)");
+                muestraMensaje("Porfavor ingresa el nombre correctamente (Solo letras)");
             }
         } else
         {
-            JOptionPane.showMessageDialog(null, "Ya existe una marca con el nombre " + nom);
+            muestraMensaje("Ya existe una marca con el nombre " + nom);
         }
-        actualizaCombosMarcas();
+        actualizaTodo();
     }//GEN-LAST:event_jButtonNuevo5ActionPerformed
 
     private void jButtonGuardar5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonGuardar5ActionPerformed
@@ -1307,18 +1571,22 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
     {//GEN-HEADEREND:event_formWindowOpened
-        datos.getMultilista().setR((Nodo) ManipulaArchivos.carga("Datos.dat"));
-        if (datos.getMultilista().getR() == null)
+        datos = (Datos) ManipulaArchivos.carga("Datos.dat");
+
+        if (datos == null)
         {
-            JOptionPane.showMessageDialog(null, "Sin datos cargados.");
+            muestraMensaje("Sin datos cargados.");
+            datos = new Datos();
+            datos.setMultilista(new MultiLista());
+            datos.setHash(new TablaHash());
         }
-        actualizaCombosMarcas();
-        actualizaCombosCiudadesSucursal();
+        actualizaTodo();
+
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
     {//GEN-HEADEREND:event_formWindowClosing
-        ManipulaArchivos.guarda(datos.getMultilista().getR(), "Datos.dat");
+        ManipulaArchivos.guarda(datos, "Datos.dat");
     }//GEN-LAST:event_formWindowClosing
 
     private void jTMarcaKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTMarcaKeyTyped
@@ -1344,21 +1612,21 @@ public class MenuPrincipal extends javax.swing.JFrame
                 datos.getMultilista().setR(resultado[1]);
                 if (resultado[0] != null)
                 {
-                    JOptionPane.showMessageDialog(null, "Marca eliminada correctamente");
+                    muestraMensaje("Marca eliminada correctamente");
                 } else
                 {
-                    JOptionPane.showMessageDialog(null, "Marca no registrada");
+                    muestraMensaje("Marca no registrada");
                 }
                 jTMarca.setText("");
             } else
             {
-                JOptionPane.showMessageDialog(null, "Porfavor ingresa el nombre correctamente (Solo letras)");
+                muestraMensaje("Porfavor ingresa el nombre correctamente (Solo letras)");
             }
         } else
         {
-            JOptionPane.showMessageDialog(null, "La marca " + nom + " no existe");
+            muestraMensaje("La marca " + nom + " no existe");
         }
-        actualizaCombosMarcas();
+        actualizaTodo();
     }//GEN-LAST:event_jButtonEliminar5ActionPerformed
 
     private void jTFCiudadKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFCiudadKeyTyped
@@ -1416,9 +1684,262 @@ public class MenuPrincipal extends javax.swing.JFrame
             {
                 JOptionPane.showMessageDialog(null, "La ciudad " + nomC + " no existe");
             }
-            actualizaCombosCiudadesSucursal();
+            actualizaTodo();
         }
     }//GEN-LAST:event_jButtonEliminar3ActionPerformed
+
+    private void jTFSucNomActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFSucNomActionPerformed
+    {//GEN-HEADEREND:event_jTFSucNomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFSucNomActionPerformed
+
+    private void jCBMarcasSeActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBMarcasSeActionPerformed
+    {//GEN-HEADEREND:event_jCBMarcasSeActionPerformed
+        actualizaCombosCiudadesServicio();
+        actualizaCombosSucursal();
+    }//GEN-LAST:event_jCBMarcasSeActionPerformed
+
+    private void jCBCiudadSActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBCiudadSActionPerformed
+    {//GEN-HEADEREND:event_jCBCiudadSActionPerformed
+        actualizaCombosSucursal();
+    }//GEN-LAST:event_jCBCiudadSActionPerformed
+
+    private void jButtonEliminar2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonEliminar2ActionPerformed
+    {//GEN-HEADEREND:event_jButtonEliminar2ActionPerformed
+        String nom = jCBMarca.getSelectedItem() != null ? jCBMarca.getSelectedItem().toString() : "";
+        String nomC = jCBCiudad.getSelectedItem() != null ? jCBCiudad.getSelectedItem().toString() : "";
+        String nomS = jTFSucNom.getText();
+
+        if (nom.isEmpty())
+        {
+            muestraMensaje("Por favor selecciona una marca");
+        } else
+        {
+            if (nomC.isEmpty())
+            {
+                muestraMensaje("Por favor selecciona una ciudad");
+            } else
+            {
+                if (!Validaciones.validaMarca(nomS))
+                {
+                    muestraMensaje("Ingresa el nombre correctamente (Solo letras)");
+                } else
+                {
+                    Nodo nMarca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
+                    Nodo nCiudad = datos.getMultilista().busca(nMarca.getAbj(), nomC);
+
+                    if (validaPorNivel(nCiudad.getAbj(), nomS))
+                    {
+                        muestraMensaje("La sucursal " + nomS + " no existe");
+                    } else
+                    {
+                        String[] nivel =
+                        {
+                            nom, nomC, nomS
+                        };
+                        Nodo[] res = datos.getMultilista().elimina(nivel, 0, datos.getMultilista().getR());
+                        datos.getMultilista().setR(res[1]);
+                        if (res[0] != null)
+                        {
+                            muestraMensaje("Sucursal eliminada correctamente");
+                            actualizaCombosSucursal();
+                            jTFSucNom.setText("");
+                            actualizaTodo();
+                        } else
+                        {
+                            muestraMensaje("No se pudo eliminar la sucursal");
+                        }
+                    }
+                }
+            }
+        }
+
+    }//GEN-LAST:event_jButtonEliminar2ActionPerformed
+
+    private void jTFSucNomKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFSucNomKeyTyped
+    {//GEN-HEADEREND:event_jTFSucNomKeyTyped
+        if (jTFSucNom.getText().length() > 19)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFSucNomKeyTyped
+
+    private void jTFSucDirKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFSucDirKeyTyped
+    {//GEN-HEADEREND:event_jTFSucDirKeyTyped
+        if (jTFSucDir.getText().length() > 39)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFSucDirKeyTyped
+
+    private void jTFSucResKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFSucResKeyTyped
+    {//GEN-HEADEREND:event_jTFSucResKeyTyped
+        if (jTFSucRes.getText().length() > 19)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFSucResKeyTyped
+
+    private void jPanelServicioMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanelServicioMouseEntered
+    {//GEN-HEADEREND:event_jPanelServicioMouseEntered
+
+    }//GEN-LAST:event_jPanelServicioMouseEntered
+
+    private void jButtonEliminar1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonEliminar1ActionPerformed
+    {//GEN-HEADEREND:event_jButtonEliminar1ActionPerformed
+        String nom = jCBMarcasSe.getSelectedItem() != null ? jCBMarcasSe.getSelectedItem().toString() : "";
+        String nomC = jCBCiudadS.getSelectedItem() != null ? jCBCiudadS.getSelectedItem().toString() : "";
+        String nomS = jCBSucursal.getSelectedItem() != null ? jCBSucursal.getSelectedItem().toString() : "";
+        String nomSe = jTextFieldServicioNom.getText();
+
+        if (nom.isEmpty())
+        {
+            muestraMensaje("Por favor selecciona una marca");
+        } else
+            if (nomC.isEmpty())
+            {
+                muestraMensaje("Por favor selecciona una ciudad");
+            } else
+                if (nomS.isEmpty())
+                {
+                    muestraMensaje("Por favor selecciona una sucursal");
+                } else
+                    if (!Validaciones.validaNombre(nomSe))
+                    {
+                        muestraMensaje("Ingresa el nombre correctamente (Solo letras)");
+                    } else
+                    {
+                        Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
+                        Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomC);
+                        Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(), nomS);
+
+                        if (validaPorNivel(sucursal.getAbj(), nomSe))
+                        {
+                            muestraMensaje("El servicio " + nomSe + " no existe");
+                        } else
+                        {
+                            String[] nivel =
+                            {
+                                nom, nomC, nomS, nomSe
+                            };
+                            Nodo[] res = datos.getMultilista().elimina(nivel, 0, datos.getMultilista().getR());
+                            datos.getMultilista().setR(res[1]);
+                            if (res[0] != null)
+                            {
+                                muestraMensaje("Servicio eliminado correctamente");
+                                jTextFieldServicioNom.setText("");
+                                jTextFieldServicioPrec.setText("");
+                                jTextFieldServicioCap.setText("");
+                                actualizaTodo();
+                            } else
+                            {
+                                muestraMensaje("No se pudo eliminar el servicio");
+                            }
+                        }
+                    }
+    }//GEN-LAST:event_jButtonEliminar1ActionPerformed
+
+    private void jCBMarcasAActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBMarcasAActionPerformed
+    {//GEN-HEADEREND:event_jCBMarcasAActionPerformed
+        actualizaComboCiudadAuto();
+        actualizaComboSucursalAuto();
+        actualizaComboServicioAuto();
+    }//GEN-LAST:event_jCBMarcasAActionPerformed
+
+    private void jCBSucursalAActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBSucursalAActionPerformed
+    {//GEN-HEADEREND:event_jCBSucursalAActionPerformed
+        actualizaComboServicioAuto();
+    }//GEN-LAST:event_jCBSucursalAActionPerformed
+
+    private void jCBCiudadAActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBCiudadAActionPerformed
+    {//GEN-HEADEREND:event_jCBCiudadAActionPerformed
+        actualizaComboSucursalAuto();
+        actualizaComboServicioAuto();
+    }//GEN-LAST:event_jCBCiudadAActionPerformed
+
+    private void jTextFieldAnioAKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTextFieldAnioAKeyTyped
+    {//GEN-HEADEREND:event_jTextFieldAnioAKeyTyped
+        if (jTextFieldAnioA.getText().length() > 3)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldAnioAKeyTyped
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonEliminarActionPerformed
+    {//GEN-HEADEREND:event_jButtonEliminarActionPerformed
+        String nom = jCBMarcasA.getSelectedItem() != null ? jCBMarcasA.getSelectedItem().toString() : "";
+        String nomC = jCBCiudadA.getSelectedItem() != null ? jCBCiudadA.getSelectedItem().toString() : "";
+        String nomS = jCBSucursalA.getSelectedItem() != null ? jCBSucursalA.getSelectedItem().toString() : "";
+        String nomSe = jCBServicioA.getSelectedItem() != null ? jCBServicioA.getSelectedItem().toString() : "";
+        String placa = jTextFieldPlacaA.getText();
+
+        if (nom.isEmpty())
+        {
+            muestraMensaje("Por favor selecciona una marca");
+        } else
+            if (nomC.isEmpty())
+            {
+                muestraMensaje("Por favor selecciona una ciudad");
+            } else
+                if (nomS.isEmpty())
+                {
+                    muestraMensaje("Por favor selecciona una sucursal");
+                } else
+                    if (nomSe.isEmpty())
+                    {
+                        muestraMensaje("Por favor selecciona un servicio");
+                    } else
+                        if (!Validaciones.validaPlacas(placa))
+                        {
+                            muestraMensaje("Ingresa la placa correctamente");
+                        } else
+                        {
+                            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
+                            Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomC);
+                            Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(), nomS);
+                            Nodo servicio = datos.getMultilista().busca(sucursal.getAbj(), nomSe);
+
+                            if (validaPorNivel(servicio.getAbj(), placa))
+                            {
+                                muestraMensaje("El auto con placa " + placa + " no existe en este servicio");
+                            } else
+                            {
+                                String[] nivel =
+                                {
+                                    nom, nomC, nomS, nomSe, placa
+                                };
+                                Nodo[] res = datos.getMultilista().elimina(nivel, 0, datos.getMultilista().getR());
+                                datos.getMultilista().setR(res[1]);
+
+                                if (res[0] != null)
+                                {
+                                    datos.getHash().elimina(placa);
+                                    muestraMensaje("Auto eliminado correctamente");
+                                    jTextFieldPlacaA.setText("");
+                                    jTextFieldModeloA.setText("");
+                                    jTextFieldAnioA.setText("");
+                                    actualizaTodo();
+                                } else
+                                {
+                                    muestraMensaje("No se pudo eliminar el auto");
+                                }
+                            }
+                        }
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
+
+    private void jTextFieldServicioPrecKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTextFieldServicioPrecKeyTyped
+    {//GEN-HEADEREND:event_jTextFieldServicioPrecKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE)
+        {
+            evt.consume();
+        }
+        if (jTextFieldServicioPrec.getText().length() > 4)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldServicioPrecKeyTyped
 
     /**
      * @param args the command line arguments
@@ -1446,6 +1967,11 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     }
 
+    public void muestraMensaje(String s)
+    {
+        JOptionPane.showMessageDialog(null, s);
+    }
+
     public void actualizaCombosCiudadesSucursal()
     {
 
@@ -1457,6 +1983,156 @@ public class MenuPrincipal extends javax.swing.JFrame
             {
                 ArrayList<String> ciudades = sacarNivel(marca.getAbj());
                 jCBCiudad.setModel(new DefaultComboBoxModel<>(ciudades.toArray(new String[0])));
+            }
+        }
+    }
+
+    public void actualizaComboCiudadAuto()
+    {
+        if (jCBMarcasA.getSelectedItem() != null)
+        {
+            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
+                    jCBMarcasA.getSelectedItem().toString());
+            if (marca != null)
+            {
+                ArrayList<String> ciudades = sacarNivel(marca.getAbj());
+                jCBCiudadA.setModel(new DefaultComboBoxModel<>(ciudades.toArray(new String[0])));
+            }
+        }
+    }
+
+    public void actualizaComboSucursalAuto()
+    {
+        if (jCBMarcasA.getSelectedItem() != null && jCBCiudadA.getSelectedItem() != null)
+        {
+            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
+                    jCBMarcasA.getSelectedItem().toString());
+            if (marca != null)
+            {
+                Nodo ciudad = datos.getMultilista().busca(marca.getAbj(),
+                        jCBCiudadA.getSelectedItem().toString());
+                if (ciudad != null)
+                {
+                    ArrayList<String> sucursales = sacarNivel(ciudad.getAbj());
+                    jCBSucursalA.setModel(new DefaultComboBoxModel<>(sucursales.toArray(new String[0])));
+                }
+            }
+        }
+    }
+
+    public void actualizaComboServicioAuto()
+    {
+        if (jCBMarcasA.getSelectedItem() != null && jCBCiudadA.getSelectedItem() != null)
+        {
+            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
+                    jCBMarcasA.getSelectedItem().toString());
+            if (marca != null)
+            {
+                Nodo ciudad = datos.getMultilista().busca(marca.getAbj(),
+                        jCBCiudadA.getSelectedItem().toString());
+                if (ciudad != null)
+                {
+                    Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(),
+                            jCBSucursalA.getSelectedItem().toString());
+                    if (sucursal != null)
+                    {
+                        ArrayList<String> servicios = sacarNivel(sucursal.getAbj());
+                        jCBServicioA.setModel(new DefaultComboBoxModel<>(servicios.toArray(new String[0])));
+                    }
+                }
+            }
+        }
+    }
+
+    public void actualizaTodo()
+    {
+        actualizaCombosMarcas();
+        if (jCBMarcasS.getSelectedItem() != null)
+        {
+            actualizaCombosCiudadesSucursal();
+        }
+        if (jCBMarcasSe.getSelectedItem() != null)
+        {
+            actualizaCombosCiudadesServicio();
+            if (jCBCiudadS.getSelectedItem() != null)
+            {
+                actualizaCombosSucursal();
+            }
+        }
+        if (jCBMarcasA.getSelectedItem() != null)
+        {
+            actualizaComboCiudadAuto();
+            if (jCBCiudadA.getSelectedItem() != null)
+            {
+                actualizaComboSucursalAuto();
+                if (jCBSucursalA.getSelectedItem() != null)
+                {
+                    actualizaComboServicioAuto();
+                }
+            }
+        }
+    }
+
+    public void actualizaCombosCiudadesServicio()
+    {
+
+        if (jCBMarcasSe.getSelectedItem() != null)
+        {
+            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
+                    jCBMarcasSe.getSelectedItem().toString());
+            if (marca != null)
+            {
+                ArrayList<String> ciudades = sacarNivel(marca.getAbj());
+                jCBCiudadS.setModel(new DefaultComboBoxModel<>(ciudades.toArray(new String[0])));
+            }
+        }
+        actualizaCombosSucursal();
+    }
+
+    public void comboFechas()
+    {
+        for (int i = 1; i <= 31; i++)
+        {
+            jCIngresarAutoDia.addItem("" + i);
+            jCLiberarAutoDia.addItem("" + i);
+        }
+        for (int i = 1; i <= 12; i++)
+        {
+            jCIngresarAutoMes.addItem("" + i);
+            jCLiberarAutoMes.addItem("" + i);
+        }
+        for (int i = 1980; i <= 2100; i++)
+        {
+            jCIngresarAutoAnio.addItem("" + i);
+            jCLiberarAutoAnio.addItem("" + i);
+        }
+        Date fecha = new Date();
+        int diaActual = fecha.getDate();
+        int mesActual = fecha.getMonth() + 1;
+        int anioActual = fecha.getYear() + 1900;
+        jCIngresarAutoDia.setSelectedItem(String.valueOf(diaActual));
+        jCIngresarAutoMes.setSelectedItem(String.valueOf(mesActual));
+        jCIngresarAutoAnio.setSelectedItem(String.valueOf(anioActual));
+        jCLiberarAutoDia.setSelectedItem(String.valueOf(diaActual));
+        jCLiberarAutoMes.setSelectedItem(String.valueOf(mesActual));
+        jCLiberarAutoAnio.setSelectedItem(String.valueOf(anioActual));
+    }
+
+    public void actualizaCombosSucursal()
+    {
+        if (jCBMarcasSe.getSelectedItem() != null && jCBCiudadS.getSelectedItem() != null)
+        {
+            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
+                    jCBMarcasSe.getSelectedItem().toString());
+            if (marca != null)
+            {
+                Nodo ciudad = datos.getMultilista().busca(marca.getAbj(),
+                        jCBCiudadS.getSelectedItem().toString());
+                if (ciudad != null)
+                {
+                    ArrayList<String> sucursales = sacarNivel(ciudad.getAbj());
+                    jCBSucursal.setModel(new DefaultComboBoxModel<>(sucursales.toArray(new String[0])));
+                }
             }
         }
     }
@@ -1510,23 +2186,23 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JButton jButtonNuevo3;
     private javax.swing.JButton jButtonNuevo5;
     private javax.swing.JComboBox<String> jCBCiudad;
+    private javax.swing.JComboBox<String> jCBCiudadA;
+    private javax.swing.JComboBox<String> jCBCiudadS;
     private javax.swing.JComboBox<String> jCBMarca;
     private javax.swing.JComboBox<String> jCBMarcasA;
     private javax.swing.JComboBox<String> jCBMarcasLS;
     private javax.swing.JComboBox<String> jCBMarcasS;
     private javax.swing.JComboBox<String> jCBMarcasSe;
+    private javax.swing.JComboBox<String> jCBServicioA;
+    private javax.swing.JComboBox<String> jCBSucursal;
+    private javax.swing.JComboBox<String> jCBSucursalA;
+    private javax.swing.JComboBox<String> jCIngresarAutoAnio;
+    private javax.swing.JComboBox<String> jCIngresarAutoDia;
+    private javax.swing.JComboBox<String> jCIngresarAutoMes;
     private javax.swing.JComboBox<String> jCLiberarAutoAnio;
-    private javax.swing.JComboBox<String> jCLiberarAutoAnio1;
     private javax.swing.JComboBox<String> jCLiberarAutoDia;
-    private javax.swing.JComboBox<String> jCLiberarAutoDia1;
     private javax.swing.JComboBox<String> jCLiberarAutoMes;
-    private javax.swing.JComboBox<String> jCLiberarAutoMes1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox10;
-    private javax.swing.JComboBox<String> jComboBox11;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JComboBox<String> jComboBoxServicios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1552,6 +2228,9 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1571,6 +2250,9 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTFCiudad;
+    private javax.swing.JTextField jTFSucDir;
+    private javax.swing.JTextField jTFSucNom;
+    private javax.swing.JTextField jTFSucRes;
     private javax.swing.JTextField jTMarca;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneInicio;
@@ -1583,9 +2265,6 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JTextField jTextFieldServicioCap;
     private javax.swing.JTextField jTextFieldServicioNom;
     private javax.swing.JTextField jTextFieldServicioPrec;
-    private javax.swing.JTextField jTextFieldSucDir;
-    private javax.swing.JTextField jTextFieldSucNom;
-    private javax.swing.JTextField jTextFieldSucRes;
     private javax.swing.JLabel mensajesBien;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,6 +15,11 @@ public class Ciudad implements Serializable
 
     private String nom;
 
+    public Ciudad(String nom)
+    {
+        this.nom = nom;
+    }
+    
     public String getNom()
     {
         return nom;

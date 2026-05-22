@@ -17,6 +17,13 @@ public class Sucursal implements Serializable
     private String dir;
     private String responsable;
 
+    public Sucursal(String nom, String dir, String responsable)
+    {
+        this.nom = nom;
+        this.dir = dir;
+        this.responsable = responsable;
+    }
+
     public String getNom()
     {
         return nom;
