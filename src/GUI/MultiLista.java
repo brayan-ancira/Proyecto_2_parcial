@@ -6,14 +6,16 @@ package GUI;
 
 import java.io.Serializable;
 
-/**
- *
- * @author vllnm
+
+
+ /* @author Mauro S S
+
  */
 public class MultiLista implements Serializable
 {
+
     private Nodo r;
- 
+
     /**
      * @return the r
      */
@@ -21,104 +23,105 @@ public class MultiLista implements Serializable
     {
         return r;
     }
- 
-    /**
-     * @param r the r to set
-     */
+
     public void setR(Nodo r)
     {
         this.r = r;
     }
-    
+
+
     public Nodo inserta(Nodo n, String c[], int nivel, Nodo r)
     {
-        if (c.length-1==nivel)
+        if (c.length - 1 == nivel)
         {
-            ListaDoblementeLigadaCircular l = new ListaDoblementeLigadaCircular();
+            ListasDLML l = new ListasDLML();
             l.setR(r);
             l.inserta(n);
-            System.out.println("inserto:"+n.getEtiqueta());
+            System.out.println("inserto:" + n.getEt());
             return l.getR();
         } else
         {
-            Nodo aux = busca(r,c[nivel]);
-            if (aux !=null)
+            Nodo aux = busca(r, c[nivel]);
+            if (aux != null)
             {
-                System.out.println("encontro: "+ aux.getEtiqueta());
-                aux.setAbajo(inserta(n, c, nivel+1, aux.getAbajo()));
-                
-                if (n.getArriba()==null)
+                System.out.println("encontro: " + aux.getEt());
+                aux.setAbj(inserta(n, c, nivel + 1, aux.getAbj()));
+                if (n.getArb() == null)
                 {
-                    n.setArriba(aux);
+                    n.setArb(aux);
                 }
             }
             return r;
         }
     }
-    
+
+
     public Nodo busca(Nodo r, String et)
     {
-        if (r!=null)
+        if (r != null)
         {
-            Nodo aux = r.getSiguiente();
-            do
+            Nodo aux = r;
+            while (aux != null)
             {
-                if (aux.getEtiqueta().equals(et))
+                if (aux.getEt().equals(et))
                 {
                     return aux;
                 }
-                aux=aux.getSiguiente();
-            } while (aux != r.getSiguiente());
-        } 
+                aux = aux.getSig();
+            }
+        }
         return null;
     }
-    
+
+    public void desp(Nodo r, String n)
+    {
+        if (r != null)
+        {
+            Nodo aux = r.getSig();
+            do
+            {
+
+                if (aux.getArb() == null)
+                {
+                    System.out.println(n + aux.getEt() + "\n");
+                } else
+                {
+                    System.out.println(n + aux.getEt() + "\t" + aux.getArb() + "\n");
+                }
+                desp(aux.getAbj(), n + "\t");
+                aux = aux.getSig();
+            } while (aux != r.getSig());
+        }
+    }
+
     public Nodo[] elimina(String c[], int nivel, Nodo r)
     {
-        Nodo obj[]= new Nodo[2];
-        
-        if (c.length-1==nivel)
+        Nodo obj[] = new Nodo[2];
+
+        if (c.length - 1 == nivel)
         {
-            ListaDoblementeLigadaCircular l = new ListaDoblementeLigadaCircular();
+            ListasDLML l = new ListasDLML();
             l.setR(r);
-            obj[0]=l.elimina(c[nivel]);
-            obj[0].setArriba(null);
-            obj[1]=l.getR();
+            obj[0] = l.elimina(c[nivel]);
+            if (obj[0] != null)
+            {
+                obj[0].setArb(null);
+            }
+            obj[1] = l.getR();
+
             return obj;
         } else
         {
-            Nodo aux = busca(r,c[nivel]);
-            if (aux !=null)
+            Nodo aux = busca(r, c[nivel]);
+            if (aux != null)
+
             {
-                obj=elimina(c,nivel+1,aux.getAbajo());
-                System.out.println("encontro: "+ aux.getEtiqueta());
-                aux.setAbajo(obj[1]);
+                System.out.println("encontro: " + aux.getEt());
+                obj = elimina(c, nivel + 1, aux.getAbj());
+                aux.setAbj(obj[1]);
             }
-            
-            obj[1]=r;
+            obj[1] = r;
             return obj;
-        }
-    }
-    
-    
-    public void desp(Nodo r, String n)
-    {
-        if (r!= null)
-        {
-            Nodo aux = r.getSiguiente();
-            do
-            {
-                
-                if (aux.getArriba()==null)
-                {
-                    System.out.println(n+aux.getEtiqueta()+"\n");
-                }else
-                {
-                    System.out.println(n+aux.getEtiqueta()+"\tle pertenece a: "+aux.getArriba().getEtiqueta()+"\n");
-                }
-                desp(aux.getAbajo(), n+"\t");
-                aux=aux.getSiguiente();
-            } while (aux!=r.getSiguiente());
         }
     }
 }

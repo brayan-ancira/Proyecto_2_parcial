@@ -8,21 +8,22 @@ import java.io.Serializable;
 
 /**
  *
- * @author vllnm
+ * @author Mauro S S
  */
-public class Nodo <T> implements Serializable 
+public class Nodo<T> implements Serializable
 {
-    private T obj; 
-    private String etiqueta;
-    private Nodo siguiente;
-    private Nodo anterior;
-    private Nodo abajo;
-    private Nodo arriba;
 
-    public Nodo(T obj, String etiqueta)
+    private T obj;
+    private String et;
+    private Nodo arb;
+    private Nodo sig;
+    private Nodo ant;
+    private Nodo abj;
+
+    public Nodo(T obj, String et)
     {
         this.obj = obj;
-        this.etiqueta = etiqueta;
+        this.et = et;
     }
 
     /**
@@ -31,6 +32,36 @@ public class Nodo <T> implements Serializable
     public T getObj()
     {
         return obj;
+    }
+
+    public Nodo getArb()
+    {
+        return arb;
+    }
+
+    public void setArb(Nodo arb)
+    {
+        this.arb = arb;
+    }
+
+    public Nodo getAnt()
+    {
+        return ant;
+    }
+
+    public void setAnt(Nodo ant)
+    {
+        this.ant = ant;
+    }
+
+    public Nodo getAbj()
+    {
+        return abj;
+    }
+
+    public void setAbj(Nodo abj)
+    {
+        this.abj = abj;
     }
 
     /**
@@ -42,91 +73,34 @@ public class Nodo <T> implements Serializable
     }
 
     /**
-     * @return the etiqueta
+     * @return the et
      */
-    public String getEtiqueta()
+    public String getEt()
     {
-        return etiqueta;
+        return et;
     }
 
     /**
-     * @param etiqueta the etiqueta to set
+     * @param et the et to set
      */
-    public void setEtiqueta(String etiqueta)
+    public void setEt(String et)
     {
-        this.etiqueta = etiqueta;
+        this.et = et;
     }
 
     /**
-     * @return the siguiente
+     * @return the sig
      */
-    public Nodo getSiguiente()
+    public Nodo getSig()
     {
-        return siguiente;
+        return sig;
     }
 
     /**
-     * @param siguiente the siguiente to set
+     * @param sig the sig to set
      */
-    public void setSiguiente(Nodo siguiente)
+    public void setSig(Nodo sig)
     {
-        this.siguiente = siguiente;
+        this.sig = sig;
     }
-
-    @Override
-    public String toString()
-    {
-        //
-        return "Nodo{" + "obj=" + getObj().toString() + ", etiqueta=" + getEtiqueta() + '}';
-    }
-
-    /**
-     * @return the anterior
-     */
-    public Nodo getAnterior()
-    {
-        return anterior;
-    }
-
-    /**
-     * @param anterior the anterior to set
-     */
-    public void setAnterior(Nodo anterior)
-    {
-        this.anterior = anterior;
-    }
-
-    /**
-     * @return the abajo
-     */
-    public Nodo getAbajo()
-    {
-        return abajo;
-    }
-
-    /**
-     * @param abajo the abajo to set
-     */
-    public void setAbajo(Nodo abajo)
-    {
-        this.abajo = abajo;
-    }
-
-    /**
-     * @return the arriba
-     */
-    public Nodo getArriba()
-    {
-        return arriba;
-    }
-
-    /**
-     * @param arriba the arriba to set
-     */
-    public void setArriba(Nodo arriba)
-    {
-        this.arriba = arriba;
-    }
-    
-    
 }
