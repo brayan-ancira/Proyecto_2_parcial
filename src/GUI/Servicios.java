@@ -17,6 +17,13 @@ public class Servicios implements Serializable
     private int precio;
     private String capacidad;
 
+    public Servicios(String nom, int precio, String capacidad)
+    {
+        this.nom = nom;
+        this.precio = precio;
+        this.capacidad = capacidad;
+    }
+    
     public String getNom()
     {
         return nom;

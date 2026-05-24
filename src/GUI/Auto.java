@@ -16,8 +16,16 @@ public class Auto implements Serializable
 
     private String placas;
     private String modelo;
-    private Date anio;
+    private String anio;
     private Date fechaIngreso;
+
+    public Auto(String placas, String modelo, String anio, Date fechaIngreso)
+    {
+        this.placas = placas;
+        this.modelo = modelo;
+        this.anio = anio;
+        this.fechaIngreso = fechaIngreso;
+    }
 
     public String getPlacas()
     {
@@ -49,12 +57,12 @@ public class Auto implements Serializable
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Date getAnio()
+    public String getAnio()
     {
         return anio;
     }
 
-    public void setAnio(Date anio)
+    public void setAnio(String anio)
     {
         this.anio = anio;
     }
