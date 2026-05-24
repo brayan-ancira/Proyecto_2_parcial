@@ -77,12 +77,12 @@ public class MenuPrincipal extends javax.swing.JFrame
         jTextField1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         CompServ = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        jBComServ = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jComboBoxComparaServ = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        JTtablaComparar = new javax.swing.JTable();
         Lib_Serv = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jButtonElimFech = new javax.swing.JButton();
@@ -168,6 +168,9 @@ public class MenuPrincipal extends javax.swing.JFrame
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter()
@@ -340,11 +343,11 @@ public class MenuPrincipal extends javax.swing.JFrame
 
         jTabbedPane1.addTab("Localizar tu Auto", L_Auto);
 
-        jButton2.setBackground(new java.awt.Color(37, 103, 236));
-        jButton2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Comparar");
-        jButton2.addActionListener(this::jButton2ActionPerformed);
+        jBComServ.setBackground(new java.awt.Color(37, 103, 236));
+        jBComServ.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
+        jBComServ.setForeground(new java.awt.Color(255, 255, 255));
+        jBComServ.setText("Comparar");
+        jBComServ.addActionListener(this::jBComServActionPerformed);
 
         jLabel2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 18)); // NOI18N
         jLabel2.setText("Comparar Servicios");
@@ -353,7 +356,7 @@ public class MenuPrincipal extends javax.swing.JFrame
 
         jComboBoxComparaServ.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        JTtablaComparar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
                 {null, null, null, null},
@@ -363,10 +366,10 @@ public class MenuPrincipal extends javax.swing.JFrame
             },
             new String []
             {
-                "Marca", "Ciudad", "Sucursal", "Precio"
+                "Marca", "Servicio", "Sucursal", "Precio"
             }
         ));
-        jScrollPane1.setViewportView(jTable2);
+        jScrollPane1.setViewportView(JTtablaComparar);
 
         javax.swing.GroupLayout CompServLayout = new javax.swing.GroupLayout(CompServ);
         CompServ.setLayout(CompServLayout);
@@ -383,7 +386,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                         .addGap(94, 94, 94)
                         .addComponent(jComboBoxComparaServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(jBComServ)
                         .addGap(40, 40, 40))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CompServLayout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
@@ -399,7 +402,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                 .addGroup(CompServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jComboBoxComparaServ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBComServ, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(84, Short.MAX_VALUE))
@@ -1039,20 +1042,42 @@ public class MenuPrincipal extends javax.swing.JFrame
         ));
         jScrollPane3.setViewportView(jTable1);
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+
+        jButton3.setBackground(new java.awt.Color(153, 0, 255));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Buscar");
+        jButton3.addActionListener(this::jButton3ActionPerformed);
+
+        jLabel31.setText("Marca");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jLabel31)
+                .addGap(58, 58, 58)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(77, 77, 77))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3)
+                    .addComponent(jLabel31))
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1106,10 +1131,11 @@ public class MenuPrincipal extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxServiciosActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton2ActionPerformed
-    {//GEN-HEADEREND:event_jButton2ActionPerformed
+    private void jBComServActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jBComServActionPerformed
+    {//GEN-HEADEREND:event_jBComServActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        compararServicios();
+    }//GEN-LAST:event_jBComServActionPerformed
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonNuevoActionPerformed
     {//GEN-HEADEREND:event_jButtonNuevoActionPerformed
@@ -1389,6 +1415,11 @@ public class MenuPrincipal extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jCBMarcasSeActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton3ActionPerformed
+    {//GEN-HEADEREND:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1497,6 +1528,66 @@ public class MenuPrincipal extends javax.swing.JFrame
             marca = marca.getSig();
         }
     }
+    
+    public void compararServicios()
+{
+    DefaultTableModel modelo =
+            (DefaultTableModel) JTtablaComparar.getModel();
+
+    
+    modelo.setRowCount(0);
+
+    
+    if (jComboBoxComparaServ.getSelectedItem() == null)
+    {
+        JOptionPane.showMessageDialog(null,
+                "Seleccione un servicio");
+
+        return;
+    }
+
+    String servicioSeleccionado =
+            jComboBoxComparaServ.getSelectedItem().toString();
+
+    Nodo marca = datos.getMultilista().getR();
+
+    while (marca != null)
+    {
+        Nodo servicio = marca.getAbj();
+
+        while (servicio != null)
+        {
+            
+            Servicios serv = (Servicios) servicio.getObj();
+
+            
+            if (serv.getNom().equalsIgnoreCase(servicioSeleccionado))
+            {
+                Nodo sucursal = servicio.getAbj();
+
+                while (sucursal != null)
+                {
+                    
+                    Sucursal s =
+                            (Sucursal) sucursal.getObj();
+
+                    modelo.addRow(new Object[]{
+                        marca.getEt(),     // Marca
+                        s.getDir(),        // Ciudad
+                        s.getNom(),        // Sucursal
+                        serv.getPrecio()   // Precio
+                    });
+
+                    sucursal = sucursal.getSig();
+                }
+            }
+
+            servicio = servicio.getSig();
+        }
+
+        marca = marca.getSig();
+    }
+}
 
     public static void main(String args[])
     {
@@ -1514,11 +1605,13 @@ public class MenuPrincipal extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnBuscar;
     private javax.swing.JPanel CompServ;
+    private javax.swing.JTable JTtablaComparar;
     private javax.swing.JPanel L_Auto;
     private javax.swing.JPanel L_Serv;
     private javax.swing.JPanel Lib_Serv;
+    private javax.swing.JButton jBComServ;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonElimFech;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonEliminar1;
@@ -1553,6 +1646,7 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JComboBox<String> jCLiberarAutoDia1;
     private javax.swing.JComboBox<String> jCLiberarAutoMes;
     private javax.swing.JComboBox<String> jCLiberarAutoMes1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1583,6 +1677,7 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1608,7 +1703,6 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneInicio;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldAnioA;
     private javax.swing.JTextField jTextFieldModeloA;
