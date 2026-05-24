@@ -6,9 +6,10 @@ package GUI;
 
 import java.io.Serializable;
 
-/**
- *
- * @author Mauro S S
+
+
+ /* @author Mauro S S
+
  */
 public class MultiLista implements Serializable
 {
@@ -23,13 +24,11 @@ public class MultiLista implements Serializable
         return r;
     }
 
-    /**
-     * @param r the r to set
-     */
     public void setR(Nodo r)
     {
         this.r = r;
     }
+
 
     public Nodo inserta(Nodo n, String c[], int nivel, Nodo r)
     {
@@ -55,6 +54,7 @@ public class MultiLista implements Serializable
             return r;
         }
     }
+
 
     public Nodo busca(Nodo r, String et)
     {
