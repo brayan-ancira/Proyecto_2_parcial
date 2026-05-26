@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package GUI;
+package clases;
 
 import java.io.Serializable;
 
@@ -10,12 +10,12 @@ import java.io.Serializable;
  *
  * @author artea
  */
-public class Marca implements Serializable
+public class Ciudad implements Serializable
 {
 
     private String nom;
 
-    public Marca(String nom)
+    public Ciudad(String nom)
     {
         this.nom = nom;
     }

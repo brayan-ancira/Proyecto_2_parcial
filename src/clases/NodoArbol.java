@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package GUI;
+package clases;
 
 import java.io.Serializable;
 
@@ -17,7 +17,7 @@ public class NodoArbol implements Serializable
     private Object obj;
     private NodoArbol izq;
     private NodoArbol der;
-    Nodo nodo;
+    private Nodo nodo;
 
     public NodoArbol()
     {
@@ -84,5 +84,7 @@ public class NodoArbol implements Serializable
     {
         this.nodo = nodo;
     }
+
+
 
 }

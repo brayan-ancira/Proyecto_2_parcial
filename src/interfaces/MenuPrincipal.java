@@ -2,8 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI;
+package interfaces;
 
+import clases.Validaciones;
+import clases.TablaHash;
+import clases.Sucursal;
+import clases.Servicios;
+import clases.NodoArbol;
+import clases.Nodo;
+import clases.MultiLista;
+import clases.Marca;
+import clases.ManipulaArchivos;
+import clases.Datos;
+import clases.Ciudad;
+import clases.Auto;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -31,6 +43,7 @@ public class MenuPrincipal extends javax.swing.JFrame
         initComponents();
 
         comboFechas();
+
         MostrarmensajeB(null);
     }
 
@@ -76,8 +89,10 @@ public class MenuPrincipal extends javax.swing.JFrame
         L_Auto = new javax.swing.JPanel();
         jLabelBucarAut = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jTFBuscarAuto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tABuscarAuto = new javax.swing.JTextArea();
         CompServ = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -91,6 +106,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         jCLiberarAutoDia = new javax.swing.JComboBox<>();
         jCLiberarAutoMes = new javax.swing.JComboBox<>();
         jCLiberarAutoAnio = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tAAutosEliminados = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         mensajesBien = new javax.swing.JLabel();
         jTabbedPaneInicio = new javax.swing.JTabbedPane();
@@ -117,6 +134,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         jCBCiudadA = new javax.swing.JComboBox<>();
         jCBSucursalA = new javax.swing.JComboBox<>();
         jCBServicioA = new javax.swing.JComboBox<>();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTAAuto = new javax.swing.JTextArea();
         jPanelServicio = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -134,6 +153,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         jLabel21 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jCBCiudadS = new javax.swing.JComboBox<>();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTAServicio = new javax.swing.JTextArea();
         jPanelSucursal = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -152,6 +173,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTASucursal = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jTFCiudad = new javax.swing.JTextField();
@@ -162,6 +185,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         jLabel18 = new javax.swing.JLabel();
         jCBMarca = new javax.swing.JComboBox<>();
         jLabel30 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTACiudad = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jTMarca = new javax.swing.JTextField();
@@ -170,10 +195,10 @@ public class MenuPrincipal extends javax.swing.JFrame
         jButtonMod5 = new javax.swing.JButton();
         jButtonEliminar5 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTAMarca = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {
             public void windowClosing(java.awt.event.WindowEvent evt)
@@ -200,6 +225,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         jComboBoxServicios.addActionListener(this::jComboBoxServiciosActionPerformed);
 
         jLabelMarca.setText("Marca");
+
+        jCBMarcasLS.addActionListener(this::jCBMarcasLSActionPerformed);
 
         BtnBuscar.setBackground(new java.awt.Color(37, 103, 236));
         BtnBuscar.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
@@ -274,8 +301,8 @@ public class MenuPrincipal extends javax.swing.JFrame
                 .addGroup(L_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(L_ServLayout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(0, 287, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE))
+                        .addGap(0, 593, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(L_ServLayout.createSequentialGroup()
                 .addGap(83, 83, 83)
@@ -304,42 +331,54 @@ public class MenuPrincipal extends javax.swing.JFrame
         jButton1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Buscar mi auto");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jLabel4.setFont(new java.awt.Font("Microsoft Tai Le", 1, 18)); // NOI18N
         jLabel4.setText("Buscar autos por placa");
+
+        tABuscarAuto.setColumns(20);
+        tABuscarAuto.setRows(5);
+        jScrollPane4.setViewportView(tABuscarAuto);
 
         javax.swing.GroupLayout L_AutoLayout = new javax.swing.GroupLayout(L_Auto);
         L_Auto.setLayout(L_AutoLayout);
         L_AutoLayout.setHorizontalGroup(
             L_AutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(L_AutoLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(L_AutoLayout.createSequentialGroup()
                 .addGroup(L_AutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(L_AutoLayout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(jButton1))
                     .addGroup(L_AutoLayout.createSequentialGroup()
                         .addGap(202, 202, 202)
                         .addGroup(L_AutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelBucarAut, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 205, Short.MAX_VALUE))
-            .addGroup(L_AutoLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jTFBuscarAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(L_AutoLayout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jButton1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87))
         );
         L_AutoLayout.setVerticalGroup(
             L_AutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(L_AutoLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel4)
-                .addGap(81, 81, 81)
-                .addComponent(jLabelBucarAut, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jButton1)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addGroup(L_AutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(L_AutoLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jLabelBucarAut, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTFBuscarAuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))
+                    .addGroup(L_AutoLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Localizar tu Auto", L_Auto);
@@ -355,7 +394,7 @@ public class MenuPrincipal extends javax.swing.JFrame
 
         jLabel3.setText("Servicio");
 
-        jComboBoxComparaServ.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxComparaServ.addActionListener(this::jComboBoxComparaServActionPerformed);
 
         JTtablaComparar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -389,9 +428,9 @@ public class MenuPrincipal extends javax.swing.JFrame
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addGap(40, 40, 40))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CompServLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(CompServLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
                 .addGap(19, 19, 19))
         );
         CompServLayout.setVerticalGroup(
@@ -406,7 +445,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Comparar Servicios", CompServ);
@@ -418,6 +457,10 @@ public class MenuPrincipal extends javax.swing.JFrame
         jButtonElimFech.setForeground(new java.awt.Color(255, 255, 255));
         jButtonElimFech.setText("Eliminar");
         jButtonElimFech.addActionListener(this::jButtonElimFechActionPerformed);
+
+        tAAutosEliminados.setColumns(20);
+        tAAutosEliminados.setRows(5);
+        jScrollPane3.setViewportView(tAAutosEliminados);
 
         javax.swing.GroupLayout Lib_ServLayout = new javax.swing.GroupLayout(Lib_Serv);
         Lib_Serv.setLayout(Lib_ServLayout);
@@ -438,21 +481,28 @@ public class MenuPrincipal extends javax.swing.JFrame
                     .addGroup(Lib_ServLayout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(87, 87, 87)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
         Lib_ServLayout.setVerticalGroup(
             Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Lib_ServLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addGroup(Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCLiberarAutoDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCLiberarAutoMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCLiberarAutoAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonElimFech)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addGroup(Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Lib_ServLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addGroup(Lib_ServLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCLiberarAutoDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCLiberarAutoMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCLiberarAutoAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonElimFech))
+                    .addGroup(Lib_ServLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Liberar tu Auto", Lib_Serv);
@@ -516,6 +566,13 @@ public class MenuPrincipal extends javax.swing.JFrame
 
         jCBSucursalA.addActionListener(this::jCBSucursalAActionPerformed);
 
+        jCBServicioA.addActionListener(this::jCBServicioAActionPerformed);
+
+        jTAAuto.setEditable(false);
+        jTAAuto.setColumns(20);
+        jTAAuto.setRows(5);
+        jScrollPane9.setViewportView(jTAAuto);
+
         javax.swing.GroupLayout jPanelInAutLayout = new javax.swing.GroupLayout(jPanelInAut);
         jPanelInAut.setLayout(jPanelInAutLayout);
         jPanelInAutLayout.setHorizontalGroup(
@@ -531,6 +588,13 @@ public class MenuPrincipal extends javax.swing.JFrame
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelInAutLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonGuardar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonMod)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonEliminar))
                     .addGroup(jPanelInAutLayout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -550,20 +614,15 @@ public class MenuPrincipal extends javax.swing.JFrame
                             .addComponent(jCBSucursalA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCBServicioA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanelInAutLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonGuardar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonMod)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonEliminar))
-                    .addGroup(jPanelInAutLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jCIngresarAutoDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
                         .addComponent(jCIngresarAutoMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(jCIngresarAutoAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
         jPanelInAutLayout.setVerticalGroup(
             jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -607,7 +666,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                 .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(jCBServicioA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelInAutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jCIngresarAutoDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -620,7 +679,11 @@ public class MenuPrincipal extends javax.swing.JFrame
                     .addComponent(jButtonGuardar)
                     .addComponent(jButtonMod)
                     .addComponent(jButtonEliminar))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
+            .addGroup(jPanelInAutLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneInicio.addTab("Autos", jPanelInAut);
@@ -647,6 +710,8 @@ public class MenuPrincipal extends javax.swing.JFrame
                 jTextFieldServicioPrecKeyTyped(evt);
             }
         });
+
+        jTextFieldServicioCap.addActionListener(this::jTextFieldServicioCapActionPerformed);
 
         jButtonMod1.setBackground(new java.awt.Color(204, 204, 0));
         jButtonMod1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
@@ -675,11 +740,18 @@ public class MenuPrincipal extends javax.swing.JFrame
 
         jCBMarcasSe.addActionListener(this::jCBMarcasSeActionPerformed);
 
+        jCBSucursal.addActionListener(this::jCBSucursalActionPerformed);
+
         jLabel21.setText("Sucursal");
 
         jLabel24.setText("Ciudad");
 
         jCBCiudadS.addActionListener(this::jCBCiudadSActionPerformed);
+
+        jTAServicio.setEditable(false);
+        jTAServicio.setColumns(20);
+        jTAServicio.setRows(5);
+        jScrollPane5.setViewportView(jTAServicio);
 
         javax.swing.GroupLayout jPanelServicioLayout = new javax.swing.GroupLayout(jPanelServicio);
         jPanelServicio.setLayout(jPanelServicioLayout);
@@ -718,41 +790,48 @@ public class MenuPrincipal extends javax.swing.JFrame
                                 .addComponent(jCBMarcasSe, javax.swing.GroupLayout.Alignment.LEADING, 0, 97, Short.MAX_VALUE)
                                 .addComponent(jCBCiudadS, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jCBSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(99, 99, 99))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         jPanelServicioLayout.setVerticalGroup(
             jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelServicioLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(jCBMarcasSe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(jCBCiudadS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCBSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jTextFieldServicioNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextFieldServicioPrec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextFieldServicioCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonNuevo1)
-                    .addComponent(jButtonGuardar1)
-                    .addComponent(jButtonMod1)
-                    .addComponent(jButtonEliminar1))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelServicioLayout.createSequentialGroup()
+                .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelServicioLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelServicioLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(jCBMarcasSe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(jCBCiudadS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCBSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel21))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(jTextFieldServicioNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jTextFieldServicioPrec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jTextFieldServicioCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonNuevo1)
+                            .addComponent(jButtonGuardar1)
+                            .addComponent(jButtonMod1)
+                            .addComponent(jButtonEliminar1))))
                 .addGap(55, 55, 55))
         );
 
@@ -819,6 +898,8 @@ public class MenuPrincipal extends javax.swing.JFrame
 
         jLabel23.setText("Marca");
 
+        jCBCiudad.addActionListener(this::jCBCiudadActionPerformed);
+
         jCBMarcasS.addActionListener(this::jCBMarcasSActionPerformed);
 
         jLabel31.setForeground(new java.awt.Color(102, 102, 102));
@@ -830,49 +911,55 @@ public class MenuPrincipal extends javax.swing.JFrame
         jLabel33.setForeground(new java.awt.Color(102, 102, 102));
         jLabel33.setText("max  20 caracteres");
 
+        jTASucursal.setEditable(false);
+        jTASucursal.setColumns(20);
+        jTASucursal.setRows(5);
+        jScrollPane6.setViewportView(jTASucursal);
+
         javax.swing.GroupLayout jPanelSucursalLayout = new javax.swing.GroupLayout(jPanelSucursal);
         jPanelSucursal.setLayout(jPanelSucursalLayout);
         jPanelSucursalLayout.setHorizontalGroup(
             jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSucursalLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
                 .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelSucursalLayout.createSequentialGroup()
-                            .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel16)
-                                .addComponent(jLabel14)
-                                .addComponent(jLabel22))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTFSucRes, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
-                                .addComponent(jCBMarcasS, 0, 299, Short.MAX_VALUE)
-                                .addComponent(jCBCiudad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTFSucDir)
-                                .addComponent(jTFSucNom, javax.swing.GroupLayout.Alignment.TRAILING))))
                     .addGroup(jPanelSucursalLayout.createSequentialGroup()
-                        .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel33)
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelSucursalLayout.createSequentialGroup()
+                                    .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel16)
+                                        .addComponent(jLabel14)
+                                        .addComponent(jLabel22))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTFSucRes, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                                        .addComponent(jCBMarcasS, 0, 299, Short.MAX_VALUE)
+                                        .addComponent(jCBCiudad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTFSucDir)
+                                        .addComponent(jTFSucNom, javax.swing.GroupLayout.Alignment.TRAILING))))
                             .addGroup(jPanelSucursalLayout.createSequentialGroup()
-                                .addComponent(jButtonNuevo2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonGuardar2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonMod2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonEliminar2)))
-                .addContainerGap(76, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSucursalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSucursalLayout.createSequentialGroup()
-                        .addComponent(jLabel31)
-                        .addGap(189, 189, 189))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSucursalLayout.createSequentialGroup()
-                        .addComponent(jLabel32)
-                        .addGap(191, 191, 191))))
+                                .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel33)
+                                    .addGroup(jPanelSucursalLayout.createSequentialGroup()
+                                        .addComponent(jButtonNuevo2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButtonGuardar2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButtonMod2)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonEliminar2))))
+                    .addGroup(jPanelSucursalLayout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(jLabel31))
+                    .addGroup(jPanelSucursalLayout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addComponent(jLabel32)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         jPanelSucursalLayout.setVerticalGroup(
             jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -889,9 +976,9 @@ public class MenuPrincipal extends javax.swing.JFrame
                 .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jTFSucNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel31)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(9, 9, 9)
                 .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTFSucDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
@@ -903,13 +990,17 @@ public class MenuPrincipal extends javax.swing.JFrame
                     .addComponent(jTFSucRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(jPanelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonNuevo2)
                     .addComponent(jButtonGuardar2)
                     .addComponent(jButtonMod2)
                     .addComponent(jButtonEliminar2))
                 .addGap(36, 36, 36))
+            .addGroup(jPanelSucursalLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneInicio.addTab("Sucursal", jPanelSucursal);
@@ -957,9 +1048,15 @@ public class MenuPrincipal extends javax.swing.JFrame
                 jCBMarcaMouseClicked(evt);
             }
         });
+        jCBMarca.addActionListener(this::jCBMarcaActionPerformed);
 
         jLabel30.setForeground(new java.awt.Color(102, 102, 102));
         jLabel30.setText("40 caracteres maximo");
+
+        jTACiudad.setEditable(false);
+        jTACiudad.setColumns(20);
+        jTACiudad.setRows(5);
+        jScrollPane7.setViewportView(jTACiudad);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -992,7 +1089,9 @@ public class MenuPrincipal extends javax.swing.JFrame
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(149, 149, 149)
                         .addComponent(jLabel30)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1007,13 +1106,17 @@ public class MenuPrincipal extends javax.swing.JFrame
                     .addComponent(jTFCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel30)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonNuevo3)
                     .addComponent(jButtonGuardar3)
                     .addComponent(jButtonMod3)
                     .addComponent(jButtonEliminar3))
                 .addGap(79, 79, 79))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneInicio.addTab("Ciudad", jPanel1);
@@ -1055,30 +1158,40 @@ public class MenuPrincipal extends javax.swing.JFrame
         jLabel29.setForeground(new java.awt.Color(102, 102, 102));
         jLabel29.setText("20 caracteres maximo");
 
+        jTAMarca.setEditable(false);
+        jTAMarca.setColumns(20);
+        jTAMarca.setRows(5);
+        jScrollPane8.setViewportView(jTAMarca);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jButtonNuevo5)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonGuardar5)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonMod5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonEliminar5)
-                .addContainerGap(96, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel29)
-                .addGap(166, 166, 166))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(jButtonNuevo5))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel19)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jButtonGuardar5)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonMod5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonEliminar5))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(jLabel29)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1089,29 +1202,20 @@ public class MenuPrincipal extends javax.swing.JFrame
                     .addComponent(jTMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel29)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonNuevo5)
                     .addComponent(jButtonGuardar5)
                     .addComponent(jButtonMod5)
                     .addComponent(jButtonEliminar5))
                 .addGap(79, 79, 79))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneInicio.addTab("Marca", jPanel3);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 318, Short.MAX_VALUE)
-        );
-
-        jTabbedPaneInicio.addTab("Pruebas", jPanel4);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1143,14 +1247,14 @@ public class MenuPrincipal extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -1164,7 +1268,90 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton2ActionPerformed
     {//GEN-HEADEREND:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+
+        if (jComboBoxComparaServ.getSelectedItem() == null)
+        {
+            muestraMensaje("Selecciona un servicio");
+            return;
+        }
+
+        String servicioBuscado = jComboBoxComparaServ.getSelectedItem().toString();
+
+        DefaultTableModel modelo = (DefaultTableModel) JTtablaComparar.getModel();
+
+        modelo.setRowCount(0);
+
+        ArrayList<Object[]> filas = new ArrayList<>();
+
+        Nodo marca = datos.getMultilista().getR();
+
+        while (marca != null)
+        {
+            String nomMarca = marca.getEt();
+
+            Nodo ciudad = marca.getAbj();
+
+            while (ciudad != null)
+            {
+                String nomCiudad = ciudad.getEt();
+
+                Nodo sucursal = ciudad.getAbj();
+
+                while (sucursal != null)
+                {
+                    String nomSucursal = sucursal.getEt();
+
+                    Nodo servicio = sucursal.getAbj();
+
+                    while (servicio != null)
+                    {
+                        String nomServicio = servicio.getEt();
+
+                        if (nomServicio.equals(servicioBuscado))
+                        {
+                            Servicios serv = (Servicios) servicio.getObj();
+
+                            int precio = serv.getPrecio();
+
+                            filas.add(new Object[]
+                            {
+                                nomMarca,
+                                nomCiudad,
+                                nomSucursal,
+                                precio
+                            });
+                        }
+
+                        servicio = servicio.getSig();
+                    }
+
+                    sucursal = sucursal.getSig();
+                }
+
+                ciudad = ciudad.getSig();
+            }
+
+            marca = marca.getSig();
+        }
+
+        filas.sort((a, b)
+                -> Integer.compare(
+                        (int) a[3],
+                        (int) b[3]
+                )
+        );
+
+        for (Object[] fila : filas)
+        {
+            modelo.addRow(fila);
+        }
+
+        if (filas.isEmpty())
+        {
+            muestraMensaje("No se encontraron coincidencias");
+        }
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonNuevoActionPerformed
@@ -1180,6 +1367,7 @@ public class MenuPrincipal extends javax.swing.JFrame
         int mes = Integer.parseInt(jCIngresarAutoMes.getSelectedItem().toString());
         int aniof = Integer.parseInt(jCIngresarAutoAnio.getSelectedItem().toString());
         Date fechaIngreso = new Date(aniof - 1900, mes - 1, dia);
+
         if (nom.isEmpty())
         {
             muestraMensaje("Por favor selecciona una marca");
@@ -1195,6 +1383,9 @@ public class MenuPrincipal extends javax.swing.JFrame
         } else if (!Validaciones.validaPlacas(placa))
         {
             muestraMensaje("Ingresa la placa correctamente");
+        } else if (!anio.matches("\\d{4}"))
+        {
+            muestraMensaje("El año debe contener 4 números");
         } else
         {
             Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
@@ -1203,69 +1394,161 @@ public class MenuPrincipal extends javax.swing.JFrame
                 muestraMensaje("Marca no encontrada");
                 return;
             }
-
             Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomC);
             if (ciudad == null)
             {
                 muestraMensaje("Ciudad no encontrada");
                 return;
             }
-
             Nodo nSucursal = datos.getMultilista().busca(ciudad.getAbj(), nomS);
             if (nSucursal == null)
             {
                 muestraMensaje("Sucursal no encontrada");
                 return;
             }
-
             Nodo servicio = datos.getMultilista().busca(nSucursal.getAbj(), nomSe);
             if (servicio == null)
             {
                 muestraMensaje("Servicio no encontrado");
                 return;
             }
+            Servicios serv = (Servicios) servicio.getObj();
+            int capacidad = Integer.parseInt(serv.getCapacidad());
+            int autosTot = contarAutos(servicio.getAbj());
 
-            if (!validaPorNivel(servicio.getAbj(), placa))
+            if (autosTot >= capacidad)
             {
-                muestraMensaje("El auto con placa " + placa + " ya existe en este servicio");
+                muestraMensaje("No hay cupo disponible, capacidad: " + capacidad
+                        + ", autos registrados: " + autosTot);
             } else
             {
-
-                Nodo auto = new Nodo(new Auto(placa, modelo, anio, fechaIngreso), placa);
-                String[] nivel =
+                if (!validaPorNivel(servicio.getAbj(), placa))
                 {
-                    nom, nomC, nomS, nomSe, placa
-                };
+                    muestraMensaje("El auto con placa " + placa + " ya existe en este servicio");
+                } else
+                {
+                    Nodo auto = new Nodo(new Auto(placa, modelo, anio, fechaIngreso), placa);
+                    String[] nivel =
+                    {
+                        nom, nomC, nomS, nomSe, placa
+                    };
 
-                datos.getMultilista().setR(
-                        datos.getMultilista().inserta(auto, nivel, 0, datos.getMultilista().getR())
-                );
+                    datos.getMultilista().setR(
+                            datos.getMultilista().inserta(auto, nivel, 0, datos.getMultilista().getR())
+                    );
 
-                Nodo nodoML = datos.getMultilista().busca(servicio.getAbj(), placa);
-                NodoArbol hash = new NodoArbol(placa, auto.getObj());
-                hash.nodo = nodoML;
+                    Nodo nodoML = datos.getMultilista().busca(servicio.getAbj(), placa);
+                    NodoArbol hash = new NodoArbol(placa, auto.getObj());
+                    hash.setNodo(nodoML);
+                    datos.getHash().inserta(hash);
 
-                datos.getHash().inserta(hash);
-
-                muestraMensaje("Auto agregado correctamente");
-                jTextFieldPlacaA.setText("");
-                jTextFieldModeloA.setText("");
-                jTextFieldAnioA.setText("");
-                actualizaTodo();
-
+                    muestraMensaje("Auto agregado correctamente, cupo restante: "
+                            + (capacidad - autosTot - 1));
+                    jTextFieldPlacaA.setText("");
+                    jTextFieldModeloA.setText("");
+                    jTextFieldAnioA.setText("");
+                    actualizaTodo();
+                }
             }
         }
     }//GEN-LAST:event_jButtonNuevoActionPerformed
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BtnBuscarActionPerformed
     {//GEN-HEADEREND:event_BtnBuscarActionPerformed
-        // TODO add your handling code here:
+        if (jCBMarcasLS.getSelectedItem() == null || jComboBoxServicios.getSelectedItem() == null)
+        {
+            muestraMensaje("Selecciona una marca y/o un servicio");
+            return;
+        }
 
+        String nmbrMarca = jCBMarcasLS.getSelectedItem().toString();
+        String nmbrServicio = jComboBoxServicios.getSelectedItem().toString();
+
+        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+
+        Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nmbrMarca);
+        if (marca == null)
+        {
+            muestraMensaje("Marca no encontrada");
+            return;
+        }
+        Nodo ciudad = marca.getAbj();
+        while (ciudad != null)
+        {
+            Nodo sucursal = ciudad.getAbj();
+            while (sucursal != null)
+            {
+                Nodo servicio = datos.getMultilista().busca(sucursal.getAbj(), nmbrServicio);
+                if (servicio != null)
+                {
+                    Servicios serv = (Servicios) servicio.getObj();
+                    Sucursal suc = (Sucursal) sucursal.getObj();
+                    int autosReg = contarAutos(servicio.getAbj());
+                    int capacidad = Integer.parseInt(serv.getCapacidad());
+                    int cupoDis = capacidad - autosReg;
+                    if (cupoDis > 0)
+                    {
+                        modelo.addRow(new Object[]
+                        {
+                            ciudad.getEt(),
+                            sucursal.getEt(),
+                            capacidad,
+                            cupoDis,
+                            suc.getResponsable()
+                        });
+                    }
+                }
+                sucursal = sucursal.getSig();
+            }
+            ciudad = ciudad.getSig();
+        }
+        if (modelo.getRowCount() == 0)
+        {
+            muestraMensaje("No hay sucursales con ese servicio y cupo disponible");
+        }
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void jButtonElimFechActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonElimFechActionPerformed
     {//GEN-HEADEREND:event_jButtonElimFechActionPerformed
-        // TODO add your handling code here:
+        tAAutosEliminados.setText("");
+        int dia = Integer.parseInt(jCLiberarAutoDia.getSelectedItem().toString());
+        int mes = Integer.parseInt(jCLiberarAutoMes.getSelectedItem().toString());
+        int anio = Integer.parseInt(jCLiberarAutoAnio.getSelectedItem().toString());
+        Date fechaBuscar = new Date(anio - 1900, mes - 1, dia);
+
+        ArrayList<String[]> eliminar = new ArrayList<>();
+        liberarPorFecha(datos.getMultilista().getR(), fechaBuscar, eliminar);
+
+        if (eliminar.isEmpty())
+        {
+            muestraMensaje("No hay autos con esa fecha de ingreso");
+        } else
+        {
+            String rep = "Autos liberados de el " + dia + "/" + mes + "/" + anio + ":\n\n";
+
+            for (String[] ruta : eliminar)
+            {
+                Nodo[] res = datos.getMultilista().elimina(ruta, 0, datos.getMultilista().getR());
+                datos.getMultilista().setR(res[1]);
+
+                if (res[0] != null)
+                {
+                    datos.getHash().elimina(ruta[4]);
+
+                    rep += "Placa:     " + ruta[4] + "\n"
+                            + "Servicio:  " + ruta[3] + "\n"
+                            + "Sucursal:  " + ruta[2] + "\n"
+                            + "Ciudad:    " + ruta[1] + "\n"
+                            + "Marca:     " + ruta[0] + "\n"
+                            + "─────────────────────\n";
+                }
+            }
+
+            tAAutosEliminados.setText(rep);
+            muestraMensaje("Eliminacion exitosa");
+            actualizaTodo();
+        }
     }//GEN-LAST:event_jButtonElimFechActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonGuardarActionPerformed
@@ -1304,6 +1587,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         String nomC = jCBCiudadS.getSelectedItem() != null ? jCBCiudadS.getSelectedItem().toString() : "";
         String nomS = jCBSucursal.getSelectedItem() != null ? jCBSucursal.getSelectedItem().toString() : "";
         String nomSe = jTextFieldServicioNom.getText();
+        String precio = jTextFieldServicioPrec.getText();
+        String capacidad = jTextFieldServicioCap.getText();
 
         if (nom.isEmpty())
         {
@@ -1317,6 +1602,12 @@ public class MenuPrincipal extends javax.swing.JFrame
         } else if (!Validaciones.validaNombre(nomSe))
         {
             muestraMensaje("Ingresa el nombre correctamente (Solo letras)");
+        } else if (!precio.matches("\\d+"))
+        {
+            muestraMensaje("El precio solo debe contener números");
+        } else if (!capacidad.matches("\\d+"))
+        {
+            muestraMensaje("La capacidad solo debe contener números");
         } else
         {
             Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
@@ -1339,6 +1630,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                         datos.getMultilista().inserta(servicio, nivel, 0, datos.getMultilista().getR())
                 );
                 muestraMensaje("Servicio agregado correctamente");
+
                 jTextFieldServicioNom.setText("");
                 jTextFieldServicioPrec.setText("");
                 jTextFieldServicioCap.setText("");
@@ -1357,6 +1649,7 @@ public class MenuPrincipal extends javax.swing.JFrame
         String nom = jCBMarcasS.getSelectedItem() != null ? jCBMarcasS.getSelectedItem().toString() : "";
         String nomC = jCBCiudad.getSelectedItem() != null ? jCBCiudad.getSelectedItem().toString() : "";
         String nomS = jTFSucNom.getText().trim();
+        String responsable = jTFSucRes.getText().trim();
 
         if (nom.isEmpty())
         {
@@ -1371,6 +1664,9 @@ public class MenuPrincipal extends javax.swing.JFrame
                 if (!Validaciones.validaMarca(nomS))
                 {
                     muestraMensaje("Ingresa el nombre correctamente (Solo letras)");
+                } else if (!Validaciones.validaNombre(responsable))
+                {
+                    muestraMensaje("Ingresa el responsable correctamente (Solo letras)");
                 } else
                 {
                     Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
@@ -1621,7 +1917,6 @@ public class MenuPrincipal extends javax.swing.JFrame
     private void jCBMarcasSeActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBMarcasSeActionPerformed
     {//GEN-HEADEREND:event_jCBMarcasSeActionPerformed
         actualizaCombosCiudadesServicio();
-        actualizaCombosSucursal();
     }//GEN-LAST:event_jCBMarcasSeActionPerformed
 
     private void jCBCiudadSActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBCiudadSActionPerformed
@@ -1783,7 +2078,12 @@ public class MenuPrincipal extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jTextFieldAnioAKeyTyped
         if (jTextFieldAnioA.getText().length() > 3)
         {
-            evt.consume();
+            char c = evt.getKeyChar();
+
+            if (!Character.isDigit(c))
+            {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_jTextFieldAnioAKeyTyped
 
@@ -1859,6 +2159,79 @@ public class MenuPrincipal extends javax.swing.JFrame
         }
     }//GEN-LAST:event_jTextFieldServicioPrecKeyTyped
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
+    {//GEN-HEADEREND:event_jButton1ActionPerformed
+        tABuscarAuto.setText("");
+        String placa = jTFBuscarAuto.getText();
+        if (placa.isEmpty())
+        {
+            muestraMensaje("Ingresa una placa");
+            return;
+        }
+        NodoArbol hash = buscaHash(placa);
+
+        if (hash == null || hash.getNodo() == null)
+        {
+            muestraMensaje("No se encontró ningún auto con la placa: " + placa);
+            return;
+        }
+        Nodo auto = hash.getNodo();
+        Nodo servicio = auto.getArb();
+        Nodo sucursal = servicio.getArb();
+        Nodo ciudad = sucursal.getArb();
+        Nodo marca = ciudad.getArb();
+
+        Auto autoo = (Auto) auto.getObj();
+
+        String res
+                = "Placa:     " + autoo.getPlacas() + "\n"
+                + "Modelo:    " + autoo.getModelo() + "\n"
+                + "Año:       " + autoo.getAnio() + "\n"
+                + "Marca:     " + marca.getEt() + "\n"
+                + "Ciudad:    " + ciudad.getEt() + "\n"
+                + "Sucursal:  " + sucursal.getEt() + "\n"
+                + "Servicio:  " + servicio.getEt();
+
+        tABuscarAuto.setText(res);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jCBMarcasLSActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBMarcasLSActionPerformed
+    {//GEN-HEADEREND:event_jCBMarcasLSActionPerformed
+        actualizaComboSLS();
+    }//GEN-LAST:event_jCBMarcasLSActionPerformed
+
+    private void jCBMarcaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBMarcaActionPerformed
+    {//GEN-HEADEREND:event_jCBMarcaActionPerformed
+        actualizaTextACiudades();
+    }//GEN-LAST:event_jCBMarcaActionPerformed
+
+    private void jCBCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBCiudadActionPerformed
+    {//GEN-HEADEREND:event_jCBCiudadActionPerformed
+        actualizaTextASucursal();
+    }//GEN-LAST:event_jCBCiudadActionPerformed
+
+    private void jCBSucursalActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBSucursalActionPerformed
+    {//GEN-HEADEREND:event_jCBSucursalActionPerformed
+        actualizaTextAreaServicio();
+    }//GEN-LAST:event_jCBSucursalActionPerformed
+
+    private void jComboBoxComparaServActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jComboBoxComparaServActionPerformed
+    {//GEN-HEADEREND:event_jComboBoxComparaServActionPerformed
+        // TODO add your handling code here:
+       // actualizaComboComparaServ();
+
+    }//GEN-LAST:event_jComboBoxComparaServActionPerformed
+
+    private void jTextFieldServicioCapActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextFieldServicioCapActionPerformed
+    {//GEN-HEADEREND:event_jTextFieldServicioCapActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldServicioCapActionPerformed
+
+    private void jCBServicioAActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBServicioAActionPerformed
+    {//GEN-HEADEREND:event_jCBServicioAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBServicioAActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1882,7 +2255,13 @@ public class MenuPrincipal extends javax.swing.JFrame
         jCBMarcasSe.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
         jCBMarcasA.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
         jCBMarcasLS.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
+        String texto = "";
+        for (String m : marcas)
+        {
+            texto += "• " + m + "\n";
 
+        }
+        jTAMarca.setText(texto);
     }
 
     public void muestraMensaje(String s)
@@ -1901,6 +2280,28 @@ public class MenuPrincipal extends javax.swing.JFrame
             {
                 ArrayList<String> ciudades = sacarNivel(marca.getAbj());
                 jCBCiudad.setModel(new DefaultComboBoxModel<>(ciudades.toArray(new String[0])));
+                actualizaTextASucursal();
+            }
+        }
+    }
+
+    public void actualizaTextACiudades()
+    {
+        jTACiudad.setText("");
+        if (jCBMarca.getSelectedItem() != null)
+        {
+            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
+                    jCBMarca.getSelectedItem().toString());
+            if (marca != null)
+            {
+                ArrayList<String> ciudades = sacarNivel(marca.getAbj());
+                String texto = "";
+                for (String m : ciudades)
+                {
+                    texto += "• " + m + "\n";
+
+                }
+                jTACiudad.setText(texto);
             }
         }
     }
@@ -1917,6 +2318,115 @@ public class MenuPrincipal extends javax.swing.JFrame
                 jCBCiudadA.setModel(new DefaultComboBoxModel<>(ciudades.toArray(new String[0])));
             }
         }
+    }
+
+    public ArrayList<String> sacarAutos(String nmbrMarca, String nmbrCiudad, String nmbrSucursal, String nmbrServicio)
+    {
+        ArrayList<String> autos = new ArrayList<>();
+
+        Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nmbrMarca);
+        if (marca == null)
+        {
+            return autos;
+        }
+
+        Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nmbrCiudad);
+        if (ciudad == null)
+        {
+            return autos;
+        }
+
+        Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(), nmbrSucursal);
+        if (sucursal == null)
+        {
+            return autos;
+        }
+
+        Nodo servicio = datos.getMultilista().busca(sucursal.getAbj(), nmbrServicio);
+        if (servicio == null)
+        {
+            return autos;
+        }
+
+        autos = sacarNivel(servicio.getAbj());
+        return autos;
+    }
+
+    public void liberarPorFecha(Nodo r, Date fecha, ArrayList<String[]> aEliminar)
+    {
+        if (r != null)
+        {
+            Nodo aux = r;
+            while (aux != null)
+            {
+                if (aux.getAbj() != null)
+                {
+                    liberarPorFecha(aux.getAbj(), fecha, aEliminar);
+                }
+                if (aux.getObj() instanceof Auto)
+                {
+                    Auto auto = (Auto) aux.getObj();
+                    Date fechaAuto = auto.getFechaIngreso();
+                    if (fechaAuto != null
+                            && fechaAuto.getDate() == fecha.getDate()
+                            && fechaAuto.getMonth() == fecha.getMonth()
+                            && fechaAuto.getYear() == fecha.getYear())
+                    {
+                        String[] ruta = construyeRuta(aux);
+                        if (ruta != null)
+                        {
+                            aEliminar.add(ruta);
+                        }
+                    }
+                }
+                aux = aux.getSig();
+            }
+        }
+    }
+
+    public String[] construyeRuta(Nodo auto)
+    {
+        if (auto.getArb() == null)
+        {
+            return null;
+        }
+        Nodo servicio = auto.getArb();
+        if (servicio.getArb() == null)
+        {
+            return null;
+        }
+        Nodo sucursal = servicio.getArb();
+        if (sucursal.getArb() == null)
+        {
+            return null;
+        }
+        Nodo ciudad = sucursal.getArb();
+        if (ciudad.getArb() == null)
+        {
+            return null;
+        }
+        Nodo marca = ciudad.getArb();
+
+        return new String[]
+        {
+            marca.getEt(),
+            ciudad.getEt(),
+            sucursal.getEt(),
+            servicio.getEt(),
+            auto.getEt()
+        };
+    }
+
+    public int contarAutos(Nodo r)
+    {
+        int cont = 0;
+        Nodo aux = r;
+        while (aux != null)
+        {
+            cont++;
+            aux = aux.getSig();
+        }
+        return cont;
     }
 
     public void actualizaComboSucursalAuto()
@@ -1940,6 +2450,7 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     public void actualizaComboServicioAuto()
     {
+        jTAAuto.setText("");
         if (jCBMarcasA.getSelectedItem() != null && jCBCiudadA.getSelectedItem() != null)
         {
             Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
@@ -1948,7 +2459,7 @@ public class MenuPrincipal extends javax.swing.JFrame
             {
                 Nodo ciudad = datos.getMultilista().busca(marca.getAbj(),
                         jCBCiudadA.getSelectedItem().toString());
-                if (ciudad != null)
+                if (ciudad != null && jCBSucursalA.getSelectedItem() != null)
                 {
                     Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(),
                             jCBSucursalA.getSelectedItem().toString());
@@ -1956,10 +2467,65 @@ public class MenuPrincipal extends javax.swing.JFrame
                     {
                         ArrayList<String> servicios = sacarNivel(sucursal.getAbj());
                         jCBServicioA.setModel(new DefaultComboBoxModel<>(servicios.toArray(new String[0])));
+                        if (jCBSucursalA.getSelectedItem() != null && jCBServicioA.getSelectedItem() != null)
+                        {
+                            ArrayList<String> autos = sacarAutos(
+                                    jCBMarcasA.getSelectedItem().toString(),
+                                    jCBCiudadA.getSelectedItem().toString(),
+                                    jCBSucursalA.getSelectedItem().toString(),
+                                    jCBServicioA.getSelectedItem().toString()
+                            );
+                            String texto = "";
+                            for (String a : autos)
+                            {
+                                texto += "• " + a + "\n";
+                            }
+                            jTAAuto.setText(texto);
+                        }
+                    }
+                } else
+                {
+                    jCBServicioA.setSelectedItem(null);
+                }
+            }
+        }
+    }
+
+    public void actualizaTextAreaServicio()
+    {
+        if (jCBMarcasSe.getSelectedItem() != null && jCBCiudadS.getSelectedItem() != null)
+        {
+            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
+                    jCBMarcasSe.getSelectedItem().toString());
+            if (marca != null)
+            {
+                Nodo ciudad = datos.getMultilista().busca(marca.getAbj(),
+                        jCBCiudadS.getSelectedItem().toString());
+                if (ciudad != null)
+                {
+                    if (jCBSucursal.getSelectedItem() != null)
+                    {
+                        Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(),
+                                jCBSucursal.getSelectedItem().toString());
+                        if (sucursal != null)
+                        {
+                            ArrayList<String> servicios = sacarNivel(sucursal.getAbj());
+                            String texto = "";
+                            for (String m : servicios)
+                            {
+                                texto += "• " + m + "\n";
+
+                            }
+                            jTAServicio.setText(texto);
+                        }
+                    } else
+                    {
+                        jTAServicio.setText("");
                     }
                 }
             }
         }
+
     }
 
     public void actualizaTodo()
@@ -1989,6 +2555,12 @@ public class MenuPrincipal extends javax.swing.JFrame
                 }
             }
         }
+        if (jCBMarcasLS.getSelectedItem() != null)
+        {
+            actualizaCombosLS();
+        }
+        
+        actualizaComboComparaServ();
     }
 
     public void actualizaCombosCiudadesServicio()
@@ -2050,8 +2622,94 @@ public class MenuPrincipal extends javax.swing.JFrame
                 {
                     ArrayList<String> sucursales = sacarNivel(ciudad.getAbj());
                     jCBSucursal.setModel(new DefaultComboBoxModel<>(sucursales.toArray(new String[0])));
+                    actualizaTextAreaServicio();
                 }
             }
+        }
+    }
+
+    public void actualizaTextASucursal()
+    {
+        if (jCBMarcasS.getSelectedItem() != null && jCBCiudad.getSelectedItem() != null)
+        {
+            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
+                    jCBMarcasS.getSelectedItem().toString());
+            if (marca != null)
+            {
+                Nodo ciudad = datos.getMultilista().busca(marca.getAbj(),
+                        jCBCiudad.getSelectedItem().toString());
+                if (ciudad != null)
+                {
+                    ArrayList<String> sucursales = sacarNivel(ciudad.getAbj());
+                    String texto = "";
+                    for (String s : sucursales)
+                    {
+                        texto += "• " + s + "\n";
+                    }
+                    jTASucursal.setText(texto);
+                }
+            }
+        }
+    }
+
+    //revisar
+    public void actualizaComboComparaServ()
+    {
+        ArrayList<String> servicios = new ArrayList<>();
+
+        Nodo marca = datos.getMultilista().getR();
+
+        while (marca != null)
+        {
+            Nodo ciudad = marca.getAbj();
+
+            while (ciudad != null)
+            {
+                Nodo sucursal = ciudad.getAbj();
+
+                while (sucursal != null)
+                {
+                    Nodo servicio = sucursal.getAbj();
+
+                    while (servicio != null)
+                    {
+                        String nomServicio = servicio.getEt();
+
+                        if (!servicios.contains(nomServicio))
+                        {
+                            servicios.add(nomServicio);
+                        }
+
+                        servicio = servicio.getSig();
+                    }
+
+                    sucursal = sucursal.getSig();
+                }
+
+                ciudad = ciudad.getSig();
+            }
+
+            marca = marca.getSig();
+        }
+
+        jComboBoxComparaServ.setModel(new DefaultComboBoxModel<>( servicios.toArray(new String[0])));
+    }
+
+    public void actualizaCombosLS()
+    {
+        ArrayList<String> marcas = sacarNivel(datos.getMultilista().getR());
+        jCBMarcasLS.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
+        actualizaComboSLS();
+    }
+
+    public void actualizaComboSLS()
+    {
+        if (jCBMarcasLS.getSelectedItem() != null)
+        {
+            ArrayList<String> servicios = sacarServiciosDeMarca(
+                    jCBMarcasLS.getSelectedItem().toString()
+            );
+            jComboBoxServicios.setModel(new DefaultComboBoxModel<>(servicios.toArray(new String[0])));
         }
     }
 
@@ -2061,60 +2719,64 @@ public class MenuPrincipal extends javax.swing.JFrame
         return valida != null ? false : true;
     }
 
-
-
-    public void compararServicios()
+    public NodoArbol buscaArb(NodoArbol r, String et)
     {
-        DefaultTableModel modelo = (DefaultTableModel) JTtablaComparar.getModel();
-
-        modelo.setRowCount(0);
-
-        if (jComboBoxComparaServ.getSelectedItem() == null)
+        if (r == null)
         {
-            JOptionPane.showMessageDialog(null,"Seleccione un servicio");
-
-            return;
+            return null;
         }
-
-        String servicioSeleccionado = jComboBoxComparaServ.getSelectedItem().toString();
-
-        Nodo marca = datos.getMultilista().getR();
-
-        while (marca != null)
+        if (r.getEtiqueta().equals(et))
         {
-            Nodo servicio = marca.getAbj();
+            return r;
+        }
+        if (et.compareTo(r.getEtiqueta()) < 0)
+        {
+            return buscaArb(r.getIzq(), et);
+        } else
+        {
+            return buscaArb(r.getDer(), et);
+        }
+    }
 
-            while (servicio != null)
+    public NodoArbol buscaHash(String placa)
+    {
+        int pos = datos.getHash().calPeso(placa);
+        if (pos == -1)
+        {
+            return null;
+        }
+        return buscaArb(datos.getHash().getArr()[pos].getR(), placa);
+    }
+
+    public ArrayList<String> sacarServiciosDeMarca(String nmbrMarca)
+    {
+        ArrayList<String> servicios = new ArrayList<>();
+        Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nmbrMarca);
+        if (marca != null)
+        {
+            // Recorrer ciudades
+            Nodo ciudad = marca.getAbj();
+            while (ciudad != null)
             {
-
-                Servicios serv = (Servicios) servicio.getObj();
-
-                if (serv.getNom().equalsIgnoreCase(servicioSeleccionado))
+                Nodo sucursal = ciudad.getAbj();
+                while (sucursal != null)
                 {
-                    Nodo sucursal = servicio.getAbj();
-
-                    while (sucursal != null)
+                    // Recorrer servicios
+                    Nodo servicio = sucursal.getAbj();
+                    while (servicio != null)
                     {
-
-                        Sucursal s = (Sucursal) sucursal.getObj();
-
-                        modelo.addRow(new Object[]
+                        if (!servicios.contains(servicio.getEt()))
                         {
-                            marca.getEt(), // Marca
-                            s.getDir(), 
-                            s.getNom(), 
-                            serv.getPrecio()   
-                        });
-
-                        sucursal = sucursal.getSig();
+                            servicios.add(servicio.getEt());
+                        }
+                        servicio = servicio.getSig();
                     }
+                    sucursal = sucursal.getSig();
                 }
-
-                servicio = servicio.getSig();
+                ciudad = ciudad.getSig();
             }
-
-            marca = marca.getSig();
         }
+        return servicios;
     }
 
     public static void main(String args[])
@@ -2218,13 +2880,25 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanelInAut;
     private javax.swing.JPanel jPanelServicio;
     private javax.swing.JPanel jPanelSucursal;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextArea jTAAuto;
+    private javax.swing.JTextArea jTACiudad;
+    private javax.swing.JTextArea jTAMarca;
+    private javax.swing.JTextArea jTAServicio;
+    private javax.swing.JTextArea jTASucursal;
+    private javax.swing.JTextField jTFBuscarAuto;
     private javax.swing.JTextField jTFCiudad;
     private javax.swing.JTextField jTFSucDir;
     private javax.swing.JTextField jTFSucNom;
@@ -2233,7 +2907,6 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneInicio;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldAnioA;
     private javax.swing.JTextField jTextFieldModeloA;
     private javax.swing.JTextField jTextFieldPlacaA;
@@ -2241,5 +2914,7 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JTextField jTextFieldServicioNom;
     private javax.swing.JTextField jTextFieldServicioPrec;
     private javax.swing.JLabel mensajesBien;
+    private javax.swing.JTextArea tAAutosEliminados;
+    private javax.swing.JTextArea tABuscarAuto;
     // End of variables declaration//GEN-END:variables
 }

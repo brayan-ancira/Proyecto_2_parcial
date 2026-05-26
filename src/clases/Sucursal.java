@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package GUI;
+package clases;
 
 import java.io.Serializable;
 
@@ -10,20 +10,20 @@ import java.io.Serializable;
  *
  * @author artea
  */
-public class Servicios implements Serializable
+public class Sucursal implements Serializable
 {
 
     private String nom;
-    private int precio;
-    private String capacidad;
+    private String dir;
+    private String responsable;
 
-    public Servicios(String nom, int precio, String capacidad)
+    public Sucursal(String nom, String dir, String responsable)
     {
         this.nom = nom;
-        this.precio = precio;
-        this.capacidad = capacidad;
+        this.dir = dir;
+        this.responsable = responsable;
     }
-    
+
     public String getNom()
     {
         return nom;
@@ -34,24 +34,24 @@ public class Servicios implements Serializable
         this.nom = nom;
     }
 
-    public int getPrecio()
+    public String getDir()
     {
-        return precio;
+        return dir;
     }
 
-    public void setPrecio(int precio)
+    public void setDir(String dir)
     {
-        this.precio = precio;
+        this.dir = dir;
     }
 
-    public String getCapacidad()
+    public String getResponsable()
     {
-        return capacidad;
+        return responsable;
     }
 
-    public void setCapacidad(String capacidad)
+    public void setResponsable(String responsable)
     {
-        this.capacidad = capacidad;
+        this.responsable = responsable;
     }
 
 }
