@@ -45,6 +45,13 @@ public class VtnModificaNombreMarca extends javax.swing.JDialog
         textFieldBusquedaModifica = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
+                formWindowOpened(evt);
+            }
+        });
 
         textFieldNuevaMarca.addKeyListener(new java.awt.event.KeyAdapter()
         {
@@ -238,6 +245,41 @@ public class VtnModificaNombreMarca extends javax.swing.JDialog
             }
         }
     }//GEN-LAST:event_textFieldBusquedaModificaKeyReleased
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
+    {//GEN-HEADEREND:event_formWindowOpened
+        cmbBoxMarcaModificar.removeAllItems();
+        
+        String subNombre= textFieldBusquedaModifica.getText();
+        
+        if (datos==null)
+        {
+            return;
+        }
+        
+        Nodo auxBusqueda= datos.getMultilista().getR();
+        ArrayList <String> cadenas= new ArrayList <String>();
+        
+        while (auxBusqueda!=null)
+        {
+            if (auxBusqueda.getEt().startsWith(subNombre.trim()))
+            {
+                cadenas.add(auxBusqueda.getEt());
+            }
+            auxBusqueda=auxBusqueda.getSig();
+        }
+        
+        
+        if (cadenas.size()!=0)
+        {
+            for (int i = 0; i < cadenas.size(); i++)
+            {
+                cmbBoxMarcaModificar.addItem(cadenas.get(i));
+            }
+        }
+        
+        cmbBoxMarcaModificar.setSelectedIndex(-1);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

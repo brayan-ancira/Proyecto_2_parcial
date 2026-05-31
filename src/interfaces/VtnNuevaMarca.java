@@ -127,33 +127,34 @@ public class VtnNuevaMarca extends javax.swing.JDialog
 
     private void btnGuardarMarcaNuevaMarcaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGuardarMarcaNuevaMarcaActionPerformed
     {//GEN-HEADEREND:event_btnGuardarMarcaNuevaMarcaActionPerformed
+
         String nom = textFieldNuevaMarca.getText().trim();
-        
-        
-        String[] nivel=
+
+        if (Validaciones.validaMarca(nom)) 
         {
-            nom
-        };
-        
-        Nodo [] nr= new Nodo[2];
-        
-        nr=datos.getMultilista().elimina(nivel, 0, datos.getMultilista().getR());
-        
-        if (nr[0]==null)
-        {
-            if (Validaciones.validaMarca(nom))
+            Nodo existe = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
+
+            if (existe == null)
             {
-                datos.getMultilista().setR(datos.getMultilista().inserta(new Nodo(new Marca(nom), nom), nivel, 0, datos.getMultilista().getR()));
-                
-         
+                String[] nivel = { nom };
+                Nodo nuevaMarca = new Nodo(new Marca(nom), nom);
+
+                datos.getMultilista().setR(
+                    datos.getMultilista().inserta(nuevaMarca, nivel, 0, datos.getMultilista().getR())
+                );
+
                 textFieldNuevaMarca.setText("");
                 muestraMensaje("Marca " + nom + " agregada exitosamente");
+            } 
+            else 
+            {
+                muestraMensaje("No se pudo insertar la marca porque ya existe");
             }
-        }else
+        } 
+        else 
         {
-            muestraMensaje("No se pudo insertar la marca porque ya existe");
+            muestraMensaje("Nombre inválido. Ingresa solo letras.");
         }
-        
     }//GEN-LAST:event_btnGuardarMarcaNuevaMarcaActionPerformed
 
     private void btnRegresarNuevaMarcaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnRegresarNuevaMarcaActionPerformed

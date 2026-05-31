@@ -16,13 +16,14 @@ public class VtnNuevaCiudad extends javax.swing.JDialog
 {
 
     Datos datos;
+
     /**
      * Creates new form VtnNuevaCiudad
      */
     public VtnNuevaCiudad(java.awt.Frame parent, boolean modal, Datos datosMP)
     {
         super(parent, modal);
-        this.datos=datosMP;
+        this.datos = datosMP;
         initComponents();
     }
 
@@ -124,47 +125,46 @@ public class VtnNuevaCiudad extends javax.swing.JDialog
 
     private void btnGuardarNuevaCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGuardarNuevaCiudadActionPerformed
     {//GEN-HEADEREND:event_btnGuardarNuevaCiudadActionPerformed
-        if (cmbBoxMarcasNuevaCiudad.getSelectedIndex()!=-1&&!textFieldNuevaCiudad.getText().isBlank())
-        {
-            
-            String marca=(String)cmbBoxMarcasNuevaCiudad.getSelectedItem();
-            Nodo multilistaMarca= datos.getMultilista().busca(datos.getMultilista().getR(), marca).getAbj();
-            
-            
-            Nodo auxBusqueda=multilistaMarca;
-            
-            
-            
-            if (multilistaMarca==null)
-            {
-                MenuPrincipal.muestraMensaje("entro al if");
-            }
-            
-            while (auxBusqueda!=null)
-            {
-                if (multilistaMarca.getEt().equals(marca))
-                {
-                    MenuPrincipal.muestraMensaje("Esta marca ya cuenta con esta ciudad");
-                    return;
-                }
-                
-                MenuPrincipal.muestraMensaje(auxBusqueda.getEt());
-                auxBusqueda=auxBusqueda.getSig();
-            }
-            
-            String nNodo= textFieldNuevaCiudad.getText();
-            MenuPrincipal.muestraMensaje("Primer elemento de la multi");
-            
-            String[] c=
-            {
-                marca, nNodo
-            };
 
-            datos.getMultilista().setR(datos.getMultilista().inserta(new Nodo(new Ciudad(nNodo),nNodo),c,0,datos.getMultilista().getR()));
-        }else
+        if (cmbBoxMarcasNuevaCiudad.getSelectedIndex() == -1 || textFieldNuevaCiudad.getText().isBlank())
         {
-            MenuPrincipal.muestraMensaje("Seleciona una marca y introduce un nombre");
+            MenuPrincipal.muestraMensaje("Selecciona una marca e introduce un nombre válido");
+            return;
         }
+
+        String marca = (String) cmbBoxMarcasNuevaCiudad.getSelectedItem();
+        String nNodo = textFieldNuevaCiudad.getText().trim();
+
+        Nodo nodoMarca = datos.getMultilista().busca(datos.getMultilista().getR(), marca);
+
+        if (nodoMarca == null)
+        {
+            MenuPrincipal.muestraMensaje("Error: No se encontró la marca en la base de datos.");
+            return;
+        }
+
+        Nodo auxBusqueda = nodoMarca.getAbj();
+
+        while (auxBusqueda != null)
+        {
+            if (auxBusqueda.getEt().equalsIgnoreCase(nNodo))
+            {
+                MenuPrincipal.muestraMensaje("Esta marca ya cuenta con esta ciudad");
+                return;
+            }
+            auxBusqueda = auxBusqueda.getSig();
+        }
+
+        String[] c =
+        {
+            marca, nNodo
+        };
+
+        datos.getMultilista().setR(
+                datos.getMultilista().inserta(new Nodo(new Ciudad(nNodo), nNodo), c, 0, datos.getMultilista().getR())
+        );
+
+        MenuPrincipal.muestraMensaje("Ciudad agregada exitosamente.");
     }//GEN-LAST:event_btnGuardarNuevaCiudadActionPerformed
 
     private void btnRegresarNuevaCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnRegresarNuevaCiudadActionPerformed
@@ -226,17 +226,16 @@ public class VtnNuevaCiudad extends javax.swing.JDialog
         });
     }
 
-    
     public void cargaDatosMarcas()
     {
         cmbBoxMarcasNuevaCiudad.removeAllItems();
-        
-        Nodo aux=datos.getMultilista().getR();
-        
-        while (aux!=null)
+
+        Nodo aux = datos.getMultilista().getR();
+
+        while (aux != null)
         {
             cmbBoxMarcasNuevaCiudad.addItem(aux.getEt());
-            aux=aux.getSig();
+            aux = aux.getSig();
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

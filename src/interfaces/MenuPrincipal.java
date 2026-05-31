@@ -40,7 +40,7 @@ public class MenuPrincipal extends javax.swing.JFrame
     public MenuPrincipal()
     {
         initComponents();
-        
+
         comboFechas();
 
         MostrarmensajeB(null);
@@ -93,7 +93,6 @@ public class MenuPrincipal extends javax.swing.JFrame
         lbl1Ciudad = new javax.swing.JLabel();
         textFieldNombreCiudad = new javax.swing.JTextField();
         btnModificarCiudad = new javax.swing.JButton();
-        btnBuscarCiudad = new javax.swing.JButton();
         btnNuevoCiudad = new javax.swing.JButton();
         btnEliminarCIudad = new javax.swing.JButton();
         lbl2Ciudad = new javax.swing.JLabel();
@@ -355,12 +354,7 @@ public class MenuPrincipal extends javax.swing.JFrame
         btnModificarCiudad.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
         btnModificarCiudad.setForeground(new java.awt.Color(255, 255, 255));
         btnModificarCiudad.setText("Modificar");
-
-        btnBuscarCiudad.setBackground(new java.awt.Color(37, 103, 236));
-        btnBuscarCiudad.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
-        btnBuscarCiudad.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarCiudad.setText("Buscar");
-        btnBuscarCiudad.addActionListener(this::btnBuscarCiudadActionPerformed);
+        btnModificarCiudad.addActionListener(this::btnModificarCiudadActionPerformed);
 
         btnNuevoCiudad.setBackground(new java.awt.Color(0, 204, 0));
         btnNuevoCiudad.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
@@ -394,6 +388,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         textAreaCiudad.setRows(5);
         scrollPaneCiudad.setViewportView(textAreaCiudad);
 
+        cmbBoxCiudades.addActionListener(this::cmbBoxCiudadesActionPerformed);
+
         jLabel17.setText("Busqueda de ciudades");
 
         javax.swing.GroupLayout panelCiudadLayout = new javax.swing.GroupLayout(panelCiudad);
@@ -401,61 +397,57 @@ public class MenuPrincipal extends javax.swing.JFrame
         panelCiudadLayout.setHorizontalGroup(
             panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCiudadLayout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCiudadLayout.createSequentialGroup()
-                        .addGap(26, 30, Short.MAX_VALUE)
                         .addComponent(btnNuevoCiudad)
-                        .addGap(23, 23, 23)
-                        .addComponent(btnBuscarCiudad)
-                        .addGap(18, 18, 18)
+                        .addGap(31, 31, 31)
                         .addComponent(btnModificarCiudad)
-                        .addGap(18, 18, 18)
+                        .addGap(30, 30, 30)
                         .addComponent(btnEliminarCIudad))
-                    .addGroup(panelCiudadLayout.createSequentialGroup()
-                        .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbl3Ciudad)
-                            .addGroup(panelCiudadLayout.createSequentialGroup()
-                                .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelCiudadLayout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbl2Ciudad)
-                                            .addComponent(lbl1Ciudad))
-                                        .addGap(72, 72, 72))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCiudadLayout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(jLabel17)
-                                        .addGap(26, 26, 26)))
-                                .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textFieldNombreCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbBoxCiudades, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbBoxMarcasCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(37, 37, 37)
+                    .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCiudadLayout.createSequentialGroup()
+                                    .addComponent(lbl2Ciudad)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbBoxMarcasCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelCiudadLayout.createSequentialGroup()
+                                    .addGap(124, 124, 124)
+                                    .addComponent(cmbBoxCiudades, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbl1Ciudad))
+                        .addComponent(lbl3Ciudad)
+                        .addGroup(panelCiudadLayout.createSequentialGroup()
+                            .addComponent(jLabel17)
+                            .addGap(18, 18, 18)
+                            .addComponent(textFieldNombreCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(69, 69, 69)
                 .addComponent(scrollPaneCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
         panelCiudadLayout.setVerticalGroup(
             panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCiudadLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbl2Ciudad)
-                    .addComponent(cmbBoxMarcasCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbBoxCiudades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl1Ciudad))
-                .addGap(18, 18, 18)
-                .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(textFieldNombreCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(69, 69, 69)
                 .addComponent(lbl3Ciudad)
-                .addGap(53, 53, 53)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldNombreCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCiudadLayout.createSequentialGroup()
+                        .addComponent(lbl2Ciudad)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl1Ciudad)
+                        .addGap(59, 59, 59))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCiudadLayout.createSequentialGroup()
+                        .addComponent(cmbBoxMarcasCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbBoxCiudades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)))
                 .addGroup(panelCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevoCiudad)
-                    .addComponent(btnBuscarCiudad)
                     .addComponent(btnModificarCiudad)
                     .addComponent(btnEliminarCIudad))
                 .addGap(49, 49, 49))
@@ -1729,21 +1721,15 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     }//GEN-LAST:event_jButtonNuevo2ActionPerformed
 
-    private void btnBuscarCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnBuscarCiudadActionPerformed
-    {//GEN-HEADEREND:event_btnBuscarCiudadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarCiudadActionPerformed
-
     private void btnNuevoCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNuevoCiudadActionPerformed
     {//GEN-HEADEREND:event_btnNuevoCiudadActionPerformed
-       
-        VtnNuevaCiudad vtn= new VtnNuevaCiudad(this, true, datos);
-        
+
+        VtnNuevaCiudad vtn = new VtnNuevaCiudad(this, true, datos);
+
         vtn.setResizable(false);
         vtn.setLocationRelativeTo(null);
         vtn.setVisible(true);
-        
-        textFieldNombreCiudad.setText("");
+
         actualizaTodo();
     }//GEN-LAST:event_btnNuevoCiudadActionPerformed
 
@@ -1759,7 +1745,7 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void btnCrearMarcaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCrearMarcaActionPerformed
     {//GEN-HEADEREND:event_btnCrearMarcaActionPerformed
-        VtnNuevaMarca vtn= new VtnNuevaMarca(this, true, datos);
+        VtnNuevaMarca vtn = new VtnNuevaMarca(this, true, datos);
         vtn.setLocationRelativeTo(null);
         vtn.setResizable(false);
         vtn.setVisible(true);
@@ -1768,40 +1754,37 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void btnBuscarMarcaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnBuscarMarcaActionPerformed
     {//GEN-HEADEREND:event_btnBuscarMarcaActionPerformed
-        
-        String nom=(String)cmbBoxMarcas.getSelectedItem();
-        
-        
-        StringBuilder txt=new StringBuilder();
-        
+
+        String nom = (String) cmbBoxMarcas.getSelectedItem();
+
+        StringBuilder txt = new StringBuilder();
+
         String nomA;
         txt.append("========================================\n");
-        txt.append("              INFO: "+nom+"             \n");
+        txt.append("              INFO: " + nom + "             \n");
         txt.append("========================================\n");
-        txt.append(String.format("%-10s | %-10s\n","Ciudades presente", "Carros en circulacion"));
+        txt.append(String.format("%-10s | %-10s\n", "Ciudades presente", "Carros en circulacion"));
         txt.append("----------------------------------------\n");
-        
-        
-        
-        if (nom!=null&&!nom.isBlank())
+
+        if (nom != null && !nom.isBlank())
         {
-            Nodo aux=datos.getMultilista().busca(datos.getMultilista().getR(), nom);
-            
-            if (aux!=null)
-            {   
+            Nodo aux = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
+
+            if (aux != null)
+            {
 
                 textAreaMarca.setText(txt.toString());
-                muestraMensaje("Se encontro la Marca: "+aux.getEt());
-            }else
+                muestraMensaje("Se encontro la Marca: " + aux.getEt());
+            } else
             {
                 muestraMensaje("Escribe una Marca valida");
             }
-        }else
+        } else
         {
             muestraMensaje("Escribe una Marca para buscar");
         }
-        
-        
+
+
     }//GEN-LAST:event_btnBuscarMarcaActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
@@ -1834,11 +1817,11 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void btnEliminarMarcaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEliminarMarcaActionPerformed
     {//GEN-HEADEREND:event_btnEliminarMarcaActionPerformed
-      VtnEliminaMarcas vtn= new VtnEliminaMarcas(this, true, datos);
-      vtn.setLocationRelativeTo(null);
-      vtn.setResizable(false);
-      vtn.setVisible(true);
-      actualizaTodo();
+        VtnEliminaMarcas vtn = new VtnEliminaMarcas(this, true, datos);
+        vtn.setLocationRelativeTo(null);
+        vtn.setResizable(false);
+        vtn.setVisible(true);
+        actualizaTodo();
     }//GEN-LAST:event_btnEliminarMarcaActionPerformed
 
     private void textFieldNombreCiudadKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_textFieldNombreCiudadKeyTyped
@@ -1861,43 +1844,13 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void btnEliminarCIudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEliminarCIudadActionPerformed
     {//GEN-HEADEREND:event_btnEliminarCIudadActionPerformed
-        String nom = cmbBoxMarcasCiudad.getSelectedItem().toString();
-        String nomC = textFieldNombreCiudad.getText();
-        Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
+        VtnEliminarCiudad vtn = new VtnEliminarCiudad(this, true, datos);
 
-        if (marca == null)
-        {
-            JOptionPane.showMessageDialog(null, "La marca no existe");
-        } else
-        {
-            if (!validaPorNivel(marca.getAbj(), nomC))
-            {
-                if (Validaciones.validaMarca(nomC))
-                {
-                    String[] nivel =
-                    {
-                        nom, nomC
-                    };
-                    Nodo[] res = datos.getMultilista().elimina(nivel, 0, datos.getMultilista().getR());
-                    datos.getMultilista().setR(res[1]);
-                    if (res[0] != null)
-                    {
-                        JOptionPane.showMessageDialog(null, "Ciudad eliminada correctamente");
-                    } else
-                    {
-                        JOptionPane.showMessageDialog(null, "Ciudad no registrada");
-                    }
-                    textFieldNombreCiudad.setText("");
-                } else
-                {
-                    JOptionPane.showMessageDialog(null, "Ingresa el nombre correctamente (Solo letras)");
-                }
-            } else
-            {
-                JOptionPane.showMessageDialog(null, "La ciudad " + nomC + " no existe");
-            }
-            actualizaTodo();
-        }
+        vtn.setResizable(false);
+        vtn.setLocationRelativeTo(null);
+        vtn.setVisible(true);
+
+        actualizaTodo();
     }//GEN-LAST:event_btnEliminarCIudadActionPerformed
 
     private void jTFSucNomActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFSucNomActionPerformed
@@ -2193,63 +2146,60 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void cmbBoxMarcasCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmbBoxMarcasCiudadActionPerformed
     {//GEN-HEADEREND:event_cmbBoxMarcasCiudadActionPerformed
-        
+
         textAreaCiudad.setText("");
         cmbBoxCiudades.removeAllItems();
-        
-        String []c= new String[1];
-        
-        c[0]=(String)cmbBoxMarcas.getSelectedItem();
-                
-        
-        ArrayList <String> ciudades= new ArrayList <String> ();
-        
-        Nodo [] nr;
-        ListasDLML lista= new ListasDLML();
-        nr=datos.getMultilista().elimina(c,0, datos.getMultilista().getR());
-        
-        if (nr[0]!=null)
-        {
-            lista.setR(nr[0].getAbj());
-            Nodo aux= lista.getR();
-               
-            while (aux!=null)
-            {
-                ciudades.add(aux.getEt());
-                aux=aux.getSig();
-            }
-        }
-        
-        StringBuilder txt= new StringBuilder();
-        
-        String nomActualCiudad;
-        txt.append("============================\n");
-        txt.append(String.format("Ciudades de: %-20s\n", c[0]));
-        txt.append("============================\n");
-        txt.append(String.format("%-10s |\n","Nombre de la cuidad"));
-        txt.append("----------------------------\n");
-        
-        
-        if (ciudades.size()!=0)
-        {
-            for (int i = 0; i < ciudades.size(); i++)
-            {
-                String ciudad= ciudades.get(i);
-                if (ciudad!=null&& !ciudad.trim().isBlank())
-                {
-                    nomActualCiudad=ciudades.get(i);
-                    txt.append(String.format("%-40s\n",nomActualCiudad));
-                    cmbBoxCiudades.addItem(ciudades.get(i));       
-                }
 
-            }
-        }else
+        if (cmbBoxMarcasCiudad.getSelectedIndex() != -1 && cmbBoxMarcasCiudad.getSelectedItem() != null)
         {
-            txt.append(String.format("%-40s|\n","No hay ciudades para "+c[0]));
+            String[] c = new String[1];
+
+            c[0] = (String) cmbBoxMarcasCiudad.getSelectedItem();
+
+            ArrayList<String> ciudades = new ArrayList<String>();
+
+            Nodo nodoMarca = datos.getMultilista().busca(datos.getMultilista().getR(), c[0]);
+
+            if (nodoMarca != null)
+            {
+                Nodo aux = nodoMarca.getAbj();
+
+                while (aux != null)
+                {
+                    ciudades.add(aux.getEt());
+                    aux = aux.getSig();
+                }
+            }
+
+            StringBuilder txt = new StringBuilder();
+
+            String nomActualCiudad;
+            txt.append("============================\n");
+            txt.append(String.format("Ciudades de: %-20s\n", c[0]));
+            txt.append("============================\n");
+            txt.append(String.format("%-10s |\n", "Nombre de la cuidad"));
+            txt.append("----------------------------\n");
+
+            if (ciudades.size() != 0)
+            {
+                for (int i = 0; i < ciudades.size(); i++)
+                {
+                    String ciudad = ciudades.get(i);
+                    if (ciudad != null && !ciudad.trim().isBlank())
+                    {
+                        nomActualCiudad = ciudades.get(i);
+                        txt.append(String.format("%-40s\n", nomActualCiudad));
+                        cmbBoxCiudades.addItem(ciudades.get(i));
+                    }
+
+                }
+            } else
+            {
+                txt.append(String.format("%-40s\n", "No hay ciudades para " + c[0]));
+            }
+            textAreaCiudad.setText(txt.toString());
+            cmbBoxCiudades.setSelectedIndex(-1);
         }
-        textAreaCiudad.setText(txt.toString());
-        
-        
     }//GEN-LAST:event_cmbBoxMarcasCiudadActionPerformed
 
     private void jCBCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBCiudadActionPerformed
@@ -2265,7 +2215,7 @@ public class MenuPrincipal extends javax.swing.JFrame
     private void jComboBoxComparaServActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jComboBoxComparaServActionPerformed
     {//GEN-HEADEREND:event_jComboBoxComparaServActionPerformed
         // TODO add your handling code here:
-       // actualizaComboComparaServ();
+        // actualizaComboComparaServ();
 
     }//GEN-LAST:event_jComboBoxComparaServActionPerformed
 
@@ -2281,7 +2231,7 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void btnModificarMarcaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnModificarMarcaActionPerformed
     {//GEN-HEADEREND:event_btnModificarMarcaActionPerformed
-        VtnModificaNombreMarca vtn= new VtnModificaNombreMarca(this,true,datos);
+        VtnModificaNombreMarca vtn = new VtnModificaNombreMarca(this, true, datos);
         vtn.setLocationRelativeTo(null);
         vtn.setResizable(false);
         vtn.setVisible(true);
@@ -2291,45 +2241,47 @@ public class MenuPrincipal extends javax.swing.JFrame
     private void textFieldNombreMarcaKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_textFieldNombreMarcaKeyReleased
     {//GEN-HEADEREND:event_textFieldNombreMarcaKeyReleased
         cmbBoxMarcas.removeAllItems();
-        
-        String subNombre= textFieldNombreMarca.getText();
-        
-        Nodo auxBusqueda= datos.getMultilista().getR();
-        ArrayList <String> cadenas= new ArrayList <String>();
-        
-        while (auxBusqueda!=null)
+
+        String subNombre = textFieldNombreMarca.getText();
+
+        Nodo auxBusqueda = datos.getMultilista().getR();
+        ArrayList<String> cadenas = new ArrayList<String>();
+
+        while (auxBusqueda != null)
         {
             if (auxBusqueda.getEt().startsWith(subNombre.trim()))
             {
                 cadenas.add(auxBusqueda.getEt());
+            } else
+            {
+                if (subNombre.isBlank())
+                {
+                    cadenas.add(auxBusqueda.getEt());
+                }
             }
-            auxBusqueda=auxBusqueda.getSig();
+            auxBusqueda = auxBusqueda.getSig();
         }
-        
-        String s="";
-        
-        StringBuilder txt=new StringBuilder();
-        
+
+        StringBuilder txt = new StringBuilder();
+
         String nomA;
         txt.append("============================\n");
         txt.append("          MARCAS            \n");
         txt.append("============================\n");
-        txt.append(String.format("%-5s\n","NOMBRE"));
+        txt.append(String.format("%-5s\n", "NOMBRE"));
         txt.append("----------------------------\n");
-        
-        
-        if (cadenas.size()!=0)
+
+        if (cadenas.size() != 0)
         {
             for (int i = 0; i < cadenas.size(); i++)
             {
-                nomA=cadenas.get(i);
-                txt.append(String.format("%-40s\n",nomA));
-                s+=cadenas.get(i)+"\n";
+                nomA = cadenas.get(i);
+                txt.append(String.format("%-40s\n", nomA));
                 cmbBoxMarcas.addItem(cadenas.get(i));
             }
-        }else
+        } else
         {
-            txt.append(String.format("%-40s\n","No hay datos"));
+            txt.append(String.format("%-40s\n", "No hay datos"));
         }
         textAreaMarca.setText(txt.toString());
         cmbBoxMarcas.setSelectedIndex(-1);
@@ -2339,85 +2291,137 @@ public class MenuPrincipal extends javax.swing.JFrame
     {//GEN-HEADEREND:event_textFieldNombreCiudadKeyReleased
         cmbBoxCiudades.removeAllItems();
         textAreaCiudad.setText("");
-        
-        String subNombreCiudad= textFieldNombreCiudad.getText();
-        
-        
-        ArrayList <String> marcas= new  ArrayList <String> ();
-        
-        Nodo auxBusqueda= datos.getMultilista().getR();
-        
-        
-        while (auxBusqueda!=null)
-        {
-            marcas.add(auxBusqueda.getEt());
-            auxBusqueda= auxBusqueda.getSig();
-        }
-        
-        
-        String [] c= new String[marcas.size()];
-        for (int i = 0; i < marcas.size(); i++)
-        {
-            c[i]=marcas.get(i);
-        }
-        
-        
-        ArrayList <String> ciudades= new ArrayList <String> ();
-        
-        for (int i = 0; i < marcas.size(); i++)
-        {
-            Nodo [] nr;
-            ListasDLML lista= new ListasDLML();
-            nr=datos.getMultilista().elimina(c,0, datos.getMultilista().getR());
-            
-            if (nr[0]!=null)
-            {
-                lista.setR(nr[0].getAbj());
-                Nodo aux= lista.getR();
 
-                while (aux!=null)
+        String subNombreCiudad = textFieldNombreCiudad.getText().trim();
+
+        ArrayList<String> ciudades = new ArrayList<>();
+
+        Nodo auxMarca = datos.getMultilista().getR();
+
+        while (auxMarca != null)
+        {
+
+            Nodo auxCiudad = auxMarca.getAbj();
+
+            while (auxCiudad != null)
+            {
+
+                if (auxCiudad.getEt().startsWith(subNombreCiudad))
                 {
-                    
-                    if (aux.getEt().startsWith(subNombreCiudad))
+
+                    if (!ciudades.contains(auxCiudad.getEt()))
                     {
-                        ciudades.add(aux.getEt());
+                        ciudades.add(auxCiudad.getEt());
                     }
-                    aux=aux.getSig();
                 }
+                auxCiudad = auxCiudad.getSig();
             }
+            auxMarca = auxMarca.getSig();
         }
-        
-        StringBuilder txt= new StringBuilder();
-        
-        String nomActualCiudad;
+
+        StringBuilder txt = new StringBuilder();
+
         txt.append("============================\n");
         txt.append("           CIUDADES         \n");
         txt.append("============================\n");
-        txt.append(String.format("%-20s | %-40s\n","Nombre", " "));
+        txt.append(String.format("%-40s\n", "Nombre"));
         txt.append("----------------------------\n");
-        
-        
-        if (ciudades.size()!=0)
+
+        if (ciudades.size() != 0)
         {
             for (int i = 0; i < ciudades.size(); i++)
             {
-                String ciudad= ciudades.get(i);
-                if (ciudad!=null&& !ciudad.trim().isEmpty())
+                String ciudad = ciudades.get(i);
+
+                if (ciudad != null && !ciudad.trim().isEmpty())
                 {
-                    nomActualCiudad=ciudades.get(i);
-                    txt.append(String.format("%-20s\n",nomActualCiudad));
-                    cmbBoxCiudades.addItem(ciudades.get(i)); 
+                    txt.append(String.format("%-40s\n", ciudad));
+                    cmbBoxCiudades.addItem(ciudad);
+                }
+            }
+        } else
+        {
+            txt.append(String.format("%-40s\n", "No hay datos"));
+        }
+
+        textAreaCiudad.setText(txt.toString());
+        cmbBoxCiudades.setSelectedIndex(-1);
+        cmbBoxMarcas.setSelectedIndex(-1);
+
+    }//GEN-LAST:event_textFieldNombreCiudadKeyReleased
+
+    private void btnModificarCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnModificarCiudadActionPerformed
+    {//GEN-HEADEREND:event_btnModificarCiudadActionPerformed
+        VtnModificarNombreCiudad vtn = new VtnModificarNombreCiudad(this, true, datos);
+        vtn.setResizable(false);
+        vtn.setLocationRelativeTo(null);
+        vtn.setVisible(true);
+
+        actualizaTodo();
+    }//GEN-LAST:event_btnModificarCiudadActionPerformed
+
+    private void cmbBoxCiudadesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmbBoxCiudadesActionPerformed
+    {//GEN-HEADEREND:event_cmbBoxCiudadesActionPerformed
+                // 1. Limpiamos el JTextArea por si hay búsquedas anteriores
+        textAreaCiudad.setText("");
+
+        // 2. Cláusula de guarda: Validamos que realmente haya una ciudad seleccionada
+                if (cmbBoxCiudades.getSelectedIndex() == -1 || cmbBoxCiudades.getSelectedItem() == null)
+                {
+                    return;
                 }
 
-            }
-        }else
-        {
-            txt.append(String.format("%-20s | \n","No hay datos"));
-        }
-        textAreaCiudad.setText(txt.toString());
-        cmbBoxCiudades.setSelectedItem(-1);
-        
-    }//GEN-LAST:event_textFieldNombreCiudadKeyReleased
+                String ciudadSeleccionada = (String) cmbBoxCiudades.getSelectedItem();
+
+        // 3. Preparamos el StringBuilder con el formato de la cabecera
+                StringBuilder txt = new StringBuilder();
+                txt.append("========================================\n");
+                txt.append(String.format("   MARCAS EN: %s\n", ciudadSeleccionada));
+                txt.append("========================================\n");
+                txt.append(String.format("%-40s\n", "Nombre de la Marca"));
+                txt.append("----------------------------------------\n");
+
+                boolean encontroMarcas = false;
+
+        // 4. Comenzamos a buscar desde la raíz (la lista principal de Marcas)
+                Nodo nodoMarca = datos.getMultilista().getR();
+
+                while (nodoMarca != null)
+                {
+                    // Bajamos al nivel de ciudades de la marca actual
+                    Nodo nodoCiudad = nodoMarca.getAbj();
+
+                    // Recorremos las ciudades de esta marca
+                    while (nodoCiudad != null)
+                    {
+                        // Si la ciudad coincide con la que el usuario seleccionó
+                        if (nodoCiudad.getEt().equalsIgnoreCase(ciudadSeleccionada))
+                        {
+
+                            // Agregamos el nombre de LA MARCA al texto
+                            txt.append(String.format("%-40s\n", nodoMarca.getEt()));
+                            encontroMarcas = true;
+
+                            // Usamos break para salir del ciclo de ciudades. 
+                            // Ya sabemos que esta marca tiene la ciudad, no hace falta buscar más aquí.
+                            break;
+                        }
+                        nodoCiudad = nodoCiudad.getSig();
+                    }
+
+                    // Pasamos a evaluar la siguiente marca en la lista principal
+                    nodoMarca = nodoMarca.getSig();
+                }
+
+        // 5. Por si ocurre el caso raro de que la ciudad no esté en ninguna marca
+                if (!encontroMarcas)
+                {
+                    txt.append("No se encontraron marcas para esta ciudad.\n");
+                }
+
+        // 6. Finalmente, enviamos todo el texto construido al JTextArea
+                textAreaCiudad.setText(txt.toString());
+    }//GEN-LAST:event_cmbBoxCiudadesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2429,7 +2433,9 @@ public class MenuPrincipal extends javax.swing.JFrame
         while (aux != null)
         {
             lista.add(aux.getEt());
+            System.out.println("Del nivel saco: " + aux.getEt());
             aux = aux.getSig();
+
         }
         return lista;
     }
@@ -2437,38 +2443,40 @@ public class MenuPrincipal extends javax.swing.JFrame
     public void actualizaCombosMarcas()
     {
         cmbBoxMarcas.removeAllItems();
+
         ArrayList<String> marcas = sacarNivel(datos.getMultilista().getR());
+
+        for (int i = 0; i < marcas.size(); i++)
+        {
+            System.out.println("Marcas que se actualizan en el combo: " + marcas.get(i));
+        }
+
         cmbBoxMarcasCiudad.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
         cmbMarcaSucursal.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
         cmbMarcasServicio.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
         cmbBoxMarcasAutos.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
         cmbBoxMarcasLS.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
-        
-        
-        String s="";
-        
-        StringBuilder txt=new StringBuilder();
-        
+
+        StringBuilder txt = new StringBuilder();
+
         String nomA;
         txt.append("============================\n");
         txt.append("          MARCAS            \n");
         txt.append("============================\n");
-        txt.append(String.format("%-5s | %-40s\n","MARCA ", " "));
+        txt.append(String.format("%-5s | %-40s\n", "MARCA ", " "));
         txt.append("----------------------------\n");
-        
-        
-        if (marcas.size()!=0)
+
+        if (marcas.size() != 0)
         {
             for (int i = 0; i < marcas.size(); i++)
             {
-                nomA=marcas.get(i);
-                txt.append(String.format("%-40s\n",nomA));
-                s+=marcas.get(i)+"\n";
+                nomA = marcas.get(i);
+                txt.append(String.format("%-40s\n", nomA));
                 cmbBoxMarcas.addItem(marcas.get(i));
             }
-        }else
+        } else
         {
-            txt.append(String.format("%-5s | %-40s\n"," ","No hay datos"));
+            txt.append(String.format("%-5s | %-40s\n", " ", "No hay datos"));
         }
         textAreaMarca.setText(txt.toString());
     }
@@ -2497,79 +2505,73 @@ public class MenuPrincipal extends javax.swing.JFrame
     public void actualizaTextAreaCiudades()
     {
         textAreaCiudad.setText("");
-        
-        ArrayList <String> marcas= new  ArrayList <String> ();
-        
-        Nodo auxBusqueda= datos.getMultilista().getR();
-        
-        
-        while (auxBusqueda!=null)
+
+        ArrayList<String> marcas = new ArrayList<String>();
+
+        Nodo auxBusqueda = datos.getMultilista().getR();
+
+        while (auxBusqueda != null)
         {
             marcas.add(auxBusqueda.getEt());
-            
-            auxBusqueda= auxBusqueda.getSig();
+
+            auxBusqueda = auxBusqueda.getSig();
         }
-        
-        
-        String [] tMarcas= new String[marcas.size()];
+
+        String[] tMarcas = new String[marcas.size()];
         for (int i = 0; i < marcas.size(); i++)
         {
-            tMarcas[i]=marcas.get(i);
+            tMarcas[i] = marcas.get(i);
         }
-        
-        
-        ArrayList <String> ciudades= new ArrayList <String> ();
-        
+
+        ArrayList<String> ciudades = new ArrayList<String>();
+
         for (int i = 0; i < marcas.size(); i++)
         {
-            String []c= new String[1];
-            c[0] =tMarcas[i];
-            Nodo [] nr;
-            ListasDLML lista= new ListasDLML();
-            
-            nr=datos.getMultilista().elimina(c,0, datos.getMultilista().getR());
-            
-            if (nr[0]!=null)
+
+            Nodo nodoMarca = datos.getMultilista().busca(datos.getMultilista().getR(), tMarcas[i]);
+
+            if (nodoMarca != null)
             {
-                lista.setR(nr[0].getAbj());
-                Nodo aux= lista.getR();
-                
-                while (aux!=null)
+
+                Nodo aux = nodoMarca.getAbj();
+
+                while (aux != null)
                 {
-                    ciudades.add(aux.getEt());
-                    
-                    aux=aux.getSig();
+                    if (!ciudades.contains(aux.getEt()))
+                    {
+                        ciudades.add(aux.getEt());
+                    }
+                    aux = aux.getSig();
                 }
             }
         }
-        
-        StringBuilder txt= new StringBuilder();
-        
+
+        StringBuilder txt = new StringBuilder();
+
         String nomActualCiudad;
         txt.append("============================\n");
         txt.append("           CIUDADES         \n");
         txt.append("============================\n");
-        txt.append(String.format("%-10s |\n","Nombre de la cuidad"));
+        txt.append(String.format("%-10s |\n", "Nombre de la cuidad"));
         txt.append("----------------------------\n");
-        
-        
-        if (ciudades.size()!=0)
+
+        if (ciudades.size() != 0)
         {
             for (int i = 0; i < ciudades.size(); i++)
             {
-                String ciudad= ciudades.get(i);
-                if (ciudad!=null&& !ciudad.trim().isBlank())
+                String ciudad = ciudades.get(i);
+                if (ciudad != null && !ciudad.trim().isBlank())
                 {
-                    nomActualCiudad=ciudades.get(i);
-                    txt.append(String.format("%-40s\n",nomActualCiudad));
-                    cmbBoxCiudades.addItem(ciudades.get(i));         
-                                    
+                    nomActualCiudad = ciudades.get(i);
+                    txt.append(String.format("%-40s\n", nomActualCiudad));
+                    cmbBoxCiudades.addItem(ciudades.get(i));
+
                 }
 
             }
-        }else
+        } else
         {
-            txt.append(String.format("%-5s | %-40s\n"," ","No hay datos"));
+            txt.append(String.format("%-5s | %-40s\n", " ", "No hay datos"));
         }
         textAreaCiudad.setText(txt.toString());
     }
@@ -2828,7 +2830,7 @@ public class MenuPrincipal extends javax.swing.JFrame
         {
             actualizaCombosLS();
         }
-        
+
         actualizaComboComparaServ();
     }
 
@@ -2961,7 +2963,7 @@ public class MenuPrincipal extends javax.swing.JFrame
             marca = marca.getSig();
         }
 
-        jComboBoxComparaServ.setModel(new DefaultComboBoxModel<>( servicios.toArray(new String[0])));
+        jComboBoxComparaServ.setModel(new DefaultComboBoxModel<>(servicios.toArray(new String[0])));
     }
 
     public void actualizaCombosLS()
@@ -3067,7 +3069,6 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JTable JTtablaComparar;
     private javax.swing.JPanel L_Auto;
     private javax.swing.JPanel Lib_Serv;
-    private javax.swing.JButton btnBuscarCiudad;
     private javax.swing.JButton btnBuscarMarca;
     private javax.swing.JButton btnCrearMarca;
     private javax.swing.JButton btnEliminarCIudad;

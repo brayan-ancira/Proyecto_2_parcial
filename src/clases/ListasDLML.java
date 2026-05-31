@@ -35,19 +35,21 @@ public class ListasDLML implements Serializable
     {
         if (n == null)
         {
-            System.out.println("no se puede insertar");
+            System.out.println("No se puede insertar el nodo en la lista porque nodo es NULL");
         } else
         {
             if (r == null)
             {
                 r = n;
+                System.out.println("Se inserto el nodo en el primer espacio de la lista");
             } else
             {
                 if (n.getEt().compareTo(r.getEt()) < 0)
-                {
+                { 
                     n.setSig(r);
                     r.setAnt(n);
                     r = n;
+                    System.out.println("Se agrego antes de r: "+n.getEt());
                 } else
                 {
                     Nodo aux = r;
@@ -61,15 +63,18 @@ public class ListasDLML implements Serializable
                             aux.getSig().setAnt(n);
                             aux.setSig(n);
                             b = false;
+                            System.out.println("Se agrego "+n.getEt()+"entre dos nodos");
                         } else
                         {
                             aux = aux.getSig();
                         }
                     }
+                    
                     if (b)
                     {
                         n.setAnt(aux);
                         aux.setSig(n);
+                        System.out.println("Se agrego al final: "+n.getEt());
                     }
                 }
             }
@@ -82,12 +87,12 @@ public class ListasDLML implements Serializable
         Nodo n = null;
         if (r == null)
         {
-            System.out.println("lista vacia");
+            System.out.println("La R de la lista esta vacia");
         } else
         {
             if (r.getEt().compareTo(et) > 0)
             {
-                System.out.println("no existe el dato");
+                System.out.println("El dato a buscar no existe porque es menor a el dato mas pequeño");
             } else
             {
                 if (r.getEt().equals(et))
@@ -99,42 +104,51 @@ public class ListasDLML implements Serializable
                         r.setAnt(null);
                     }
                     n.setSig(null);
+                    
+                    System.out.println("El dato eliminado fue la cabeza de la lista");
                 } else
                 {
                     Nodo aux = r;
                     boolean b = true;
                     while (aux.getSig() != null && b)
                     {
+                        
                         if (aux.getSig().getEt().equals(et))
                         {
                             n = aux.getSig();
                             if (n.getSig() != null)
                             {
                                 aux.getSig().getSig().setAnt(aux);
+                                System.out.println("El dato a eliminar estaba al final de la lista");
                             }
                             aux.setSig(n.getSig());
                             n.setSig(null);
                             n.setAnt(null);
                             b = false;
+                            
+                            System.out.println("El dato fue encontrado dentro de la lista");
                         } else
                         {
                             if (aux.getSig().getEt().compareTo(et) > 0)
                             {
-                                System.out.println("dato no encontrado");
+                                System.out.println("Se busco en toda la lista y no se encontro");
                                 b = false;
                             } else
                             {
                                 aux = aux.getSig();
+                                System.out.println("Sigo buscando");
                             }
                         }
                     }
-                    if (b)
+                    
+                    if (b==false &&n!=null)
                     {
-                        System.out.println("no se encontro el dato");
+                        System.out.println("Se encontro el dato "+n.getEt());
                     }
                 }
             }
         }
+        
         return n;
     }
 

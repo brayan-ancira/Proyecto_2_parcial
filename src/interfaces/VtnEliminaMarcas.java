@@ -43,6 +43,13 @@ public class VtnEliminaMarcas extends javax.swing.JDialog
         btnRegresarElimina = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
+                formWindowOpened(evt);
+            }
+        });
 
         textFieldBusquedaMarca.addActionListener(new java.awt.event.ActionListener()
         {
@@ -202,6 +209,40 @@ public class VtnEliminaMarcas extends javax.swing.JDialog
             }
         }
     }//GEN-LAST:event_textFieldBusquedaMarcaKeyReleased
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
+    {//GEN-HEADEREND:event_formWindowOpened
+        cmbBoxMarcasElimina.removeAllItems();
+        
+        String subNombre= textFieldBusquedaMarca.getText();
+        
+        if (datos==null)
+        {
+            return;
+        }
+        
+        Nodo auxBusqueda= datos.getMultilista().getR();
+        ArrayList <String> cadenas= new ArrayList <String>();
+        
+        while (auxBusqueda!=null)
+        {
+            if (auxBusqueda.getEt().startsWith(subNombre.trim()))
+            {
+                cadenas.add(auxBusqueda.getEt());
+            }
+            auxBusqueda=auxBusqueda.getSig();
+        }
+        
+        
+        if (cadenas.size()!=0)
+        {
+            for (int i = 0; i < cadenas.size(); i++)
+            {
+                cmbBoxMarcasElimina.addItem(cadenas.get(i));
+            }
+        }
+        cmbBoxMarcasElimina.setSelectedIndex(-1);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
