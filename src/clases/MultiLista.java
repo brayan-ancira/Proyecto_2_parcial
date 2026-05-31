@@ -39,7 +39,7 @@ public class MultiLista implements Serializable
             ListasDLML l = new ListasDLML();
             l.setR(r);
             l.inserta(n);
-            System.out.println("inserto:" + n.getEt());
+            System.out.println("Inserto:" + n.getEt());
             return l.getR();
         } else
         {
@@ -117,7 +117,7 @@ public class MultiLista implements Serializable
             if (aux != null)
 
             {
-                System.out.println("encontro: " + aux.getEt());
+                System.out.println("Encontro: " + aux.getEt());
                 obj = elimina(c, nivel + 1, aux.getAbj());
                 aux.setAbj(obj[1]);
             }
