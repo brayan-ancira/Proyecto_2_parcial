@@ -46,6 +46,7 @@ public class ManipulaArchivos implements Serializable
             System.out.println("Archivo no encontrado "+cad);
         }
     }
+    
     public static Object carga(String cad){
         Object obj=null;
         try
