@@ -103,44 +103,33 @@ public class MenuPrincipal extends javax.swing.JFrame
         cmbBoxCiudades = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         panelSucursal = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jTFSucNom = new javax.swing.JTextField();
-        jTFSucDir = new javax.swing.JTextField();
-        jTFSucRes = new javax.swing.JTextField();
-        jButtonMod2 = new javax.swing.JButton();
-        jButtonGuardar2 = new javax.swing.JButton();
-        jButtonNuevo2 = new javax.swing.JButton();
-        jButtonEliminar2 = new javax.swing.JButton();
+        btnModificarSucursal = new javax.swing.JButton();
+        btnBuscarSucursal = new javax.swing.JButton();
+        btnNuevaSucursal = new javax.swing.JButton();
+        btnEliminarSucursal = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jCBCiudad = new javax.swing.JComboBox<>();
-        cmbMarcaSucursal = new javax.swing.JComboBox<>();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
+        cmbBoxCiudadSucursal = new javax.swing.JComboBox<>();
+        cmbBoxMarcaSucursal = new javax.swing.JComboBox<>();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTASucursal = new javax.swing.JTextArea();
+        textAreaSucursal = new javax.swing.JTextArea();
+        cmbBoxSucursales = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
         panelServicio = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jTextFieldServicioNom = new javax.swing.JTextField();
-        jTextFieldServicioPrec = new javax.swing.JTextField();
-        jTextFieldServicioCap = new javax.swing.JTextField();
-        jButtonMod1 = new javax.swing.JButton();
-        jButtonGuardar1 = new javax.swing.JButton();
-        jButtonNuevo1 = new javax.swing.JButton();
-        jButtonEliminar1 = new javax.swing.JButton();
+        btnModificarServicios = new javax.swing.JButton();
+        btnBuscarTodosLosServicios = new javax.swing.JButton();
+        btnNuevoServicio = new javax.swing.JButton();
+        btnEliminarActionPerformed = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        cmbMarcasServicio = new javax.swing.JComboBox<>();
-        jCBSucursal = new javax.swing.JComboBox<>();
+        cmbBoxMarcaServicio = new javax.swing.JComboBox<>();
+        cmbBoxSucursalServicios = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jCBCiudadS = new javax.swing.JComboBox<>();
+        cmbBoxCiudadServicio = new javax.swing.JComboBox<>();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTAServicio = new javax.swing.JTextArea();
+        textAreaServicios = new javax.swing.JTextArea();
+        cmbBoxServicios = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
         panelAutos = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -459,126 +448,83 @@ public class MenuPrincipal extends javax.swing.JFrame
 
         tabbedPaneObjetos.addTab("Ciudad", panelCiudad);
 
-        jLabel14.setText("Nombre");
+        btnModificarSucursal.setBackground(new java.awt.Color(204, 204, 0));
+        btnModificarSucursal.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
+        btnModificarSucursal.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificarSucursal.setText("Modificar");
+        btnModificarSucursal.setToolTipText("Mediante nombre");
+        btnModificarSucursal.addActionListener(this::btnModificarSucursalActionPerformed);
 
-        jLabel15.setText("Dirección");
+        btnBuscarSucursal.setBackground(new java.awt.Color(37, 103, 236));
+        btnBuscarSucursal.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
+        btnBuscarSucursal.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarSucursal.setText("Desplegar info sucursal");
+        btnBuscarSucursal.addActionListener(this::btnBuscarSucursalActionPerformed);
 
-        jLabel16.setText("Responsable");
+        btnNuevaSucursal.setBackground(new java.awt.Color(0, 204, 0));
+        btnNuevaSucursal.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
+        btnNuevaSucursal.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevaSucursal.setText("Nuevo");
+        btnNuevaSucursal.addActionListener(this::btnNuevaSucursalActionPerformed);
 
-        jTFSucNom.addActionListener(this::jTFSucNomActionPerformed);
-        jTFSucNom.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
-                jTFSucNomKeyTyped(evt);
-            }
-        });
-
-        jTFSucDir.addActionListener(this::jTFSucDirActionPerformed);
-        jTFSucDir.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
-                jTFSucDirKeyTyped(evt);
-            }
-        });
-
-        jTFSucRes.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
-                jTFSucResKeyTyped(evt);
-            }
-        });
-
-        jButtonMod2.setBackground(new java.awt.Color(204, 204, 0));
-        jButtonMod2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
-        jButtonMod2.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonMod2.setText("Modificar");
-        jButtonMod2.setToolTipText("Mediante nombre");
-
-        jButtonGuardar2.setBackground(new java.awt.Color(37, 103, 236));
-        jButtonGuardar2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
-        jButtonGuardar2.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonGuardar2.setText("Guardar");
-        jButtonGuardar2.addActionListener(this::jButtonGuardar2ActionPerformed);
-
-        jButtonNuevo2.setBackground(new java.awt.Color(0, 204, 0));
-        jButtonNuevo2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
-        jButtonNuevo2.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonNuevo2.setText("Nuevo");
-        jButtonNuevo2.addActionListener(this::jButtonNuevo2ActionPerformed);
-
-        jButtonEliminar2.setBackground(new java.awt.Color(255, 0, 0));
-        jButtonEliminar2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
-        jButtonEliminar2.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonEliminar2.setText("Eliminar");
-        jButtonEliminar2.setToolTipText("Mediante nombre");
-        jButtonEliminar2.addActionListener(this::jButtonEliminar2ActionPerformed);
+        btnEliminarSucursal.setBackground(new java.awt.Color(255, 0, 0));
+        btnEliminarSucursal.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
+        btnEliminarSucursal.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarSucursal.setText("Eliminar");
+        btnEliminarSucursal.setToolTipText("Mediante nombre");
+        btnEliminarSucursal.addActionListener(this::btnEliminarSucursalActionPerformed);
 
         jLabel22.setText("Ciudad");
 
         jLabel23.setText("Marca");
 
-        jCBCiudad.addActionListener(this::jCBCiudadActionPerformed);
+        cmbBoxCiudadSucursal.addActionListener(this::cmbBoxCiudadSucursalActionPerformed);
 
-        cmbMarcaSucursal.addActionListener(this::cmbMarcaSucursalActionPerformed);
+        cmbBoxMarcaSucursal.addActionListener(this::cmbBoxMarcaSucursalActionPerformed);
+        cmbBoxMarcaSucursal.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
+                cmbBoxMarcaSucursalKeyReleased(evt);
+            }
+        });
 
-        jLabel31.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel31.setText("max 20 caracteres");
+        textAreaSucursal.setEditable(false);
+        textAreaSucursal.setColumns(20);
+        textAreaSucursal.setRows(5);
+        jScrollPane6.setViewportView(textAreaSucursal);
 
-        jLabel32.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel32.setText("max 40 caracteres");
-
-        jLabel33.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel33.setText("max  20 caracteres");
-
-        jTASucursal.setEditable(false);
-        jTASucursal.setColumns(20);
-        jTASucursal.setRows(5);
-        jScrollPane6.setViewportView(jTASucursal);
+        jLabel14.setText("Sucursal");
 
         javax.swing.GroupLayout panelSucursalLayout = new javax.swing.GroupLayout(panelSucursal);
         panelSucursal.setLayout(panelSucursalLayout);
         panelSucursalLayout.setHorizontalGroup(
             panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSucursalLayout.createSequentialGroup()
-                .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(37, 37, 37)
+                .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelSucursalLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
                         .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panelSucursalLayout.createSequentialGroup()
-                                    .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel16)
-                                        .addComponent(jLabel14)
-                                        .addComponent(jLabel22))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTFSucRes, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
-                                        .addComponent(cmbMarcaSucursal, 0, 299, Short.MAX_VALUE)
-                                        .addComponent(jCBCiudad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTFSucDir)
-                                        .addComponent(jTFSucNom, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel14))
+                        .addGap(35, 35, 35)
+                        .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbBoxSucursales, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbBoxMarcaSucursal, 0, 299, Short.MAX_VALUE)
+                            .addComponent(cmbBoxCiudadSucursal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panelSucursalLayout.createSequentialGroup()
+                        .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelSucursalLayout.createSequentialGroup()
-                                .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel33)
-                                    .addGroup(panelSucursalLayout.createSequentialGroup()
-                                        .addComponent(jButtonNuevo2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButtonGuardar2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButtonMod2)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonEliminar2))))
-                    .addGroup(panelSucursalLayout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(jLabel31))
-                    .addGroup(panelSucursalLayout.createSequentialGroup()
-                        .addGap(204, 204, 204)
-                        .addComponent(jLabel32)))
+                                .addComponent(btnNuevaSucursal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSucursalLayout.createSequentialGroup()
+                                .addComponent(btnBuscarSucursal)
+                                .addGap(42, 42, 42)))
+                        .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEliminarSucursal)
+                            .addComponent(btnModificarSucursal))
+                        .addGap(95, 95, 95)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -586,42 +532,31 @@ public class MenuPrincipal extends javax.swing.JFrame
         panelSucursalLayout.setVerticalGroup(
             panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSucursalLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(cmbMarcaSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel22)
-                    .addComponent(jCBCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jTFSucNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel31)
-                .addGap(9, 9, 9)
-                .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTFSucDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addGap(5, 5, 5)
-                .addComponent(jLabel32)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(jTFSucRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonNuevo2)
-                    .addComponent(jButtonGuardar2)
-                    .addComponent(jButtonMod2)
-                    .addComponent(jButtonEliminar2))
-                .addGap(36, 36, 36))
-            .addGroup(panelSucursalLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSucursalLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(cmbBoxMarcaSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel22)
+                            .addComponent(cmbBoxCiudadSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbBoxSucursales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14))
+                        .addGap(48, 48, 48)
+                        .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnNuevaSucursal)
+                            .addComponent(btnModificarSucursal))
+                        .addGap(49, 49, 49)
+                        .addGroup(panelSucursalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnBuscarSucursal)
+                            .addComponent(btnEliminarSucursal)))
+                    .addGroup(panelSucursalLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -635,101 +570,79 @@ public class MenuPrincipal extends javax.swing.JFrame
             }
         });
 
-        jLabel11.setText("Nombre");
+        btnModificarServicios.setBackground(new java.awt.Color(204, 204, 0));
+        btnModificarServicios.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
+        btnModificarServicios.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificarServicios.setText("Modificar");
+        btnModificarServicios.addActionListener(this::btnModificarServiciosActionPerformed);
 
-        jLabel12.setText("Precio");
+        btnBuscarTodosLosServicios.setBackground(new java.awt.Color(37, 103, 236));
+        btnBuscarTodosLosServicios.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
+        btnBuscarTodosLosServicios.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarTodosLosServicios.setText("Buscar todos los servicios");
+        btnBuscarTodosLosServicios.addActionListener(this::btnBuscarTodosLosServiciosActionPerformed);
 
-        jLabel13.setText("Capacidad");
+        btnNuevoServicio.setBackground(new java.awt.Color(0, 204, 0));
+        btnNuevoServicio.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
+        btnNuevoServicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevoServicio.setText("Nuevo");
+        btnNuevoServicio.addActionListener(this::btnNuevoServicioActionPerformed);
 
-        jTextFieldServicioPrec.addActionListener(this::jTextFieldServicioPrecActionPerformed);
-        jTextFieldServicioPrec.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
-                jTextFieldServicioPrecKeyTyped(evt);
-            }
-        });
-
-        jTextFieldServicioCap.addActionListener(this::jTextFieldServicioCapActionPerformed);
-
-        jButtonMod1.setBackground(new java.awt.Color(204, 204, 0));
-        jButtonMod1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
-        jButtonMod1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonMod1.setText("Modificar");
-
-        jButtonGuardar1.setBackground(new java.awt.Color(37, 103, 236));
-        jButtonGuardar1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
-        jButtonGuardar1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonGuardar1.setText("Guardar");
-        jButtonGuardar1.addActionListener(this::jButtonGuardar1ActionPerformed);
-
-        jButtonNuevo1.setBackground(new java.awt.Color(0, 204, 0));
-        jButtonNuevo1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
-        jButtonNuevo1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonNuevo1.setText("Nuevo");
-        jButtonNuevo1.addActionListener(this::jButtonNuevo1ActionPerformed);
-
-        jButtonEliminar1.setBackground(new java.awt.Color(255, 0, 0));
-        jButtonEliminar1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
-        jButtonEliminar1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonEliminar1.setText("Eliminar");
-        jButtonEliminar1.addActionListener(this::jButtonEliminar1ActionPerformed);
+        btnEliminarActionPerformed.setBackground(new java.awt.Color(255, 0, 0));
+        btnEliminarActionPerformed.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
+        btnEliminarActionPerformed.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarActionPerformed.setText("Eliminar");
+        btnEliminarActionPerformed.addActionListener(this::btnEliminarActionPerformedActionPerformed);
 
         jLabel20.setText("Marca");
 
-        cmbMarcasServicio.addActionListener(this::cmbMarcasServicioActionPerformed);
+        cmbBoxMarcaServicio.addActionListener(this::cmbBoxMarcaServicioActionPerformed);
 
-        jCBSucursal.addActionListener(this::jCBSucursalActionPerformed);
+        cmbBoxSucursalServicios.addActionListener(this::cmbBoxSucursalServiciosActionPerformed);
 
         jLabel21.setText("Sucursal");
 
         jLabel24.setText("Ciudad");
 
-        jCBCiudadS.addActionListener(this::jCBCiudadSActionPerformed);
+        cmbBoxCiudadServicio.addActionListener(this::cmbBoxCiudadServicioActionPerformed);
 
-        jTAServicio.setEditable(false);
-        jTAServicio.setColumns(20);
-        jTAServicio.setRows(5);
-        jScrollPane5.setViewportView(jTAServicio);
+        textAreaServicios.setEditable(false);
+        textAreaServicios.setColumns(20);
+        textAreaServicios.setRows(5);
+        jScrollPane5.setViewportView(textAreaServicios);
+
+        jLabel15.setText("Servicios");
 
         javax.swing.GroupLayout panelServicioLayout = new javax.swing.GroupLayout(panelServicio);
         panelServicio.setLayout(panelServicioLayout);
         panelServicioLayout.setHorizontalGroup(
             panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelServicioLayout.createSequentialGroup()
-                .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(21, 21, 21)
+                .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelServicioLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jButtonNuevo1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonGuardar1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonMod1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonEliminar1))
-                    .addGroup(panelServicioLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelServicioLayout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldServicioNom, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldServicioPrec)
-                                    .addComponent(jTextFieldServicioCap)))
+                            .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(cmbMarcasServicio, javax.swing.GroupLayout.Alignment.LEADING, 0, 97, Short.MAX_VALUE)
-                                .addComponent(jCBCiudadS, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jCBSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                                .addComponent(cmbBoxMarcaServicio, javax.swing.GroupLayout.Alignment.LEADING, 0, 97, Short.MAX_VALUE)
+                                .addComponent(cmbBoxCiudadServicio, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cmbBoxSucursalServicios, 0, 245, Short.MAX_VALUE)
+                            .addComponent(cmbBoxServicios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panelServicioLayout.createSequentialGroup()
+                        .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBuscarTodosLosServicios)
+                            .addComponent(btnNuevoServicio))
+                        .addGap(42, 42, 42)
+                        .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEliminarActionPerformed)
+                            .addComponent(btnModificarServicios))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
@@ -744,33 +657,27 @@ public class MenuPrincipal extends javax.swing.JFrame
                         .addGap(11, 11, 11)
                         .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20)
-                            .addComponent(cmbMarcasServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbBoxMarcaServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel24)
-                            .addComponent(jCBCiudadS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbBoxCiudadServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCBSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbBoxSucursalServicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel21))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(jTextFieldServicioNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(jTextFieldServicioPrec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addComponent(jTextFieldServicioCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbBoxServicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
                         .addGap(35, 35, 35)
                         .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonNuevo1)
-                            .addComponent(jButtonGuardar1)
-                            .addComponent(jButtonMod1)
-                            .addComponent(jButtonEliminar1))))
+                            .addComponent(btnBuscarTodosLosServicios)
+                            .addComponent(btnEliminarActionPerformed))
+                        .addGap(29, 29, 29)
+                        .addGroup(panelServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnNuevoServicio)
+                            .addComponent(btnModificarServicios))))
                 .addGap(55, 55, 55))
         );
 
@@ -1584,142 +1491,68 @@ public class MenuPrincipal extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAnioAActionPerformed
 
-    private void jTextFieldServicioPrecActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextFieldServicioPrecActionPerformed
-    {//GEN-HEADEREND:event_jTextFieldServicioPrecActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldServicioPrecActionPerformed
-
-    private void jTFSucDirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFSucDirActionPerformed
-    {//GEN-HEADEREND:event_jTFSucDirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFSucDirActionPerformed
-
     private void textFieldNombreCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_textFieldNombreCiudadActionPerformed
     {//GEN-HEADEREND:event_textFieldNombreCiudadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldNombreCiudadActionPerformed
 
-    private void jButtonGuardar1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonGuardar1ActionPerformed
-    {//GEN-HEADEREND:event_jButtonGuardar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGuardar1ActionPerformed
+    private void btnBuscarSucursalActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnBuscarSucursalActionPerformed
+    {//GEN-HEADEREND:event_btnBuscarSucursalActionPerformed
+        textAreaSucursal.setText("");
 
-    private void jButtonNuevo1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonNuevo1ActionPerformed
-    {//GEN-HEADEREND:event_jButtonNuevo1ActionPerformed
-        String nom = cmbMarcasServicio.getSelectedItem() != null ? cmbMarcasServicio.getSelectedItem().toString() : "";
-        String nomC = jCBCiudadS.getSelectedItem() != null ? jCBCiudadS.getSelectedItem().toString() : "";
-        String nomS = jCBSucursal.getSelectedItem() != null ? jCBSucursal.getSelectedItem().toString() : "";
-        String nomSe = jTextFieldServicioNom.getText();
-        String precio = jTextFieldServicioPrec.getText();
-        String capacidad = jTextFieldServicioCap.getText();
-
-        if (nom.isEmpty())
+        if (cmbBoxMarcaSucursal.getSelectedItem() == null || cmbBoxCiudadSucursal.getSelectedItem() == null || cmbBoxSucursales.getSelectedItem() == null)
         {
-            muestraMensaje("Por favor selecciona una marca");
-        } else if (nomC.isEmpty())
-        {
-            muestraMensaje("Por favor selecciona una ciudad");
-        } else if (nomS.isEmpty())
-        {
-            muestraMensaje("Por favor selecciona una sucursal");
-        } else if (!Validaciones.validaNombre(nomSe))
-        {
-            muestraMensaje("Ingresa el nombre correctamente (Solo letras)");
-        } else if (!precio.matches("\\d+"))
-        {
-            muestraMensaje("El precio solo debe contener números");
-        } else if (!capacidad.matches("\\d+"))
-        {
-            muestraMensaje("La capacidad solo debe contener números");
-        } else
-        {
-            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
-            Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomC);
-            Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(), nomS);
-
-            if (!validaPorNivel(sucursal.getAbj(), nomSe))
-            {
-                muestraMensaje("El servicio " + nomSe + " ya existe");
-            } else
-            {
-                Nodo servicio = new Nodo(new Servicios(jTextFieldServicioNom.getText(),
-                        Integer.parseInt(jTextFieldServicioPrec.getText()), jTextFieldServicioCap.getText()), nomSe);
-                servicio.setEt(nomSe);
-                String[] nivel =
-                {
-                    nom, nomC, nomS, nomSe
-                };
-                datos.getMultilista().setR(
-                        datos.getMultilista().inserta(servicio, nivel, 0, datos.getMultilista().getR())
-                );
-                muestraMensaje("Servicio agregado correctamente");
-
-                jTextFieldServicioNom.setText("");
-                jTextFieldServicioPrec.setText("");
-                jTextFieldServicioCap.setText("");
-                actualizaTodo();
-            }
+            muestraMensaje("Selecciona todos los campos para poder desplegar la información de la sucursal");
+            return;
         }
-    }//GEN-LAST:event_jButtonNuevo1ActionPerformed
 
-    private void jButtonGuardar2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonGuardar2ActionPerformed
-    {//GEN-HEADEREND:event_jButtonGuardar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGuardar2ActionPerformed
+        String nomMarca = cmbBoxMarcaSucursal.getSelectedItem().toString();
+        String nomCiudad = cmbBoxCiudadSucursal.getSelectedItem().toString();
+        String nomSuc = cmbBoxSucursales.getSelectedItem().toString();
 
-    private void jButtonNuevo2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonNuevo2ActionPerformed
-    {//GEN-HEADEREND:event_jButtonNuevo2ActionPerformed
-        String nom = cmbMarcaSucursal.getSelectedItem() != null ? cmbMarcaSucursal.getSelectedItem().toString() : "";
-        String nomC = jCBCiudad.getSelectedItem() != null ? jCBCiudad.getSelectedItem().toString() : "";
-        String nomS = jTFSucNom.getText().trim();
-        String responsable = jTFSucRes.getText().trim();
+        Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nomMarca);
 
-        if (nom.isEmpty())
+        if (marca != null)
         {
-            muestraMensaje("Por favor selecciona una marca");
-        } else
-        {
-            if (nomC.isEmpty())
-            {
-                muestraMensaje("Por favor selecciona una ciudad");
-            } else
-            {
-                if (!Validaciones.validaMarca(nomS))
-                {
-                    muestraMensaje("Ingresa el nombre correctamente (Solo letras)");
-                } else if (!Validaciones.validaNombre(responsable))
-                {
-                    muestraMensaje("Ingresa el responsable correctamente (Solo letras)");
-                } else
-                {
-                    Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
-                    Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomC);
+            Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomCiudad);
 
-                    if (!validaPorNivel(ciudad.getAbj(), nomS))
-                    {
-                        muestraMensaje("La sucursal " + nomS + " ya existe en esta ciudad");
-                    } else
-                    {
-                        Nodo sucursal = new Nodo(new Sucursal(nomS, jTFSucDir.getText(), jTFSucRes.getText()), nom);
-                        sucursal.setEt(nomS);
-                        String[] nivel =
-                        {
-                            nom, nomC, nomS
-                        };
-                        datos.getMultilista().setR(
-                                datos.getMultilista().inserta(sucursal, nivel, 0, datos.getMultilista().getR())
-                        );
-                        jTFSucNom.setText("");
-                        jTFSucDir.setText("");
-                        jTFSucRes.setText("");
-                        muestraMensaje("Sucursal agregada correctamente");
-                        actualizaTodo();
-                    }
+            if (ciudad != null)
+            {
+                Nodo sucursalNodo = datos.getMultilista().busca(ciudad.getAbj(), nomSuc);
+
+                if (sucursalNodo != null && sucursalNodo.getObj() instanceof Sucursal)
+                {
+                    Sucursal suc = (Sucursal) sucursalNodo.getObj();
+
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("========================================\n");
+                    sb.append("          DETALLES DE SUCURSAL          \n");
+                    sb.append("========================================\n");
+                    sb.append(String.format("Marca:       %s\n", nomMarca));
+                    sb.append(String.format("Ciudad:      %s\n", nomCiudad));
+                    sb.append("----------------------------------------\n");
+                    sb.append(String.format("Nombre:      %s\n", suc.getNom()));
+                    sb.append(String.format("Responsable: %s\n", suc.getResponsable()));
+                    sb.append(String.format("Dirección:   %s\n", suc.getDir()));
+                    sb.append("========================================\n");
+
+                    textAreaSucursal.setText(sb.toString());
+
                 }
             }
         }
+    }//GEN-LAST:event_btnBuscarSucursalActionPerformed
 
-    }//GEN-LAST:event_jButtonNuevo2ActionPerformed
+    private void btnNuevaSucursalActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNuevaSucursalActionPerformed
+    {//GEN-HEADEREND:event_btnNuevaSucursalActionPerformed
+        VtnNuevaSucursal vtn = new VtnNuevaSucursal(this, true, datos);
+
+        vtn.setResizable(false);
+        vtn.setLocationRelativeTo(null);
+        vtn.setVisible(rootPaneCheckingEnabled);
+
+        actualizaTodo();
+    }//GEN-LAST:event_btnNuevaSucursalActionPerformed
 
     private void btnNuevoCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNuevoCiudadActionPerformed
     {//GEN-HEADEREND:event_btnNuevoCiudadActionPerformed
@@ -1837,10 +1670,10 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     }//GEN-LAST:event_cmbBoxMarcasCiudadMouseClicked
 
-    private void cmbMarcaSucursalActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmbMarcaSucursalActionPerformed
-    {//GEN-HEADEREND:event_cmbMarcaSucursalActionPerformed
+    private void cmbBoxMarcaSucursalActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmbBoxMarcaSucursalActionPerformed
+    {//GEN-HEADEREND:event_cmbBoxMarcaSucursalActionPerformed
         actualizaCombosCiudadesSucursal();
-    }//GEN-LAST:event_cmbMarcaSucursalActionPerformed
+    }//GEN-LAST:event_cmbBoxMarcaSucursalActionPerformed
 
     private void btnEliminarCIudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEliminarCIudadActionPerformed
     {//GEN-HEADEREND:event_btnEliminarCIudadActionPerformed
@@ -1853,152 +1686,39 @@ public class MenuPrincipal extends javax.swing.JFrame
         actualizaTodo();
     }//GEN-LAST:event_btnEliminarCIudadActionPerformed
 
-    private void jTFSucNomActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTFSucNomActionPerformed
-    {//GEN-HEADEREND:event_jTFSucNomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFSucNomActionPerformed
-
-    private void cmbMarcasServicioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmbMarcasServicioActionPerformed
-    {//GEN-HEADEREND:event_cmbMarcasServicioActionPerformed
-        actualizaCombosCiudadesServicio();
-    }//GEN-LAST:event_cmbMarcasServicioActionPerformed
-
-    private void jCBCiudadSActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBCiudadSActionPerformed
-    {//GEN-HEADEREND:event_jCBCiudadSActionPerformed
-        actualizaCombosSucursal();
-    }//GEN-LAST:event_jCBCiudadSActionPerformed
-
-    private void jButtonEliminar2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonEliminar2ActionPerformed
-    {//GEN-HEADEREND:event_jButtonEliminar2ActionPerformed
-        String nom = cmbMarcaSucursal.getSelectedItem() != null ? cmbMarcaSucursal.getSelectedItem().toString() : "";
-        String nomC = jCBCiudad.getSelectedItem() != null ? jCBCiudad.getSelectedItem().toString() : "";
-        String nomS = jTFSucNom.getText();
-
-        if (nom.isEmpty())
+    private void btnEliminarSucursalActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEliminarSucursalActionPerformed
+    {//GEN-HEADEREND:event_btnEliminarSucursalActionPerformed
+        if (cmbBoxMarcaSucursal.getSelectedItem() == null
+                || cmbBoxCiudadSucursal.getSelectedItem() == null
+                || cmbBoxSucursales.getSelectedItem() == null)
         {
-            muestraMensaje("Por favor selecciona una marca");
+            muestraMensaje("Selecciona marca, ciudad y sucursal para eliminar");
+            return;
+        }
+
+        String nomMarca = cmbBoxMarcaSucursal.getSelectedItem().toString();
+        String nomCiudad = cmbBoxCiudadSucursal.getSelectedItem().toString();
+        String nomSucursal = cmbBoxSucursales.getSelectedItem().toString();
+
+        String[] ruta =
+        {
+            nomMarca, nomCiudad, nomSucursal
+        };
+
+        Nodo[] resultado = datos.getMultilista().elimina(ruta, 0, datos.getMultilista().getR());
+        datos.getMultilista().setR(resultado[1]);
+
+        if (resultado[0] != null)
+        {
+            muestraMensaje("Sucursal eliminada correctamente");
+            actualizaTodo();
         } else
         {
-            if (nomC.isEmpty())
-            {
-                muestraMensaje("Por favor selecciona una ciudad");
-            } else
-            {
-                if (!Validaciones.validaMarca(nomS))
-                {
-                    muestraMensaje("Ingresa el nombre correctamente (Solo letras)");
-                } else
-                {
-                    Nodo nMarca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
-                    Nodo nCiudad = datos.getMultilista().busca(nMarca.getAbj(), nomC);
-
-                    if (validaPorNivel(nCiudad.getAbj(), nomS))
-                    {
-                        muestraMensaje("La sucursal " + nomS + " no existe");
-                    } else
-                    {
-                        String[] nivel =
-                        {
-                            nom, nomC, nomS
-                        };
-                        Nodo[] res = datos.getMultilista().elimina(nivel, 0, datos.getMultilista().getR());
-                        datos.getMultilista().setR(res[1]);
-                        if (res[0] != null)
-                        {
-                            muestraMensaje("Sucursal eliminada correctamente");
-                            actualizaCombosSucursal();
-                            jTFSucNom.setText("");
-                            actualizaTodo();
-                        } else
-                        {
-                            muestraMensaje("No se pudo eliminar la sucursal");
-                        }
-                    }
-                }
-            }
+            muestraMensaje("No se pudo encontrar o eliminar la sucursal");
         }
 
-    }//GEN-LAST:event_jButtonEliminar2ActionPerformed
-
-    private void jTFSucNomKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFSucNomKeyTyped
-    {//GEN-HEADEREND:event_jTFSucNomKeyTyped
-        if (jTFSucNom.getText().length() > 19)
-        {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTFSucNomKeyTyped
-
-    private void jTFSucDirKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFSucDirKeyTyped
-    {//GEN-HEADEREND:event_jTFSucDirKeyTyped
-        if (jTFSucDir.getText().length() > 39)
-        {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTFSucDirKeyTyped
-
-    private void jTFSucResKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTFSucResKeyTyped
-    {//GEN-HEADEREND:event_jTFSucResKeyTyped
-        if (jTFSucRes.getText().length() > 19)
-        {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTFSucResKeyTyped
-
-    private void panelServicioMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_panelServicioMouseEntered
-    {//GEN-HEADEREND:event_panelServicioMouseEntered
-
-    }//GEN-LAST:event_panelServicioMouseEntered
-
-    private void jButtonEliminar1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButtonEliminar1ActionPerformed
-    {//GEN-HEADEREND:event_jButtonEliminar1ActionPerformed
-        String nom = cmbMarcasServicio.getSelectedItem() != null ? cmbMarcasServicio.getSelectedItem().toString() : "";
-        String nomC = jCBCiudadS.getSelectedItem() != null ? jCBCiudadS.getSelectedItem().toString() : "";
-        String nomS = jCBSucursal.getSelectedItem() != null ? jCBSucursal.getSelectedItem().toString() : "";
-        String nomSe = jTextFieldServicioNom.getText();
-
-        if (nom.isEmpty())
-        {
-            muestraMensaje("Por favor selecciona una marca");
-        } else if (nomC.isEmpty())
-        {
-            muestraMensaje("Por favor selecciona una ciudad");
-        } else if (nomS.isEmpty())
-        {
-            muestraMensaje("Por favor selecciona una sucursal");
-        } else if (!Validaciones.validaNombre(nomSe))
-        {
-            muestraMensaje("Ingresa el nombre correctamente (Solo letras)");
-        } else
-        {
-            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
-            Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomC);
-            Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(), nomS);
-
-            if (validaPorNivel(sucursal.getAbj(), nomSe))
-            {
-                muestraMensaje("El servicio " + nomSe + " no existe");
-            } else
-            {
-                String[] nivel =
-                {
-                    nom, nomC, nomS, nomSe
-                };
-                Nodo[] res = datos.getMultilista().elimina(nivel, 0, datos.getMultilista().getR());
-                datos.getMultilista().setR(res[1]);
-                if (res[0] != null)
-                {
-                    muestraMensaje("Servicio eliminado correctamente");
-                    jTextFieldServicioNom.setText("");
-                    jTextFieldServicioPrec.setText("");
-                    jTextFieldServicioCap.setText("");
-                    actualizaTodo();
-                } else
-                {
-                    muestraMensaje("No se pudo eliminar el servicio");
-                }
-            }
-        }
-    }//GEN-LAST:event_jButtonEliminar1ActionPerformed
+        actualizaTodo();
+    }//GEN-LAST:event_btnEliminarSucursalActionPerformed
 
     private void cmbBoxMarcasAutosActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmbBoxMarcasAutosActionPerformed
     {//GEN-HEADEREND:event_cmbBoxMarcasAutosActionPerformed
@@ -2088,20 +1808,6 @@ public class MenuPrincipal extends javax.swing.JFrame
             }
         }
     }//GEN-LAST:event_jButtonEliminarActionPerformed
-
-    private void jTextFieldServicioPrecKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_jTextFieldServicioPrecKeyTyped
-    {//GEN-HEADEREND:event_jTextFieldServicioPrecKeyTyped
-        char c = evt.getKeyChar();
-
-        if (!Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE)
-        {
-            evt.consume();
-        }
-        if (jTextFieldServicioPrec.getText().length() > 4)
-        {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextFieldServicioPrecKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
@@ -2202,15 +1908,62 @@ public class MenuPrincipal extends javax.swing.JFrame
         }
     }//GEN-LAST:event_cmbBoxMarcasCiudadActionPerformed
 
-    private void jCBCiudadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBCiudadActionPerformed
-    {//GEN-HEADEREND:event_jCBCiudadActionPerformed
-        actualizaTextASucursal();
-    }//GEN-LAST:event_jCBCiudadActionPerformed
+    private void cmbBoxCiudadSucursalActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmbBoxCiudadSucursalActionPerformed
+    {//GEN-HEADEREND:event_cmbBoxCiudadSucursalActionPerformed
+        textAreaSucursal.setText("");
+        cmbBoxSucursales.removeAllItems();
 
-    private void jCBSucursalActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBSucursalActionPerformed
-    {//GEN-HEADEREND:event_jCBSucursalActionPerformed
-        actualizaTextAreaServicio();
-    }//GEN-LAST:event_jCBSucursalActionPerformed
+        if (cmbBoxMarcaSucursal.getSelectedItem() == null || cmbBoxCiudadSucursal.getSelectedItem() == null)
+        {
+            return;
+        }
+
+        String nomMarca = cmbBoxMarcaSucursal.getSelectedItem().toString();
+        String nomCiudad = cmbBoxCiudadSucursal.getSelectedItem().toString();
+
+        StringBuilder txt = new StringBuilder();
+        txt.append("========================================\n");
+        txt.append(String.format("   SUCURSALES EN: %s (%s)\n", nomCiudad, nomMarca));
+        txt.append("========================================\n");
+        txt.append(String.format("%-15s | %-15s | %-15s\n", "Nombre", "Responsable", "Dirección"));
+        txt.append("----------------------------------------\n");
+
+        boolean encontro = false;
+
+        Nodo nodoMarca = datos.getMultilista().busca(datos.getMultilista().getR(), nomMarca);
+        if (nodoMarca != null)
+        {
+            Nodo nodoCiudad = datos.getMultilista().busca(nodoMarca.getAbj(), nomCiudad);
+
+            if (nodoCiudad != null)
+            {
+                Nodo auxSucursal = nodoCiudad.getAbj();
+
+                while (auxSucursal != null)
+                {
+                    if (auxSucursal.getObj() instanceof Sucursal)
+                    {
+                        Sucursal suc = (Sucursal) auxSucursal.getObj();
+
+                        txt.append(String.format("%-15s | %-15s | %-15s\n",
+                                suc.getNom(), suc.getResponsable(), suc.getDir()));
+                        cmbBoxSucursales.addItem(suc.getNom());
+
+                        encontro = true;
+                    }
+                    auxSucursal = auxSucursal.getSig();
+                }
+            }
+        }
+
+        if (!encontro)
+        {
+            txt.append("No hay sucursales registradas en esta ciudad.\n");
+        }
+
+        textAreaSucursal.setText(txt.toString());
+        cmbBoxSucursales.setSelectedIndex(-1);
+    }//GEN-LAST:event_cmbBoxCiudadSucursalActionPerformed
 
     private void jComboBoxComparaServActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jComboBoxComparaServActionPerformed
     {//GEN-HEADEREND:event_jComboBoxComparaServActionPerformed
@@ -2218,11 +1971,6 @@ public class MenuPrincipal extends javax.swing.JFrame
         // actualizaComboComparaServ();
 
     }//GEN-LAST:event_jComboBoxComparaServActionPerformed
-
-    private void jTextFieldServicioCapActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextFieldServicioCapActionPerformed
-    {//GEN-HEADEREND:event_jTextFieldServicioCapActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldServicioCapActionPerformed
 
     private void jCBServicioAActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jCBServicioAActionPerformed
     {//GEN-HEADEREND:event_jCBServicioAActionPerformed
@@ -2362,66 +2110,355 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     private void cmbBoxCiudadesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmbBoxCiudadesActionPerformed
     {//GEN-HEADEREND:event_cmbBoxCiudadesActionPerformed
-                // 1. Limpiamos el JTextArea por si hay búsquedas anteriores
+        // 1. Limpiamos el JTextArea por si hay búsquedas anteriores
         textAreaCiudad.setText("");
 
         // 2. Cláusula de guarda: Validamos que realmente haya una ciudad seleccionada
-                if (cmbBoxCiudades.getSelectedIndex() == -1 || cmbBoxCiudades.getSelectedItem() == null)
-                {
-                    return;
-                }
+        if (cmbBoxCiudades.getSelectedIndex() == -1 || cmbBoxCiudades.getSelectedItem() == null)
+        {
+            return;
+        }
 
-                String ciudadSeleccionada = (String) cmbBoxCiudades.getSelectedItem();
+        String ciudadSeleccionada = (String) cmbBoxCiudades.getSelectedItem();
 
         // 3. Preparamos el StringBuilder con el formato de la cabecera
-                StringBuilder txt = new StringBuilder();
-                txt.append("========================================\n");
-                txt.append(String.format("   MARCAS EN: %s\n", ciudadSeleccionada));
-                txt.append("========================================\n");
-                txt.append(String.format("%-40s\n", "Nombre de la Marca"));
-                txt.append("----------------------------------------\n");
+        StringBuilder txt = new StringBuilder();
+        txt.append("========================================\n");
+        txt.append(String.format("   MARCAS EN: %s\n", ciudadSeleccionada));
+        txt.append("========================================\n");
+        txt.append(String.format("%-40s\n", "Nombre de la Marca"));
+        txt.append("----------------------------------------\n");
 
-                boolean encontroMarcas = false;
+        boolean encontroMarcas = false;
 
         // 4. Comenzamos a buscar desde la raíz (la lista principal de Marcas)
-                Nodo nodoMarca = datos.getMultilista().getR();
+        Nodo nodoMarca = datos.getMultilista().getR();
 
-                while (nodoMarca != null)
+        while (nodoMarca != null)
+        {
+            // Bajamos al nivel de ciudades de la marca actual
+            Nodo nodoCiudad = nodoMarca.getAbj();
+
+            // Recorremos las ciudades de esta marca
+            while (nodoCiudad != null)
+            {
+                // Si la ciudad coincide con la que el usuario seleccionó
+                if (nodoCiudad.getEt().equalsIgnoreCase(ciudadSeleccionada))
                 {
-                    // Bajamos al nivel de ciudades de la marca actual
-                    Nodo nodoCiudad = nodoMarca.getAbj();
 
-                    // Recorremos las ciudades de esta marca
-                    while (nodoCiudad != null)
-                    {
-                        // Si la ciudad coincide con la que el usuario seleccionó
-                        if (nodoCiudad.getEt().equalsIgnoreCase(ciudadSeleccionada))
-                        {
+                    // Agregamos el nombre de LA MARCA al texto
+                    txt.append(String.format("%-40s\n", nodoMarca.getEt()));
+                    encontroMarcas = true;
 
-                            // Agregamos el nombre de LA MARCA al texto
-                            txt.append(String.format("%-40s\n", nodoMarca.getEt()));
-                            encontroMarcas = true;
-
-                            // Usamos break para salir del ciclo de ciudades. 
-                            // Ya sabemos que esta marca tiene la ciudad, no hace falta buscar más aquí.
-                            break;
-                        }
-                        nodoCiudad = nodoCiudad.getSig();
-                    }
-
-                    // Pasamos a evaluar la siguiente marca en la lista principal
-                    nodoMarca = nodoMarca.getSig();
+                    // Usamos break para salir del ciclo de ciudades. 
+                    // Ya sabemos que esta marca tiene la ciudad, no hace falta buscar más aquí.
+                    break;
                 }
+                nodoCiudad = nodoCiudad.getSig();
+            }
+
+            // Pasamos a evaluar la siguiente marca en la lista principal
+            nodoMarca = nodoMarca.getSig();
+        }
 
         // 5. Por si ocurre el caso raro de que la ciudad no esté en ninguna marca
-                if (!encontroMarcas)
-                {
-                    txt.append("No se encontraron marcas para esta ciudad.\n");
-                }
+        if (!encontroMarcas)
+        {
+            txt.append("No se encontraron marcas para esta ciudad.\n");
+        }
 
         // 6. Finalmente, enviamos todo el texto construido al JTextArea
-                textAreaCiudad.setText(txt.toString());
+        textAreaCiudad.setText(txt.toString());
     }//GEN-LAST:event_cmbBoxCiudadesActionPerformed
+
+    private void cmbBoxMarcaSucursalKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_cmbBoxMarcaSucursalKeyReleased
+    {//GEN-HEADEREND:event_cmbBoxMarcaSucursalKeyReleased
+
+    }//GEN-LAST:event_cmbBoxMarcaSucursalKeyReleased
+
+    private void btnModificarSucursalActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnModificarSucursalActionPerformed
+    {//GEN-HEADEREND:event_btnModificarSucursalActionPerformed
+
+        if (!existeAlgunaSucursal())
+        {
+            muestraMensaje("Ingresa sucursales primero");
+            return;
+        }
+
+        VtnModificaSucursal vtn = new VtnModificaSucursal(this, true, datos);
+        vtn.setLocationRelativeTo(null);
+        vtn.setResizable(false);
+        vtn.setVisible(true);
+        actualizaTodo();
+
+        actualizaTodo();
+    }//GEN-LAST:event_btnModificarSucursalActionPerformed
+
+    private void panelServicioMouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_panelServicioMouseEntered
+    {//GEN-HEADEREND:event_panelServicioMouseEntered
+
+    }//GEN-LAST:event_panelServicioMouseEntered
+
+    private void cmbBoxCiudadServicioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmbBoxCiudadServicioActionPerformed
+    {//GEN-HEADEREND:event_cmbBoxCiudadServicioActionPerformed
+
+        cmbBoxSucursalServicios.removeAllItems();
+        textAreaServicios.setText("");
+
+        if (cmbBoxMarcaServicio.getSelectedItem() == null || cmbBoxCiudadServicio.getSelectedItem() == null)
+        {
+            return;
+        }
+
+        String nomMarca = cmbBoxMarcaServicio.getSelectedItem().toString();
+        String nomCiudad = cmbBoxCiudadServicio.getSelectedItem().toString();
+
+        Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nomMarca);
+
+        if (marca != null)
+        {
+
+            Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomCiudad);
+
+            if (ciudad != null)
+            {
+
+                Nodo auxSucursal = ciudad.getAbj();
+
+                while (auxSucursal != null)
+                {
+
+                    cmbBoxSucursalServicios.addItem(auxSucursal.getEt());
+                    auxSucursal = auxSucursal.getSig();
+                }
+            }
+        }
+
+        cmbBoxSucursalServicios.setSelectedIndex(-1);
+        actualizaTodo();
+    }//GEN-LAST:event_cmbBoxCiudadServicioActionPerformed
+
+    private void cmbBoxSucursalServiciosActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmbBoxSucursalServiciosActionPerformed
+    {//GEN-HEADEREND:event_cmbBoxSucursalServiciosActionPerformed
+        textAreaServicios.setText("");
+        cmbBoxServicios.removeAllItems();
+
+        if (cmbBoxMarcaServicio.getSelectedItem() == null
+                || cmbBoxCiudadServicio.getSelectedItem() == null
+                || cmbBoxSucursalServicios.getSelectedItem() == null)
+        {
+            return;
+        }
+
+        String nomMarca = cmbBoxMarcaServicio.getSelectedItem().toString();
+        String nomCiudad = cmbBoxCiudadServicio.getSelectedItem().toString();
+        String nomSuc = cmbBoxSucursalServicios.getSelectedItem().toString();
+
+        Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nomMarca);
+
+        if (marca != null)
+        {
+            Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomCiudad);
+
+            if (ciudad != null)
+            {
+                Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(), nomSuc);
+
+                if (sucursal != null)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("========================================\n");
+                    sb.append(String.format("   SERVICIOS EN: %s\n", nomSuc));
+                    sb.append("========================================\n");
+                    sb.append(String.format("%-20s | %-10s | %-10s\n", "Nombre", "Precio", "Capacidad"));
+                    sb.append("----------------------------------------\n");
+
+                    Nodo auxServicio = sucursal.getAbj();
+                    boolean hayServicios = false;
+
+                    while (auxServicio != null)
+                    {
+                        if (auxServicio.getObj() instanceof Servicios)
+                        {
+                            Servicios serv = (Servicios) auxServicio.getObj();
+
+                            sb.append(String.format("%-20s | %-10d | %-10s\n",
+                                    serv.getNom(), serv.getPrecio(), serv.getCapacidad()));
+
+                            cmbBoxServicios.addItem(serv.getNom());
+
+                            hayServicios = true;
+                        }
+                        auxServicio = auxServicio.getSig();
+                    }
+
+                    if (!hayServicios)
+                    {
+                        sb.append("No hay servicios registrados en esta sucursal.\n");
+                    }
+
+                    textAreaServicios.setText(sb.toString());
+                    cmbBoxServicios.setSelectedIndex(-1);
+                }
+            }
+        }
+    }//GEN-LAST:event_cmbBoxSucursalServiciosActionPerformed
+
+    private void cmbBoxMarcaServicioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmbBoxMarcaServicioActionPerformed
+    {//GEN-HEADEREND:event_cmbBoxMarcaServicioActionPerformed
+
+        cmbBoxCiudadServicio.removeAllItems();
+        cmbBoxSucursalServicios.removeAllItems();
+        textAreaServicios.setText("");
+
+        if (cmbBoxMarcaServicio.getSelectedIndex() != -1 && cmbBoxMarcaServicio.getSelectedItem() != null)
+        {
+
+            String nomMarca = cmbBoxMarcaServicio.getSelectedItem().toString();
+
+            Nodo nodoMarca = datos.getMultilista().busca(datos.getMultilista().getR(), nomMarca);
+
+            if (nodoMarca != null)
+            {
+
+                Nodo auxCiudad = nodoMarca.getAbj();
+
+                while (auxCiudad != null)
+                {
+                    cmbBoxCiudadServicio.addItem(auxCiudad.getEt());
+                    auxCiudad = auxCiudad.getSig();
+                }
+            }
+        }
+        cmbBoxCiudadServicio.setSelectedIndex(-1);
+        actualizaTodo();
+    }//GEN-LAST:event_cmbBoxMarcaServicioActionPerformed
+
+    private void btnEliminarActionPerformedActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEliminarActionPerformedActionPerformed
+    {//GEN-HEADEREND:event_btnEliminarActionPerformedActionPerformed
+        String nom = cmbBoxMarcaServicio.getSelectedItem() != null ? cmbBoxMarcaServicio.getSelectedItem().toString() : "";
+        String nomC = cmbBoxCiudadServicio.getSelectedItem() != null ? cmbBoxCiudadServicio.getSelectedItem().toString() : "";
+        String nomS = cmbBoxSucursalServicios.getSelectedItem() != null ? cmbBoxSucursalServicios.getSelectedItem().toString() : "";
+        String nomSe = (String)cmbBoxServicios.getSelectedItem()!= null ? cmbBoxSucursalServicios.getSelectedItem().toString() : "";
+
+        if (nom.isEmpty())
+        {
+            muestraMensaje("Por favor selecciona una marca");
+        } else if (nomC.isEmpty())
+        {
+            muestraMensaje("Por favor selecciona una ciudad");
+        } else if (nomS.isEmpty())
+        {
+            muestraMensaje("Por favor selecciona una sucursal");
+        } else if (!Validaciones.validaNombre(nomSe))
+        {
+            muestraMensaje("Ingresa el nombre correctamente (Solo letras)");
+        } else
+        {
+            Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(), nom);
+            Nodo ciudad = datos.getMultilista().busca(marca.getAbj(), nomC);
+            Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(), nomS);
+
+            if (validaPorNivel(sucursal.getAbj(), nomSe))
+            {
+                muestraMensaje("El servicio " + nomSe + " no existe");
+            } else
+            {
+                String[] nivel =
+                {
+                    nom, nomC, nomS, nomSe
+                };
+                Nodo[] res = datos.getMultilista().elimina(nivel, 0, datos.getMultilista().getR());
+                datos.getMultilista().setR(res[1]);
+                if (res[0] != null)
+                {
+                    muestraMensaje("Servicio eliminado correctamente");
+                    cmbBoxMarcaServicio.setSelectedIndex(-1);
+                    cmbBoxCiudadServicio.setSelectedIndex(-1);
+                    cmbBoxSucursalServicios.setSelectedIndex(-1);
+                    cmbBoxServicios.setSelectedIndex(-1);
+                    actualizaTodo();
+                } else
+                {
+                    muestraMensaje("No se pudo eliminar el servicio");
+                }
+            }
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformedActionPerformed
+
+    private void btnNuevoServicioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNuevoServicioActionPerformed
+    {//GEN-HEADEREND:event_btnNuevoServicioActionPerformed
+        VtnNuevoServicio vtn = new VtnNuevoServicio(this, true, datos);
+
+        vtn.setResizable(false);
+        vtn.setLocationRelativeTo(null);
+        vtn.setVisible(true);
+
+        actualizaTodo();
+    }//GEN-LAST:event_btnNuevoServicioActionPerformed
+
+    private void btnBuscarTodosLosServiciosActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnBuscarTodosLosServiciosActionPerformed
+    {//GEN-HEADEREND:event_btnBuscarTodosLosServiciosActionPerformed
+        if (cmbBoxServicios.getSelectedItem() == null)
+        {
+            muestraMensaje("Selecciona un servicio primero");
+            return;
+        }
+
+        String servicioBuscado = cmbBoxServicios.getSelectedItem().toString();
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("========================================\n");
+        sb.append(String.format("   BÚSQUEDA GLOBAL: %s\n", servicioBuscado));
+        sb.append("========================================\n");
+        sb.append(String.format("%-15s | %-12s | %-10s\n", "Marca", "Ciudad", "Sucursal"));
+        sb.append("----------------------------------------\n");
+
+        boolean encontrado = false;
+        Nodo marca = datos.getMultilista().getR();
+
+        while (marca != null)
+        {
+            Nodo ciudad = marca.getAbj();
+            while (ciudad != null)
+            {
+                Nodo sucursal = ciudad.getAbj();
+                while (sucursal != null)
+                {
+                    // Buscamos el servicio específico dentro de la sucursal actual
+                    Nodo servicio = datos.getMultilista().busca(sucursal.getAbj(), servicioBuscado);
+
+                    if (servicio != null)
+                    {
+                        sb.append(String.format("%-15s | %-12s | %-10s\n",
+                                marca.getEt(), ciudad.getEt(), sucursal.getEt()));
+                        encontrado = true;
+                    }
+                    sucursal = sucursal.getSig();
+                }
+                ciudad = ciudad.getSig();
+            }
+            marca = marca.getSig();
+        }
+
+        if (!encontrado)
+        {
+            sb.append("No se encontraron coincidencias en ninguna sucursal.\n");
+        }
+
+        textAreaServicios.setText(sb.toString());
+    }//GEN-LAST:event_btnBuscarTodosLosServiciosActionPerformed
+
+    private void btnModificarServiciosActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnModificarServiciosActionPerformed
+    {//GEN-HEADEREND:event_btnModificarServiciosActionPerformed
+        VtnModificarServicios vtn= new VtnModificarServicios(this, true, datos);
+        
+        vtn.setLocationRelativeTo(null);
+        vtn.setResizable(false);
+        vtn.setVisible(true);
+        
+        actualizaTodo();
+    }//GEN-LAST:event_btnModificarServiciosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2452,8 +2489,8 @@ public class MenuPrincipal extends javax.swing.JFrame
         }
 
         cmbBoxMarcasCiudad.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
-        cmbMarcaSucursal.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
-        cmbMarcasServicio.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
+        cmbBoxMarcaSucursal.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
+        cmbBoxMarcaServicio.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
         cmbBoxMarcasAutos.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
         cmbBoxMarcasLS.setModel(new DefaultComboBoxModel<>(marcas.toArray(new String[0])));
 
@@ -2489,14 +2526,14 @@ public class MenuPrincipal extends javax.swing.JFrame
     public void actualizaCombosCiudadesSucursal()
     {
 
-        if (cmbMarcaSucursal.getSelectedItem() != null)
+        if (cmbBoxMarcaSucursal.getSelectedItem() != null)
         {
             Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
-                    cmbMarcaSucursal.getSelectedItem().toString());
+                    cmbBoxMarcaSucursal.getSelectedItem().toString());
             if (marca != null)
             {
                 ArrayList<String> ciudades = sacarNivel(marca.getAbj());
-                jCBCiudad.setModel(new DefaultComboBoxModel<>(ciudades.toArray(new String[0])));
+                cmbBoxCiudadSucursal.setModel(new DefaultComboBoxModel<>(ciudades.toArray(new String[0])));
                 actualizaTextASucursal();
             }
         }
@@ -2763,20 +2800,20 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     public void actualizaTextAreaServicio()
     {
-        if (cmbMarcasServicio.getSelectedItem() != null && jCBCiudadS.getSelectedItem() != null)
+        if (cmbBoxMarcaServicio.getSelectedItem() != null && cmbBoxCiudadServicio.getSelectedItem() != null)
         {
             Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
-                    cmbMarcasServicio.getSelectedItem().toString());
+                    cmbBoxMarcaServicio.getSelectedItem().toString());
             if (marca != null)
             {
                 Nodo ciudad = datos.getMultilista().busca(marca.getAbj(),
-                        jCBCiudadS.getSelectedItem().toString());
+                        cmbBoxCiudadServicio.getSelectedItem().toString());
                 if (ciudad != null)
                 {
-                    if (jCBSucursal.getSelectedItem() != null)
+                    if (cmbBoxSucursalServicios.getSelectedItem() != null)
                     {
                         Nodo sucursal = datos.getMultilista().busca(ciudad.getAbj(),
-                                jCBSucursal.getSelectedItem().toString());
+                                cmbBoxSucursalServicios.getSelectedItem().toString());
                         if (sucursal != null)
                         {
                             ArrayList<String> servicios = sacarNivel(sucursal.getAbj());
@@ -2786,11 +2823,11 @@ public class MenuPrincipal extends javax.swing.JFrame
                                 texto += "• " + m + "\n";
 
                             }
-                            jTAServicio.setText(texto);
+                            textAreaServicios.setText(texto);
                         }
                     } else
                     {
-                        jTAServicio.setText("");
+                        textAreaServicios.setText("");
                     }
                 }
             }
@@ -2802,14 +2839,14 @@ public class MenuPrincipal extends javax.swing.JFrame
     {
         actualizaCombosMarcas();
         actualizaTextAreaCiudades();
-        if (cmbMarcaSucursal.getSelectedItem() != null)
+        if (cmbBoxMarcaSucursal.getSelectedItem() != null)
         {
             actualizaCombosCiudadesSucursal();
         }
-        if (cmbMarcasServicio.getSelectedItem() != null)
+        if (cmbBoxMarcaServicio.getSelectedItem() != null)
         {
             actualizaCombosCiudadesServicio();
-            if (jCBCiudadS.getSelectedItem() != null)
+            if (cmbBoxCiudadServicio.getSelectedItem() != null)
             {
                 actualizaCombosSucursal();
             }
@@ -2837,14 +2874,14 @@ public class MenuPrincipal extends javax.swing.JFrame
     public void actualizaCombosCiudadesServicio()
     {
 
-        if (cmbMarcasServicio.getSelectedItem() != null)
+        if (cmbBoxMarcaServicio.getSelectedItem() != null)
         {
             Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
-                    cmbMarcasServicio.getSelectedItem().toString());
+                    cmbBoxMarcaServicio.getSelectedItem().toString());
             if (marca != null)
             {
                 ArrayList<String> ciudades = sacarNivel(marca.getAbj());
-                jCBCiudadS.setModel(new DefaultComboBoxModel<>(ciudades.toArray(new String[0])));
+                cmbBoxCiudadServicio.setModel(new DefaultComboBoxModel<>(ciudades.toArray(new String[0])));
             }
         }
         actualizaCombosSucursal();
@@ -2881,18 +2918,18 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     public void actualizaCombosSucursal()
     {
-        if (cmbMarcasServicio.getSelectedItem() != null && jCBCiudadS.getSelectedItem() != null)
+        if (cmbBoxMarcaServicio.getSelectedItem() != null && cmbBoxCiudadServicio.getSelectedItem() != null)
         {
             Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
-                    cmbMarcasServicio.getSelectedItem().toString());
+                    cmbBoxMarcaServicio.getSelectedItem().toString());
             if (marca != null)
             {
                 Nodo ciudad = datos.getMultilista().busca(marca.getAbj(),
-                        jCBCiudadS.getSelectedItem().toString());
+                        cmbBoxCiudadServicio.getSelectedItem().toString());
                 if (ciudad != null)
                 {
                     ArrayList<String> sucursales = sacarNivel(ciudad.getAbj());
-                    jCBSucursal.setModel(new DefaultComboBoxModel<>(sucursales.toArray(new String[0])));
+                    cmbBoxSucursalServicios.setModel(new DefaultComboBoxModel<>(sucursales.toArray(new String[0])));
                     actualizaTextAreaServicio();
                 }
             }
@@ -2901,14 +2938,14 @@ public class MenuPrincipal extends javax.swing.JFrame
 
     public void actualizaTextASucursal()
     {
-        if (cmbMarcaSucursal.getSelectedItem() != null && jCBCiudad.getSelectedItem() != null)
+        if (cmbBoxMarcaSucursal.getSelectedItem() != null && cmbBoxCiudadSucursal.getSelectedItem() != null)
         {
             Nodo marca = datos.getMultilista().busca(datos.getMultilista().getR(),
-                    cmbMarcaSucursal.getSelectedItem().toString());
+                    cmbBoxMarcaSucursal.getSelectedItem().toString());
             if (marca != null)
             {
                 Nodo ciudad = datos.getMultilista().busca(marca.getAbj(),
-                        jCBCiudad.getSelectedItem().toString());
+                        cmbBoxCiudadSucursal.getSelectedItem().toString());
                 if (ciudad != null)
                 {
                     ArrayList<String> sucursales = sacarNivel(ciudad.getAbj());
@@ -2917,7 +2954,7 @@ public class MenuPrincipal extends javax.swing.JFrame
                     {
                         texto += "• " + s + "\n";
                     }
-                    jTASucursal.setText(texto);
+                    textAreaSucursal.setText(texto);
                 }
             }
         }
@@ -3050,6 +3087,25 @@ public class MenuPrincipal extends javax.swing.JFrame
         return servicios;
     }
 
+    public boolean existeAlgunaSucursal()
+    {
+        Nodo marca = datos.getMultilista().getR();
+        while (marca != null)
+        {
+            Nodo ciudad = marca.getAbj();
+            while (ciudad != null)
+            {
+                if (ciudad.getAbj() != null)
+                {
+                    return true; // Encontró al menos una sucursal
+                }
+                ciudad = ciudad.getSig();
+            }
+            marca = marca.getSig();
+        }
+        return false;
+    }
+
     public static void main(String args[])
     {
 
@@ -3063,6 +3119,7 @@ public class MenuPrincipal extends javax.swing.JFrame
         java.awt.EventQueue.invokeLater(() -> new MenuPrincipal().setVisible(true));
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnBuscar;
     private javax.swing.JPanel CompServ;
@@ -3070,39 +3127,41 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JPanel L_Auto;
     private javax.swing.JPanel Lib_Serv;
     private javax.swing.JButton btnBuscarMarca;
+    private javax.swing.JButton btnBuscarSucursal;
+    private javax.swing.JButton btnBuscarTodosLosServicios;
     private javax.swing.JButton btnCrearMarca;
+    private javax.swing.JButton btnEliminarActionPerformed;
     private javax.swing.JButton btnEliminarCIudad;
     private javax.swing.JButton btnEliminarMarca;
+    private javax.swing.JButton btnEliminarSucursal;
     private javax.swing.JButton btnModificarCiudad;
     private javax.swing.JButton btnModificarMarca;
+    private javax.swing.JButton btnModificarServicios;
+    private javax.swing.JButton btnModificarSucursal;
+    private javax.swing.JButton btnNuevaSucursal;
     private javax.swing.JButton btnNuevoCiudad;
+    private javax.swing.JButton btnNuevoServicio;
+    private javax.swing.JComboBox<String> cmbBoxCiudadServicio;
+    private javax.swing.JComboBox<String> cmbBoxCiudadSucursal;
     private javax.swing.JComboBox<String> cmbBoxCiudades;
+    private javax.swing.JComboBox<String> cmbBoxMarcaServicio;
+    private javax.swing.JComboBox<String> cmbBoxMarcaSucursal;
     private javax.swing.JComboBox<String> cmbBoxMarcas;
     private javax.swing.JComboBox<String> cmbBoxMarcasAutos;
     private javax.swing.JComboBox<String> cmbBoxMarcasCiudad;
     private javax.swing.JComboBox<String> cmbBoxMarcasLS;
-    private javax.swing.JComboBox<String> cmbMarcaSucursal;
-    private javax.swing.JComboBox<String> cmbMarcasServicio;
+    private javax.swing.JComboBox<String> cmbBoxServicios;
+    private javax.swing.JComboBox<String> cmbBoxSucursalServicios;
+    private javax.swing.JComboBox<String> cmbBoxSucursales;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonElimFech;
     private javax.swing.JButton jButtonEliminar;
-    private javax.swing.JButton jButtonEliminar1;
-    private javax.swing.JButton jButtonEliminar2;
     private javax.swing.JButton jButtonGuardar;
-    private javax.swing.JButton jButtonGuardar1;
-    private javax.swing.JButton jButtonGuardar2;
     private javax.swing.JButton jButtonMod;
-    private javax.swing.JButton jButtonMod1;
-    private javax.swing.JButton jButtonMod2;
     private javax.swing.JButton jButtonNuevo;
-    private javax.swing.JButton jButtonNuevo1;
-    private javax.swing.JButton jButtonNuevo2;
-    private javax.swing.JComboBox<String> jCBCiudad;
     private javax.swing.JComboBox<String> jCBCiudadA;
-    private javax.swing.JComboBox<String> jCBCiudadS;
     private javax.swing.JComboBox<String> jCBServicioA;
-    private javax.swing.JComboBox<String> jCBSucursal;
     private javax.swing.JComboBox<String> jCBSucursalA;
     private javax.swing.JComboBox<String> jCIngresarAutoAnio;
     private javax.swing.JComboBox<String> jCIngresarAutoDia;
@@ -3114,12 +3173,8 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JComboBox<String> jComboBoxServicios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -3132,9 +3187,6 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -3153,19 +3205,11 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTAAuto;
-    private javax.swing.JTextArea jTAServicio;
-    private javax.swing.JTextArea jTASucursal;
     private javax.swing.JTextField jTFBuscarAuto;
-    private javax.swing.JTextField jTFSucDir;
-    private javax.swing.JTextField jTFSucNom;
-    private javax.swing.JTextField jTFSucRes;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldAnioA;
     private javax.swing.JTextField jTextFieldModeloA;
     private javax.swing.JTextField jTextFieldPlacaA;
-    private javax.swing.JTextField jTextFieldServicioCap;
-    private javax.swing.JTextField jTextFieldServicioNom;
-    private javax.swing.JTextField jTextFieldServicioPrec;
     private javax.swing.JLabel lbl1Ciudad;
     private javax.swing.JLabel lbl1Marca;
     private javax.swing.JLabel lbl2Ciudad;
@@ -3188,6 +3232,8 @@ public class MenuPrincipal extends javax.swing.JFrame
     private javax.swing.JTabbedPane tabedPanePrincipal;
     private javax.swing.JTextArea textAreaCiudad;
     private javax.swing.JTextArea textAreaMarca;
+    private javax.swing.JTextArea textAreaServicios;
+    private javax.swing.JTextArea textAreaSucursal;
     private javax.swing.JTextField textFieldNombreCiudad;
     private javax.swing.JTextField textFieldNombreMarca;
     // End of variables declaration//GEN-END:variables

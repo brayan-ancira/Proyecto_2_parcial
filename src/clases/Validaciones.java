@@ -15,25 +15,36 @@ public class Validaciones
     {
         return s.matches("^[A-Za-z' ']{1,20}$");
     }
+
     public static boolean validaPlacas(String s)
     {
         return s.matches("^[A-Z0-9]{6,9}$");
     }
+
     public static boolean validaNombre(String s)
     {
         return s.matches("^[A-Za-z' ']{3,20}$");
     }
+
     public static boolean validaDireccion(String s)
     {
         return s.matches("^[A-Za-z0-9' ']{5,40}$");
     }
+
     public static boolean validaPrecio(String s)
     {
         return s.matches("\\d+(\\.\\d{1,2})?");
     }
+
     public static boolean validaEntero(String s)
     {
         return s.matches("^[0-9]{1,2}$");
+    }
+
+    public static boolean validaPrecioEnteroFloat(String cadena)
+    {
+
+        return cadena != null && cadena.matches("-?\\d+(\\.\\d+)?");
     }
 
 }
